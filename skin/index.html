@@ -152,6 +152,7 @@ ul.steps{list-style:none;margin:0;padding:6px 0;display:flex;flex-direction:colu
 .steps li.hot[data-hue="retinol"]{border-left-color:var(--retinol);background:var(--retinol-soft)}
 .steps li.hot[data-hue="plasma"]{border-left-color:var(--plasma);background:var(--plasma-soft)}
 .steps li.hot[data-hue="gua"]{border-left-color:var(--gua);background:var(--gua-soft)}
+.steps li.hot[data-hue="eye"]{border-left-color:var(--recover);background:var(--recover-soft)}
 .steps li + li{border-top:1px solid var(--line)}
 .tick{
   flex:none;width:19px;height:19px;margin-top:2px;border-radius:6px;
@@ -318,6 +319,22 @@ footer a{color:var(--ink-3)}
       <section class="panel">
         <div class="phead">
           <div>
+            <div class="when">Каждый вечер</div>
+            <h2>Глаза: порядок и техника</h2>
+          </div>
+          <span class="kind" data-kind="recover">после эссенции, до крема</span>
+        </div>
+        <div class="rules" id="eyes-tech"></div>
+        <details>
+          <summary>Чем мажем по датам</summary>
+          <div class="rules" id="sched-eyes"></div>
+        </details>
+        <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем.</p>
+      </section>
+
+      <section class="panel">
+        <div class="phead">
+          <div>
             <div class="when">Собрать заранее</div>
             <h2>Что взять в отпуск</h2>
           </div>
@@ -392,10 +409,9 @@ footer a{color:var(--ink-3)}
       <h3>RF №3 и восстановление</h3>
       <div class="date">сентябрь · процедура ~3–5.09</div>
       <ul>
-        <li><b>1–7.09:</b> только база, PDRN и SPF. Активов нет, гуаша нет.</li>
-        <li><b>8–14.09:</b> кожа спокойная — гуаша 3–4 раза в неделю, антиоксиданты утром осторожно, азелаика один раз.</li>
-        <li><b>15–20.09:</b> убираем активы постепенно, гуаша по самочувствию кожи.</li>
-        <li><b>21–30.09:</b> полный стоп активам, только база, SPF и увлажнение, гуаша 2–3 раза в неделю.</li>
+        <li><b>1–7.09:</b> только база, PDRN и SPF. Активов нет, гуаша нет. Глаза — одно увлажнение: AXIS-Y или Medicube.</li>
+        <li><b>8–14.09:</b> кожа спокойная — гуаша 3–4 раза в неделю, антиоксиданты утром осторожно, азелаика один раз. Можно вернуть VT Reedle Shot Eye, аккуратно.</li>
+        <li><b>15–30.09:</b> полный стоп активам, только база, SPF и увлажнение. Гуаша — если кожа спокойная. Глаза — обычное чередование Medicube и AXIS-Y.</li>
         <li><b>Бан с 15.09:</b> ретинол, кислоты, витамин C, энзимы.</li>
       </ul>
     </div>
@@ -403,10 +419,10 @@ footer a{color:var(--ink-3)}
       <h3>Отпуск и RF №4</h3>
       <div class="date">октябрь · процедура ~15–20.10</div>
       <ul>
-        <li><b>Утром в отпуске:</b> вода или мягкий гель, тонер, по желанию VT PDRN, крем Medicube Zero Pore One Day, <b>SPF 50+ каждые 2 часа</b>, шляпа и очки.</li>
-        <li><b>Вечером:</b> масло и пенка мягко, Celimax Dual Barrier в 2–3 слоя, VT PDRN, после солнца AXIS-Y Mugwort 5 минут и смыть, крем Dr.Althea Watery.</li>
+        <li><b>Утром в отпуске:</b> очищение, тонер, VT PDRN, глаза AXIS-Y Collagen как более лёгкий, крем, <b>SPF 50+ каждые 2 часа</b>, шляпа и очки.</li>
+        <li><b>Вечером:</b> масло и пенка мягко, Celimax Dual Barrier в 2–3 слоя, VT PDRN, глаза Medicube PDRN, после солнца AXIS-Y Mugwort 5 минут и смыть, крем Dr.Althea Watery.</li>
         <li>Гуаша на солнце <b>не делаем</b> — риск пигментации. Активов нет вообще.</li>
-        <li><b>Конец октября — ноябрь:</b> восстановление после RF №4, база + PDRN + SPF, гуаша через 7–10 дней, активы до декабря не трогаем.</li>
+        <li><b>Конец октября — ноябрь:</b> восстановление после RF №4, база + PDRN + SPF, глаза на базовом увлажнении, гуаша через 7–10 дней, активы до декабря не трогаем.</li>
       </ul>
     </div>
     <div class="stage" data-tone="back">
@@ -417,7 +433,7 @@ footer a{color:var(--ink-3)}
         <li><b>Purito Seoul</b> — раз в 10–14 дней и только после патч-теста на стабильной коже.</li>
         <li><b>Celimax Retinol Shot</b> (флакон, не тюбик) — раз в 3–4 недели, с буфером под низ, если кожа готова.</li>
         <li><b>Celimax Retinal в тюбике</b> — скорее всего, навсегда нет. Аппарат Medicube — не раньше декабря, после всех процедур.</li>
-        <li><b>Всегда:</b> PDRN, пептиды, NAD+, керамиды, SPF каждый день, гуаша 4–5 раз в неделю для овала.</li>
+        <li><b>Всегда:</b> PDRN, пептиды, NAD+, керамиды, SPF каждый день, гуаша 4–5 раз в неделю для овала и регулярный уход за глазами.</li>
       </ul>
     </div>
   </div>
@@ -575,6 +591,8 @@ footer a{color:var(--ink-3)}
 const OIL = {k:"Очищение", v:"medicube Zero Pore Oil, затем Capsule Cleanser — масло вытягивает себум из пор"};
 const ALT = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — лёгкая текстура, пока идут подкожники"};
 const PDRN = {k:"Эссенция", v:"VT PDRN Essence 100, ждать 2 минуты", hot:"plasma"};
+const EYE_M = {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream — безымянным пальцем, похлопывая", hot:"eye"};
+const EYE_A = {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — безымянным пальцем, похлопывая", hot:"eye"};
 
 // вечерние схемы по дням
 const DAYS = [
@@ -583,57 +601,57 @@ const DAYS = [
   s:[OIL,
      {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, не давать высохнуть, смыть тёплой водой", hot:"mask"},
      {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, ALT]},
+     PDRN, EYE_M, ALT]},
  {d:"17.08", wd:"Пн", t:"День 3 · первая гуаша", kind:"recover", gua:7, antiox:null,
   note:"Первая гуаша после процедуры. Давление минимальное, при болезненности — отложить ещё на день.",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"}, PDRN, ALT]},
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"}, PDRN, EYE_A, ALT]},
  {d:"18.08", wd:"Вт", t:"День 4", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M, ALT]},
  {d:"19.08", wd:"Ср", t:"День 5 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
   s:[OIL,
      {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
      {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, ALT]},
+     PDRN, EYE_A, ALT]},
  {d:"20.08", wd:"Чт", t:"День 6 · день покоя", kind:"recover", gua:0, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M, ALT]},
  {d:"21.08", wd:"Пт", t:"День 7 · маска VT PDRN", kind:"mask", gua:7, antiox:"vitc",
   s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN,
      {k:"Маска", v:"VT PDRN Daily Mask, 15 минут, остатки вбить, не смывать", hot:"mask"},
-     ALT]},
+     EYE_A, ALT]},
  {d:"22.08", wd:"Сб", t:"День 8 · азелаиновая кислота", kind:"active", gua:7, antiox:"glut",
   note:"Первый актив после плазмы. Кожа спокойная — идём, есть краснота или свежие воспаления — переносим.",
   s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"},
      {k:"Актив", v:"Medicube Azelaic Acid Exosome Shot, ждать 10 минут", hot:"active"},
-     {k:"Тонер", v:"Celimax Dual Barrier"}, ALT]},
+     {k:"Тонер", v:"Celimax Dual Barrier"}, EYE_M, ALT]},
  {d:"23.08", wd:"Вс", t:"День 9 · день покоя", kind:"recover", gua:0, antiox:"vitc",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT]},
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, EYE_A, ALT]},
  {d:"24.08", wd:"Пн", t:"День 10 · ночная маска с койевой кислотой", kind:"active", gua:7, antiox:"glut",
-  note:"Маска остаётся на ночь и заменяет крем. Утром 25.08 SPF обязателен — койевая кислота повышает чувствительность к солнцу. Повтор не раньше чем через две недели.",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN,
-     {k:"Маска на ночь", v:"Medicube Kojic Acid Turmeric Mask — тонким слоем, оставить до утра, крем сверху не нужен", hot:"active"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
+  note:"Утром 25.08 SPF обязателен — койевая кислота повышает чувствительность к солнцу. Повтор не раньше чем через две недели. ⚠️ В присылке про крем два разных указания: в списке шагов его нет, а у маски помечено «поверх крема» — уточнить, наносим Dr.Althea под маску или маска идёт вместо него.",
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M,
+     {k:"Маска на ночь", v:"Medicube Kojic Acid Turmeric Mask — тонким слоем, оставить до утра", hot:"active"}]},
  {d:"25.08", wd:"Вт", t:"День 11 · первый VT Reedle Shot для глаз", kind:"active", gua:5, antiox:"vitc",
-  note:"Гуаша сегодня короткая и очень лёгкая. Покалывание от Reedle Shot в первые секунды — норма, дальше средство идёт 1–2 раза в неделю.",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT,
-     {k:"Глаза", v:"VT Reedle Shot Eye — только внешние уголки, зону с нитями обходим", hot:"retinol"}]},
+  note:"Гуаша сегодня короткая и очень лёгкая. Покалывание от Reedle Shot в первые секунды — норма, дальше средство идёт раз в неделю.",
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN,
+     {k:"Глаза", v:"VT Reedle Shot Eye — только внешние уголки, зону с нитями обходим", hot:"retinol"},
+     ALT]},
  {d:"26.08", wd:"Ср", t:"День 12 · маска AXIS-Y", kind:"mask", gua:0, antiox:"glut",
   s:[OIL,
      {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
      {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, ALT]},
+     PDRN, EYE_A, ALT]},
  {d:"27.08", wd:"Чт", t:"День 13", kind:"recover", gua:7, antiox:"vitc",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, ALT]},
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, EYE_M, ALT]},
  {d:"28.08", wd:"Пт", t:"День 14", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_A, ALT]},
  {d:"29.08", wd:"Сб", t:"День 15 · день покоя", kind:"recover", gua:0, antiox:"vitc",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT]},
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, EYE_M, ALT]},
  {d:"30.08", wd:"Вс", t:"День 16", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, ALT]},
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, EYE_A, ALT]},
  {d:"31.08", wd:"Пн", t:"День 17 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
   s:[OIL,
      {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
      {k:"Тонер", v:"Round Lab 1025 Dokdo"},
-     PDRN, ALT]}
+     PDRN, EYE_M, ALT]}
 ];
 
 const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска"};
@@ -682,13 +700,22 @@ const GUA_AFTER = [
   ["yes","Глаза: AXIS-Y Vegan Collagen или Medicube PDRN"],
   ["yes","SPF обязательно"]
 ];
+const EYES_TECH = [
+  ["yes","Наносим после сыворотки или эссенции, но до крема на лицо"],
+  ["yes","Безымянным пальцем, лёгкими похлопываниями"],
+  ["yes","Расход — с рисовое зёрнышко на оба глаза"],
+  ["no","Не подходить вплотную к ресничному краю: отступ 2–3 мм"],
+  ["tip","Чередуем: Medicube PDRN Pink Peptide — питание и пептиды, AXIS-Y Vegan Collagen — увлажнение"],
+  ["tip","VT Reedle Shot Eye — микроиглы, только с 25.08 и раз в неделю"]
+];
 const RULES = [
   ["yes","SPF каждый день, на солнце обновлять каждые 2 часа"],
+  ["yes","Уход за глазами каждый вечер: после эссенции, до крема"],
   ["yes","Двойное очищение вечером: масло, затем пенка"],
   ["yes","PDRN и пептиды — безопасная база, их не отменяем ни на одном этапе"],
   ["no","Смываемые маски держим 5–7 минут и смываем, до корки не сушим"],
   ["no","Kojic Acid Turmeric — только с 24.08, раз в две недели, на ночь"],
-  ["no","VT Reedle Shot для глаз — только с 25.08, один-два раза в неделю"],
+  ["no","VT Reedle Shot для глаз — только с 25.08 и раз в неделю"],
   ["no","Celimax Retinol и Retinal — до декабря, тюбик, скорее всего, навсегда"],
   ["no","Аппарат Medicube — не раньше декабря, когда закончатся процедуры"]
 ];
@@ -718,7 +745,7 @@ const BAG = [
   "Физическая защита: шляпа, очки, одежда с UPF"
 ];
 
-const KEY = "skincare-2026-v2";
+const KEY = "skincare-2026-v3";   // v2 сброшен: в вечера добавился шаг с глазами, индексы галочек сдвинулись
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
@@ -893,6 +920,22 @@ function renderSchedule(el){
   });
 }
 
+function renderEyes(el){
+  el.textContent = "";
+  DAYS.forEach(day => {
+    const hit = day.s.find(st => st.k === "Глаза");
+    if (!hit) return;
+    const row = document.createElement("div"); row.className = "rule";
+    const dt = document.createElement("span"); dt.className = "dayk"; dt.textContent = day.d;
+    const what = document.createElement("span"); what.className = "what";
+    what.textContent = hit.v.split(" — ")[0];
+    const lab = document.createElement("small"); lab.textContent = day.wd;
+    what.append(lab);
+    row.append(dt, what);
+    el.append(row);
+  });
+}
+
 function renderBag(){
   const steps = BAG.map(v => ({k:"В сумку", v}));
   state.bag = state.bag || {};
@@ -985,6 +1028,8 @@ renderRules($("rules"), RULES);
 renderRules($("fallback"), FALLBACK);
 renderRules($("tips"), TIPS);
 renderSchedule($("sched-mask"));
+renderRules($("eyes-tech"), EYES_TECH);
+renderEyes($("sched-eyes"));
 renderBag();
 renderAll();
 </script>
