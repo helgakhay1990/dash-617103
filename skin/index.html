@@ -206,6 +206,45 @@ details[open] summary::after{content:"–"}
 .stage ul li::marker{color:var(--ink-3)}
 .stage ul li b{color:var(--ink);font-weight:600}
 h2.section{font-family:var(--serif);font-weight:400;font-size:24px;margin:6px 0 -6px}
+
+/* ---------- вкладки ---------- */
+.tabs{display:flex;gap:6px;background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:4px;align-self:flex-start}
+.tab-btn{
+  appearance:none;font:inherit;font-size:14px;cursor:pointer;border:0;background:none;color:var(--ink-2);
+  padding:8px 16px;border-radius:9px;transition:background .15s,color .15s;white-space:nowrap;
+}
+.tab-btn[aria-selected="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.tab-btn:focus-visible{outline:2px solid var(--plasma);outline-offset:2px}
+.pane{display:flex;flex-direction:column;gap:22px}
+.pane[hidden]{display:none}
+
+/* ---------- протокол дня ---------- */
+.proto{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+.slot{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:15px 17px;border-left:3px solid var(--plasma)}
+.slot[data-when="day"]{border-left-color:var(--active)}
+.slot[data-when="eve"]{border-left-color:var(--mask)}
+.slot[data-when="night"]{border-left-color:var(--gua)}
+.slot h3{font-family:var(--serif);font-weight:400;font-size:19px;margin:0 0 8px}
+.slot ul{margin:0;padding-left:16px;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:6px}
+.slot ul li b{color:var(--ink);font-weight:600}
+.slot ul li::marker{color:var(--ink-3)}
+
+/* ---------- добавки ---------- */
+.supp{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:14px}
+.card-s{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:15px 17px}
+.card-s h3{font-family:var(--serif);font-weight:400;font-size:18px;margin:0 0 3px}
+.dose{font-family:var(--mono);font-size:15px;color:var(--plasma);margin-bottom:8px}
+.card-s dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px}
+.card-s dt{color:var(--ink-3);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding-top:2px}
+.card-s dd{margin:0;color:var(--ink-2)}
+
+/* ---------- сроки ---------- */
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:0}
+.term{padding:15px 18px;border-right:1px solid var(--line)}
+.term:last-child{border-right:0}
+@media (max-width:760px){.term{border-right:0;border-bottom:1px solid var(--line)}}
+.term .w{font-family:var(--mono);font-size:12px;color:var(--plasma);letter-spacing:.04em}
+.term p{margin:5px 0 0;font-size:13.5px;color:var(--ink-2)}
 footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:6px}
 footer a{color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -238,6 +277,12 @@ footer a{color:var(--ink-3)}
     </div>
   </header>
 
+  <div class="tabs" role="tablist">
+    <button class="tab-btn" type="button" role="tab" id="t-care" aria-selected="true" aria-controls="tab-care">Уход</button>
+    <button class="tab-btn" type="button" role="tab" id="t-inside" aria-selected="false" aria-controls="tab-inside">Изнутри</button>
+  </div>
+
+  <div class="pane" id="tab-care" role="tabpanel" aria-labelledby="t-care">
   <nav class="strip" id="strip" aria-label="Дни схемы"></nav>
 
   <div class="cols">
@@ -376,6 +421,152 @@ footer a{color:var(--ink-3)}
       </ul>
     </div>
   </div>
+  </div><!-- /tab-care -->
+
+  <div class="pane" id="tab-inside" role="tabpanel" aria-labelledby="t-inside" hidden>
+
+    <section class="panel">
+      <div class="phead">
+        <div>
+          <div class="when" id="ins-date">Чек-лист дня</div>
+          <h2>Что закрыть сегодня</h2>
+        </div>
+        <span class="kind" data-kind="recover" id="ins-count">0 / 7</span>
+      </div>
+      <ul class="steps" id="ins-check"></ul>
+      <p class="note">Коллаген работает <b>только в комплексе</b>: добавки плюс питание, сон и SPF. Процедуры он не заменяет — он их поддерживает.</p>
+      <div class="pfoot">
+        <span class="count">Отмечается на сегодняшнюю дату</span>
+        <button class="reset" id="ins-reset" type="button">Снять галочки дня</button>
+      </div>
+    </section>
+
+    <h2 class="section">Протокол дня</h2>
+    <div class="proto">
+      <div class="slot" data-when="mor">
+        <h3>Утро</h3>
+        <ul>
+          <li><b>Морской коллаген</b> 5–10 г, пептиды I и III типа</li>
+          <li><b>Витамин C</b> 500 мг — обязательно вместе с коллагеном</li>
+          <li>Белковый завтрак: яйца, творог, греческий йогурт, тофу</li>
+        </ul>
+      </div>
+      <div class="slot" data-when="day">
+        <h3>День</h3>
+        <ul>
+          <li>Обед: белок и овощи с витамином C — перец, брокколи, цитрус</li>
+          <li>Перекус: горсть орехов или семечек (цинк, медь, витамин E)</li>
+          <li><b>1,5–2 л воды</b> в течение дня</li>
+        </ul>
+      </div>
+      <div class="slot" data-when="eve">
+        <h3>Вечер</h3>
+        <ul>
+          <li>Ужин: рыба — лосось, тунец, скумбрия: омега-3 и белок</li>
+          <li>Гиалуроновая кислота 100–200 мг с едой, по желанию</li>
+          <li>Костный бульон 2–3 раза в неделю</li>
+        </ul>
+      </div>
+      <div class="slot" data-when="night">
+        <h3>Сон</h3>
+        <ul>
+          <li><b>Отбой до 23:00</b>, 7–9 часов</li>
+          <li>Гормон роста вырабатывается в глубокой фазе — отсюда работа фибробластов</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section">Добавки</h2>
+    <div class="supp">
+      <div class="card-s">
+        <h3>Морской коллаген</h3>
+        <div class="dose">5–10 г в день</div>
+        <dl>
+          <dt>Тип</dt><dd>I и III — кожа, волосы, ногти</dd>
+          <dt>Форма</dt><dd>Порошок усваивается лучше капсул</dd>
+          <dt>Курс</dt><dd>3–6 месяцев, потом перерыв 1–2 месяца</dd>
+          <dt>Как</dt><dd>Утром натощак или вечером, запивать водой с лимоном</dd>
+        </dl>
+      </div>
+      <div class="card-s">
+        <h3>Витамин C</h3>
+        <div class="dose">500–1000 мг в день</div>
+        <dl>
+          <dt>Форма</dt><dd>Ester-C или липосомальный — мягче для желудка</dd>
+          <dt>Роль</dt><dd>Без него синтез коллагена не запускается</dd>
+        </dl>
+      </div>
+      <div class="card-s">
+        <h3>Омега-3</h3>
+        <div class="dose">1000–2000 мг EPA + DHA</div>
+        <dl>
+          <dt>Роль</dt><dd>Снимает микровоспаления, защищает коллаген от разрушения</dd>
+        </dl>
+      </div>
+      <div class="card-s">
+        <h3>Цинк и медь</h3>
+        <div class="dose">15–25 мг · 1–2 мг</div>
+        <dl>
+          <dt>Роль</dt><dd>Кофакторы ферментов, которые строят коллагеновые волокна</dd>
+          <dt>Из еды</dt><dd>Тыквенные семечки, кешью, морепродукты, тёмный шоколад</dd>
+        </dl>
+      </div>
+      <div class="card-s">
+        <h3>Гиалуроновая кислота</h3>
+        <div class="dose">100–200 мг в день</div>
+        <dl>
+          <dt>Роль</dt><dd>Удерживает влагу в матриксе кожи, работает в паре с коллагеном</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cols">
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">Еда</div>
+            <h2>Питание и нутриенты</h2>
+          </div>
+          <span class="kind" data-kind="recover">1,2–1,5 г белка на кг</span>
+        </div>
+        <div class="rules" id="food"></div>
+      </section>
+
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">Что вокруг</div>
+            <h2>Образ жизни</h2>
+          </div>
+        </div>
+        <div class="rules" id="life"></div>
+        <p class="note">При болезнях ЖКТ и почек, а также при беременности — <b>сначала врач</b>, потом добавки.</p>
+      </section>
+    </div>
+
+    <h2 class="section">Когда ждать эффект</h2>
+    <section class="panel">
+      <div class="terms">
+        <div class="term">
+          <div class="w">4–6 недель</div>
+          <p>Сияние, увлажнённость, ровный цвет лица.</p>
+        </div>
+        <div class="term">
+          <div class="w">8–12 недель</div>
+          <p>Упругость и плотность кожи, сухости заметно меньше.</p>
+        </div>
+        <div class="term">
+          <div class="w">3–6 месяцев</div>
+          <p>Накопительный эффект, видимое уплотнение овала.</p>
+        </div>
+        <div class="term">
+          <div class="w">После курса</div>
+          <p>Перерыв 1–2 месяца, держимся на питании и SPF.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /tab-inside -->
 
   <footer>Галочки хранятся в этом браузере. Дни недели пересчитаны по календарю 2026 года. · <a href="../">К списку дашбордов</a></footer>
 </div>
@@ -716,6 +907,75 @@ function renderBag(){
   upd();
   $("bag-reset").onclick = () => { state.bag = {}; save(); renderBag(); };
 }
+
+// ---------- вкладка «Изнутри» ----------
+const INSIDE_CHECK = [
+  "5–10 г коллагена и 500 мг витамина C утром",
+  "Белковый завтрак, в обед овощи с витамином C",
+  "1,5–2 л воды за день",
+  "Рыба или омега-3 на ужин",
+  "Отбой до 23:00, сон 7–9 часов",
+  "SPF 50+ перед выходом на улицу",
+  "Минимум сахара и обработанной еды"
+];
+const FOOD = [
+  ["yes","Белок 1,2–1,5 г на килограмм веса в день: яйца, мясо, рыба, бобовые, творог"],
+  ["yes","Витамин C из еды: киви, болгарский перец, цитрус, клубника, брокколи"],
+  ["yes","Коллагеновые продукты: костный бульон длительной варки, холодец и заливное, рыба с кожей, мясо с хрящами"],
+  ["no","Гликация — сахар разрушает коллаген: сладости, выпечка, газировка, фастфуд по минимуму"],
+  ["yes","Замена сладкому: фрукты, ягоды, сложные углеводы"]
+];
+const LIFE = [
+  ["yes","Сон 7–9 часов с отбоем до 23:00 — на него приходится пик гормона роста"],
+  ["yes","SPF 50+ каждый день: ультрафиолет разрушает коллаген сильнее всех прочих факторов"],
+  ["yes","Движение: 150 минут в неделю плюс две силовые — микроциркуляция"],
+  ["yes","Работа со стрессом: кортизол разрушает коллагеновые волокна"],
+  ["no","Курение снижает синтез коллагена"],
+  ["no","Алкоголь обезвоживает и ускоряет старение кожи"]
+];
+
+const today = new Date();
+const dayKey = "d" + today.getFullYear() + "-" + String(today.getMonth()+1).padStart(2,"0") + "-" + String(today.getDate()).padStart(2,"0");
+
+function renderInside(){
+  state.inside = state.inside || {};
+  state.inside[dayKey] = state.inside[dayKey] || {};
+  const box = state.inside[dayKey];
+  const upd = () => {
+    let n = 0;
+    for (let i = 0; i < INSIDE_CHECK.length; i++) if (box[i]) n++;
+    $("ins-count").textContent = n + " / " + INSIDE_CHECK.length;
+  };
+  renderSteps($("ins-check"), INSIDE_CHECK.map(v => ({k:"Сегодня", v})),
+    i => !!box[i],
+    (i, val) => { box[i] = val; save(); upd(); });
+  upd();
+  const wd = ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"][today.getDay()];
+  $("ins-date").textContent = "Чек-лист · " + String(today.getDate()).padStart(2,"0") + "." +
+    String(today.getMonth()+1).padStart(2,"0") + " " + wd;
+  $("ins-reset").onclick = () => { state.inside[dayKey] = {}; save(); renderInside(); };
+}
+
+(function tabs(){
+  const map = {"t-care":"tab-care", "t-inside":"tab-inside"};
+  const show = id => {
+    Object.entries(map).forEach(([btn, pane]) => {
+      const on = btn === id;
+      $(btn).setAttribute("aria-selected", on ? "true" : "false");
+      $(pane).hidden = !on;
+    });
+    document.querySelector(".meters").style.display = id === "t-care" ? "" : "none";
+    state.tab = id; save();
+    try { history.replaceState(null, "", id === "t-inside" ? "#inside" : "#care"); } catch(e){}
+  };
+  Object.keys(map).forEach(btn => $(btn).addEventListener("click", () => show(btn)));
+  const fromHash = location.hash === "#inside" ? "t-inside" : location.hash === "#care" ? "t-care" : null;
+  show(fromHash || (map[state.tab] ? state.tab : "t-care"));
+})();
+
+renderRules($("food"), FOOD);
+renderRules($("life"), LIFE);
+renderInside();
 
 renderRules($("acne"), ACNE);
 renderRules($("gua-map"), GUA_MAP);
