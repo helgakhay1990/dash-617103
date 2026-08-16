@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>Схема ухода: пост-плазма</title>
+<title>Схема ухода: август — декабрь</title>
 <style>
 :root{
   --paper:#FBF8F9;
@@ -23,6 +23,8 @@
   --retinol-soft:#FBE5EF;
   --mask:#12727F;
   --mask-soft:#DFF0F2;
+  --gua:#3B5FA8;
+  --gua-soft:#E4EAF7;
   --stop:#B3352F;
   --shadow:0 1px 2px rgba(42,31,46,.05), 0 8px 24px -12px rgba(42,31,46,.18);
   --serif:Charter,Georgia,serif;
@@ -48,6 +50,8 @@
     --retinol-soft:#3A1B2B;
     --mask:#54BECB;
     --mask-soft:#123034;
+    --gua:#7FA3E8;
+    --gua-soft:#1C2437;
     --stop:#F0736C;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
   }
@@ -70,6 +74,8 @@
   --retinol-soft:#3A1B2B;
   --mask:#54BECB;
   --mask-soft:#123034;
+  --gua:#7FA3E8;
+  --gua-soft:#1C2437;
   --stop:#F0736C;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
 }
@@ -88,21 +94,20 @@ h1{
   margin:0 0 6px;letter-spacing:-.01em;text-wrap:balance;
 }
 h1 em{font-style:italic;color:var(--plasma)}
-.sub{color:var(--ink-2);font-size:13.5px;margin:0}
+.sub{color:var(--ink-2);font-size:13.5px;margin:0;max-width:52ch}
 .meters{display:flex;gap:10px;flex-wrap:wrap}
 .meter{
   background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:10px 14px;min-width:132px;box-shadow:var(--shadow);
+  padding:10px 14px;min-width:126px;box-shadow:var(--shadow);
 }
 .meter .lab{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
 .meter .val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:19px;margin-top:3px}
 .bar{height:4px;border-radius:99px;background:var(--sunk);margin-top:8px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--plasma);border-radius:99px;transition:width .35s ease}
+.bar.g i{background:var(--gua)}
 
 /* ---------- лента дней ---------- */
-.strip{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:7px;
-}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:7px}
 .chip{
   appearance:none;font:inherit;cursor:pointer;text-align:left;
   background:var(--card);border:1px solid var(--line);border-left:3px solid var(--ink-3);
@@ -111,23 +116,22 @@ h1 em{font-style:italic;color:var(--plasma)}
 }
 .chip:hover{transform:translateY(-2px)}
 .chip:focus-visible{outline:2px solid var(--plasma);outline-offset:2px}
-.chip .dt{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums}
-.chip .wd{font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.chip .dt{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;display:block}
+.chip .wd{font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;display:block}
+.chip .gu{font-size:10px;letter-spacing:.04em;color:var(--gua);margin-top:3px;display:block}
+.chip .gu.rest{color:var(--ink-3)}
 .chip[data-kind="recover"]{border-left-color:var(--recover)}
 .chip[data-kind="active"]{border-left-color:var(--active)}
-.chip[data-kind="retinol"]{border-left-color:var(--retinol)}
 .chip[data-kind="mask"]{border-left-color:var(--mask)}
 .chip[aria-current="true"]{border-color:var(--plasma);box-shadow:0 0 0 2px var(--plasma-soft)}
 .chip.done{background:var(--sunk)}
 .chip.done .dt{color:var(--ink-3);text-decoration:line-through}
-.chip .today{
-  position:absolute;top:6px;right:7px;width:6px;height:6px;border-radius:99px;background:var(--plasma);
-}
+.chip .today{position:absolute;top:6px;right:7px;width:6px;height:6px;border-radius:99px;background:var(--plasma)}
 
-/* ---------- две колонки ---------- */
-.cols{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:start}
-@media (max-width:820px){.cols{grid-template-columns:1fr}}
-
+/* ---------- панели ---------- */
+.cols{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;align-items:start}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:18px}
 .panel{
   background:var(--card);border:1px solid var(--line);border-radius:16px;
   box-shadow:var(--shadow);overflow:hidden;
@@ -135,21 +139,19 @@ h1 em{font-style:italic;color:var(--plasma)}
 .phead{padding:16px 18px 14px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
 .phead h2{font-family:var(--serif);font-weight:400;font-size:22px;margin:0;line-height:1.2}
 .phead .when{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase}
-.kind{
-  display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
-  padding:4px 9px;border-radius:99px;white-space:nowrap;
-}
+.kind{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:99px;white-space:nowrap}
 .kind[data-kind="recover"]{background:var(--recover-soft);color:var(--recover)}
 .kind[data-kind="active"]{background:var(--active-soft);color:var(--active)}
-.kind[data-kind="retinol"]{background:var(--retinol-soft);color:var(--retinol)}
 .kind[data-kind="mask"]{background:var(--mask-soft);color:var(--mask)}
+.kind[data-kind="gua"]{background:var(--gua-soft);color:var(--gua)}
 
-ol.steps,ul.steps{list-style:none;margin:0;padding:6px 0;display:flex;flex-direction:column}
+ul.steps{list-style:none;margin:0;padding:6px 0;display:flex;flex-direction:column}
 .steps li{display:flex;gap:11px;padding:9px 18px;align-items:flex-start;border-left:3px solid transparent}
 .steps li.hot[data-hue="mask"]{border-left-color:var(--mask);background:var(--mask-soft)}
 .steps li.hot[data-hue="active"]{border-left-color:var(--active);background:var(--active-soft)}
 .steps li.hot[data-hue="retinol"]{border-left-color:var(--retinol);background:var(--retinol-soft)}
 .steps li.hot[data-hue="plasma"]{border-left-color:var(--plasma);background:var(--plasma-soft)}
+.steps li.hot[data-hue="gua"]{border-left-color:var(--gua);background:var(--gua-soft)}
 .steps li + li{border-top:1px solid var(--line)}
 .tick{
   flex:none;width:19px;height:19px;margin-top:2px;border-radius:6px;
@@ -164,34 +166,23 @@ ol.steps,ul.steps{list-style:none;margin:0;padding:6px 0;display:flex;flex-direc
 .k{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1px}
 .v{display:block}
 li.off .v,li.off .k{opacity:.45;text-decoration:line-through;text-decoration-thickness:1px}
-.note{
-  margin:0;padding:12px 18px;font-size:13px;color:var(--ink-2);
-  background:var(--sunk);border-top:1px solid var(--line);
-}
+.note{margin:0;padding:12px 18px;font-size:13px;color:var(--ink-2);background:var(--sunk);border-top:1px solid var(--line)}
 .note b{color:var(--ink);font-weight:600}
 .pfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 18px;border-top:1px solid var(--line)}
-.reset{
-  appearance:none;font:inherit;font-size:12.5px;color:var(--ink-3);background:none;
-  border:1px solid var(--line);border-radius:8px;padding:5px 11px;cursor:pointer;
-}
+.reset{appearance:none;font:inherit;font-size:12.5px;color:var(--ink-3);background:none;border:1px solid var(--line);border-radius:8px;padding:5px 11px;cursor:pointer}
 .reset:hover{color:var(--ink);border-color:var(--ink-3)}
 .count{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
-/* ---------- правила ---------- */
-.rules{display:flex;flex-direction:column;gap:0}
+/* ---------- правила и списки ---------- */
+.rules{display:flex;flex-direction:column}
 .rule{display:flex;gap:11px;padding:11px 18px;font-size:13.5px;line-height:1.45}
 .rule + .rule{border-top:1px solid var(--line)}
-.mark{
-  flex:none;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;
-  font-size:12px;font-weight:700;margin-top:1px;
-}
+.mark{flex:none;width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
 .mark.yes{background:var(--recover-soft);color:var(--recover)}
 .mark.no{background:var(--retinol-soft);color:var(--stop)}
 .mark.tip{background:var(--plasma-soft);color:var(--plasma);font-family:var(--serif);font-style:italic}
-.dayk{
-  flex:none;width:46px;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;
-  color:var(--ink-3);padding-top:2px;
-}
+.mark.num{background:var(--gua-soft);color:var(--gua);font-family:var(--mono);font-size:11px}
+.dayk{flex:none;width:46px;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-3);padding-top:2px}
 .rule .what{flex:1}
 .rule .what small{display:block;color:var(--ink-3);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
 details{border-top:1px solid var(--line)}
@@ -202,6 +193,19 @@ details summary{
 details summary::-webkit-details-marker{display:none}
 details summary::after{content:"+";color:var(--ink-3);font-family:var(--ui);font-size:17px}
 details[open] summary::after{content:"–"}
+
+/* ---------- дорожная карта ---------- */
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px;border-top:3px solid var(--plasma)}
+.stage[data-tone="rest"]{border-top-color:var(--recover)}
+.stage[data-tone="sun"]{border-top-color:var(--active)}
+.stage[data-tone="back"]{border-top-color:var(--gua)}
+.stage h3{font-family:var(--serif);font-weight:400;font-size:19px;margin:0 0 2px}
+.stage .date{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:9px}
+.stage ul{margin:0;padding-left:17px;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:5px}
+.stage ul li::marker{color:var(--ink-3)}
+.stage ul li b{color:var(--ink);font-weight:600}
+h2.section{font-family:var(--serif);font-weight:400;font-size:24px;margin:6px 0 -6px}
 footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:6px}
 footer a{color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -212,19 +216,24 @@ footer a{color:var(--ink-3)}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>Восстановление <em>после плазмы</em></h1>
-      <p class="sub">14–31 августа 2026 · пост-плазма и пост-RF · утро каждый день, вечер по схеме</p>
+      <h1>Кожа <em>после плазмы</em> и дальше</h1>
+      <p class="sub">16–31 августа подробно, дальше этапы до декабря 2026. Задачи сейчас: убрать подкожники, восстановить барьер, вести гуаша и дойти до RF №3 спокойной кожей.</p>
     </div>
     <div class="meters">
       <div class="meter">
         <div class="lab">Вечера закрыты</div>
-        <div class="val" id="m-eve">0 / 18</div>
+        <div class="val" id="m-eve">0 / 16</div>
         <div class="bar"><i id="b-eve" style="width:0%"></i></div>
       </div>
       <div class="meter">
         <div class="lab">Утра закрыты</div>
-        <div class="val" id="m-mor">0 / 18</div>
+        <div class="val" id="m-mor">0 / 16</div>
         <div class="bar"><i id="b-mor" style="width:0%"></i></div>
+      </div>
+      <div class="meter">
+        <div class="lab">Гуаша сделана</div>
+        <div class="val" id="m-gua">0 / 11</div>
+        <div class="bar g"><i id="b-gua" style="width:0%"></i></div>
       </div>
     </div>
   </header>
@@ -232,36 +241,85 @@ footer a{color:var(--ink-3)}
   <nav class="strip" id="strip" aria-label="Дни схемы"></nav>
 
   <div class="cols">
-    <section class="panel" id="eve-panel">
-      <div class="phead">
-        <div>
-          <div class="when" id="eve-when">Вечер</div>
-          <h2 id="eve-title">—</h2>
+    <div class="stack">
+      <section class="panel" id="eve-panel">
+        <div class="phead">
+          <div>
+            <div class="when" id="eve-when">Вечер</div>
+            <h2 id="eve-title">—</h2>
+          </div>
+          <span class="kind" id="eve-kind" data-kind="recover">—</span>
         </div>
-        <span class="kind" id="eve-kind" data-kind="recover">—</span>
-      </div>
-      <ul class="steps" id="eve-steps"></ul>
-      <p class="note" id="eve-note" hidden></p>
-      <div class="pfoot">
-        <span class="count" id="eve-count">0 / 0</span>
-        <button class="reset" id="eve-reset" type="button">Снять галочки дня</button>
-      </div>
-    </section>
+        <ul class="steps" id="eve-steps"></ul>
+        <p class="note" id="eve-note" hidden></p>
+        <div class="pfoot">
+          <span class="count" id="eve-count">0 / 0</span>
+          <button class="reset" id="eve-reset" type="button">Снять галочки вечера</button>
+        </div>
+      </section>
 
-    <div style="display:flex;flex-direction:column;gap:18px">
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">Подкожники</div>
+            <h2>Как убираем воспаления</h2>
+          </div>
+          <span class="kind" data-kind="active">до 7–10 дней</span>
+        </div>
+        <div class="rules" id="acne"></div>
+        <p class="note">Если подкожники не проходят за 7–10 дней — <b>к косметологу</b>, а не усиливать уход самой.</p>
+      </section>
+
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">Собрать заранее</div>
+            <h2>Что взять в отпуск</h2>
+          </div>
+          <span class="kind" data-kind="active" id="bag-count">0 / 9</span>
+        </div>
+        <ul class="steps" id="bag"></ul>
+        <div class="pfoot">
+          <span class="count">Отмечается отдельно от дней</span>
+          <button class="reset" id="bag-reset" type="button">Снять галочки сумки</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="stack">
       <section class="panel">
         <div class="phead">
           <div>
             <div class="when" id="mor-when">Утро</div>
-            <h2>Каждый день</h2>
+            <h2 id="mor-title">Утренняя рутина</h2>
           </div>
-          <span class="kind" data-kind="mask" id="mor-flag">SPF обязателен</span>
+          <span class="kind" data-kind="mask">SPF обязателен</span>
         </div>
         <ul class="steps" id="mor-steps"></ul>
         <div class="pfoot">
           <span class="count" id="mor-count">0 / 0</span>
           <button class="reset" id="mor-reset" type="button">Снять галочки утра</button>
         </div>
+      </section>
+
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">7 минут · 4–5 раз в неделю</div>
+            <h2>Гуаша: карта движений</h2>
+          </div>
+          <span class="kind" data-kind="gua">давление 2/10</span>
+        </div>
+        <div class="rules" id="gua-map"></div>
+        <details>
+          <summary>Подготовка и техника</summary>
+          <div class="rules" id="gua-tech"></div>
+        </details>
+        <details>
+          <summary>После гуаша</summary>
+          <div class="rules" id="gua-after"></div>
+        </details>
+        <p class="note">Не делать <b>первые 7–10 дней после процедур</b> и при активных воспалениях. Скольжение — по влажной коже с эссенцией или тонером, никогда по сухой и никогда по маслу.</p>
       </section>
 
       <section class="panel">
@@ -272,12 +330,8 @@ footer a{color:var(--ink-3)}
           <div class="rules" id="fallback"></div>
         </details>
         <details>
-          <summary>Маски и пилинги по датам</summary>
+          <summary>Маски и активы по датам</summary>
           <div class="rules" id="sched-mask"></div>
-        </details>
-        <details>
-          <summary>Глаза по датам</summary>
-          <div class="rules" id="sched-eyes"></div>
         </details>
         <details>
           <summary>Приёмы</summary>
@@ -287,186 +341,193 @@ footer a{color:var(--ink-3)}
     </div>
   </div>
 
-  <footer>Галочки хранятся в этом браузере. Дни недели проставлены по календарю 2026 года. · <a href="../">К списку дашбордов</a></footer>
+  <h2 class="section">Что дальше</h2>
+  <div class="road">
+    <div class="stage" data-tone="rest">
+      <h3>RF №3 и восстановление</h3>
+      <div class="date">сентябрь · процедура ~3–5.09</div>
+      <ul>
+        <li><b>1–7.09:</b> только база, PDRN и SPF. Активов нет, гуаша нет.</li>
+        <li><b>8–14.09:</b> кожа спокойная — гуаша 3–4 раза в неделю, антиоксиданты утром осторожно, азелаика один раз.</li>
+        <li><b>15–20.09:</b> убираем активы постепенно, гуаша по самочувствию кожи.</li>
+        <li><b>21–30.09:</b> полный стоп активам, только база, SPF и увлажнение, гуаша 2–3 раза в неделю.</li>
+        <li><b>Бан с 15.09:</b> ретинол, кислоты, витамин C, энзимы.</li>
+      </ul>
+    </div>
+    <div class="stage" data-tone="sun">
+      <h3>Отпуск и RF №4</h3>
+      <div class="date">октябрь · процедура ~15–20.10</div>
+      <ul>
+        <li><b>Утром в отпуске:</b> вода или мягкий гель, тонер, по желанию VT PDRN, крем Medicube Zero Pore One Day, <b>SPF 50+ каждые 2 часа</b>, шляпа и очки.</li>
+        <li><b>Вечером:</b> масло и пенка мягко, Celimax Dual Barrier в 2–3 слоя, VT PDRN, после солнца AXIS-Y Mugwort 5 минут и смыть, крем Dr.Althea Watery.</li>
+        <li>Гуаша на солнце <b>не делаем</b> — риск пигментации. Активов нет вообще.</li>
+        <li><b>Конец октября — ноябрь:</b> восстановление после RF №4, база + PDRN + SPF, гуаша через 7–10 дней, активы до декабря не трогаем.</li>
+      </ul>
+    </div>
+    <div class="stage" data-tone="back">
+      <h3>Возвращаем активы</h3>
+      <div class="date">декабрь и дальше</div>
+      <ul>
+        <li><b>Numbuzin №3 Bifida Bakuchiol</b> — чистый бакучиол без ретинола, 2–3 раза в неделю вечером: уплотнение и поры, подходит чувствительной коже.</li>
+        <li><b>Purito Seoul</b> — раз в 10–14 дней и только после патч-теста на стабильной коже.</li>
+        <li><b>Celimax Retinol Shot</b> (флакон, не тюбик) — раз в 3–4 недели, с буфером под низ, если кожа готова.</li>
+        <li><b>Celimax Retinal в тюбике</b> — скорее всего, навсегда нет. Аппарат Medicube — не раньше декабря, после всех процедур.</li>
+        <li><b>Всегда:</b> PDRN, пептиды, NAD+, керамиды, SPF каждый день, гуаша 4–5 раз в неделю для овала.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>Галочки хранятся в этом браузере. Дни недели пересчитаны по календарю 2026 года. · <a href="../">К списку дашбордов</a></footer>
 </div>
 
 <script>
-const CLEANSE = {k:"Очищение", v:"medicube Zero Pore Oil → Capsule Cleanser, мягко, без трения"};
+const OIL = {k:"Очищение", v:"medicube Zero Pore Oil, затем Capsule Cleanser — масло вытягивает себум из пор"};
+const ALT = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — лёгкая текстура, пока идут подкожники"};
+const PDRN = {k:"Эссенция", v:"VT PDRN Essence 100, ждать 2 минуты", hot:"plasma"};
 
+// вечерние схемы по дням
 const DAYS = [
- {d:"14.08", wd:"Пт", t:"День 1 после плазмы", kind:"mask", noAntiox:true,
-  note:"Никаких активов. Пить 1,5–2 л воды, избегать жары и спорта первые 48 часов.",
-  s:[{k:"Очищение", v:"medicube Zero Pore Oil → Capsule Cleanser, очень мягко"},
-     {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner, два слоя"},
-     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть тёплой водой", hot:"mask"},
-     {k:"Эссенция", v:"VT PDRN Essence 100, ждать 2 минуты", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"15.08", wd:"Сб", t:"День 2 после плазмы", kind:"recover", noAntiox:true,
-  note:"Активы всё ещё под запретом: ни ретинола, ни кислот, ни витамина C.",
-  s:[CLEANSE,
-     {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"16.08", wd:"Вс", t:"Плазма восстановлена, маска PDRN", kind:"mask",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab 1025 Dokdo Toner"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Маска", v:"VT PDRN Daily Mask, 15–20 минут, остатки вбить, не смывать", hot:"mask"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"17.08", wd:"Пн", t:"Восстановление", kind:"recover",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Dr. Althea Aqua Marine Watery Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"18.08", wd:"Вт", t:"Восстановление на пэдах", kind:"recover",
-  s:[CLEANSE,
-     {k:"Пэды", v:"Medicube PDRN Pads"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"19.08", wd:"Ср", t:"Смываемая маска", kind:"mask",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab Dokdo Toner"},
-     {k:"Маска", v:"AXIS-Y Wash Off, 5–7 минут, не давать высохнуть, смыть", hot:"mask"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"20.08", wd:"Чт", t:"Энзимный пилинг Fraijour", kind:"active",
-  note:"Пилинг наносим на сухую кожу после очищения. Высыхать до корки не даём.",
-  s:[CLEANSE,
-     {k:"Пилинг", v:"Fraijour Wormwood Enzyme Cleansing Pack — на сухую кожу тонким слоем, 5–10 минут, смыть тёплой водой", hot:"active"},
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"21.08", wd:"Пт", t:"Маска PDRN", kind:"mask",
-  s:[CLEANSE,
-     {k:"Пэды", v:"Medicube PDRN Pads"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Маска", v:"VT PDRN Daily Mask, 15–20 минут, остатки вбить", hot:"mask"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"22.08", wd:"Сб", t:"Азелаиновая кислота", kind:"active",
-  note:"Первый актив после плазмы. Кожа спокойная — идём, есть краснота — переносим.",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab Dokdo Toner"},
+ {d:"16.08", wd:"Вс", t:"День 2 после плазмы", kind:"mask", gua:null, antiox:"vitc",
+  note:"Ставка на подкожники: масло с пенкой вытягивают поры, маска подсушивает. Давить воспаления нельзя — останется пигмент.",
+  s:[OIL,
+     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, не давать высохнуть, смыть тёплой водой", hot:"mask"},
+     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
+     PDRN, ALT]},
+ {d:"17.08", wd:"Пн", t:"День 3 · первая гуаша", kind:"recover", gua:7, antiox:null,
+  note:"Первая гуаша после процедуры. Давление минимальное, при болезненности — отложить ещё на день.",
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"}, PDRN, ALT]},
+ {d:"18.08", wd:"Вт", t:"День 4", kind:"recover", gua:7, antiox:"glut",
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+ {d:"19.08", wd:"Ср", t:"День 5 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
+  s:[OIL,
+     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
+     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
+     PDRN, ALT]},
+ {d:"20.08", wd:"Чт", t:"День 6 · день покоя", kind:"recover", gua:0, antiox:"glut",
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+ {d:"21.08", wd:"Пт", t:"День 7 · маска VT PDRN", kind:"mask", gua:7, antiox:"vitc",
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN,
+     {k:"Маска", v:"VT PDRN Daily Mask, 15 минут, остатки вбить, не смывать", hot:"mask"},
+     ALT]},
+ {d:"22.08", wd:"Сб", t:"День 8 · азелаиновая кислота", kind:"active", gua:7, antiox:"glut",
+  note:"Первый актив после плазмы. Кожа спокойная — идём, есть краснота или свежие воспаления — переносим.",
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"},
      {k:"Актив", v:"Medicube Azelaic Acid Exosome Shot, ждать 10 минут", hot:"active"},
-     {k:"Тонер", v:"Celimax Dual Barrier Toner"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"23.08", wd:"Вс", t:"Восстановление после азелаики", kind:"recover",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"24.08", wd:"Пн", t:"Ночная маска с койевой кислотой", kind:"active",
+     {k:"Тонер", v:"Celimax Dual Barrier"}, ALT]},
+ {d:"23.08", wd:"Вс", t:"День 9 · день покоя", kind:"recover", gua:0, antiox:"vitc",
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT]},
+ {d:"24.08", wd:"Пн", t:"День 10 · ночная маска с койевой кислотой", kind:"active", gua:7, antiox:"glut",
   note:"Маска остаётся на ночь и заменяет крем. Утром 25.08 SPF обязателен — койевая кислота повышает чувствительность к солнцу. Повтор не раньше чем через две недели.",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab Dokdo Toner"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN,
      {k:"Маска на ночь", v:"Medicube Kojic Acid Turmeric Mask — тонким слоем, оставить до утра, крем сверху не нужен", hot:"active"},
      {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"25.08", wd:"Вт", t:"Первый VT Reedle Shot для глаз", kind:"recover",
-  note:"Лёгкое покалывание в первые секунды — норма. Дальше средство идёт 1–2 раза в неделю.",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"VT Reedle Shot Eye Cream — только внешние уголки, зону с нитями обходим", hot:"retinol"}]},
- {d:"26.08", wd:"Ср", t:"Маска PDRN", kind:"mask",
-  s:[CLEANSE,
-     {k:"Пэды", v:"Medicube PDRN Pads"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Маска", v:"VT PDRN Daily Mask, 15–20 минут, остатки вбить", hot:"mask"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"27.08", wd:"Чт", t:"Энзимный пилинг Fraijour", kind:"active",
-  note:"Завтра ретинол. Если после пилинга есть стянутость или краснота — ретинол переносим.",
-  s:[CLEANSE,
-     {k:"Пилинг", v:"Fraijour Wormwood Enzyme Cleansing Pack — на сухую кожу тонким слоем, 5–10 минут, смыть тёплой водой", hot:"active"},
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"28.08", wd:"Пт", t:"Ретинол с буфером", kind:"retinol",
-  note:"Только если кожа спокойная после вчерашнего пилинга. Лоб с ботоксом и зону с нитями обходим.",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab Dokdo Toner, ждать 10 минут до полного высыхания"},
-     {k:"Буфер", v:"Celimax Noni Cream тонким слоем, ждать 5 минут", hot:"retinol"},
-     {k:"Актив", v:"Celimax Retinol Shot, обходим лоб и зону с нитями, ждать 10–15 минут", hot:"retinol"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"},
-     {k:"Крем", v:"Absolute Gorgeous Firming Cream"}]},
- {d:"29.08", wd:"Сб", t:"Восстановление после ретинола", kind:"recover",
-  s:[{k:"Очищение", v:"medicube Zero Pore Oil → Capsule Cleanser, очень мягко"},
-     {k:"Тонер", v:"Celimax Dual Barrier Toner, два слоя"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"SkinJestique Remedy Rich Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]},
- {d:"30.08", wd:"Вс", t:"Восстановление", kind:"recover",
-  s:[CLEANSE,
-     {k:"Пэды", v:"Medicube PDRN Pads"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream"}]},
- {d:"31.08", wd:"Пн", t:"Маска PDRN", kind:"mask",
-  s:[CLEANSE,
-     {k:"Тонер", v:"Round Lab Dokdo Toner"},
-     {k:"Эссенция", v:"VT PDRN Essence 100", hot:"plasma"},
-     {k:"Маска", v:"VT PDRN Daily Mask, 15–20 минут, остатки вбить", hot:"mask"},
-     {k:"Крем", v:"Celimax Noni Energy Repair Cream"},
-     {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum"}]}
+ {d:"25.08", wd:"Вт", t:"День 11 · первый VT Reedle Shot для глаз", kind:"active", gua:5, antiox:"vitc",
+  note:"Гуаша сегодня короткая и очень лёгкая. Покалывание от Reedle Shot в первые секунды — норма, дальше средство идёт 1–2 раза в неделю.",
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT,
+     {k:"Глаза", v:"VT Reedle Shot Eye — только внешние уголки, зону с нитями обходим", hot:"retinol"}]},
+ {d:"26.08", wd:"Ср", t:"День 12 · маска AXIS-Y", kind:"mask", gua:0, antiox:"glut",
+  s:[OIL,
+     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
+     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
+     PDRN, ALT]},
+ {d:"27.08", wd:"Чт", t:"День 13", kind:"recover", gua:7, antiox:"vitc",
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, ALT]},
+ {d:"28.08", wd:"Пт", t:"День 14", kind:"recover", gua:7, antiox:"glut",
+  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, ALT]},
+ {d:"29.08", wd:"Сб", t:"День 15 · день покоя", kind:"recover", gua:0, antiox:"vitc",
+  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, ALT]},
+ {d:"30.08", wd:"Вс", t:"День 16", kind:"recover", gua:7, antiox:"glut",
+  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, ALT]},
+ {d:"31.08", wd:"Пн", t:"День 17 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
+  s:[OIL,
+     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
+     {k:"Тонер", v:"Round Lab 1025 Dokdo"},
+     PDRN, ALT]}
 ];
 
-const KIND_LABEL = {recover:"восстановление", active:"актив", retinol:"ретинол", mask:"маска"};
+const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска"};
 
 function morningSteps(day){
-  const num = parseInt(day.d, 10);
-  const even = num % 2 === 0;
-  const antiox = day.noAntiox
-    ? {k:"Антиоксиданты", v:"Пропускаем — стартуют с 16.08, кожа после плазмы", skip:true}
-    : {k:"Антиоксиданты", v:(even
-        ? "SkinJestique Antioxidant Vitamin Serum (чётное число). Замена, пока не закончится, — SkinJestique Soft Anti-aging"
-        : "Dr. Ceurance Glutathione & NMN Ampoule (нечётное число). Замена, пока не закончится, — SkinJestique Soft Anti-aging")};
-  return [
-    {k:"Очищение", v:"Вода комнатной температуры или Medicube PDRN Hydrating Gel Cleanser"},
-    {k:"Тонер", v:"Round Lab 1025 Dokdo. При чувствительности — Celimax Dual Barrier"},
-    antiox,
-    {k:"Усиление", v:"VT PDRN Essence 100, ждать 2–3 минуты — по желанию"},
-    {k:"Крем", v:"Medicube Zero Pore One Day Cream"},
-    {k:"Глаза", v:"VT PDRN Eye Patches с кофеином, 15–20 минут. При отёке — The Ordinary Caffeine"},
-    {k:"Санскрин", v:"SkinJestique SPF. Обновлять каждые 2–3 часа на улице", hot:"plasma"}
+  const out = [
+    {k:"Очищение", v:"Вода комнатной температуры или мягкий гель"},
+    {k:"Тонер", v:"Round Lab 1025 Dokdo. При чувствительности — Celimax Dual Barrier"}
   ];
+  if (day.antiox === "vitc")
+    out.push({k:"Антиоксидант", v:"SkinJestique Vitamin C"});
+  else if (day.antiox === "glut")
+    out.push({k:"Антиоксидант", v:"Dr. Ceurance Glutathione & NMN Ampoule"});
+  out.push({k:"Эссенция", v:"VT PDRN Essence 100" + (day.gua ? ", два слоя — это и есть скользящая среда под гуаша" : ", ждать 2–3 минуты"), hot:"plasma"});
+  if (day.gua)
+    out.push({k:"Гуаша", v:day.gua + " минут по карте движений, давление 2/10" + (day.gua === 5 ? " — сегодня укороченная и очень лёгкая" : ""), hot:"gua"});
+  out.push(ALT);
+  out.push({k:"Санскрин", v:"SPF за 15 минут до выхода, на улице обновлять каждые 2 часа", hot:"plasma"});
+  return out;
 }
 
+const ACNE = [
+  ["num","Двойное очищение каждый вечер: medicube Zero Pore Oil, затем Capsule Cleanser","1"],
+  ["num","AXIS-Y Mugwort Wash Off — 2–3 раза в неделю: 16, 19, 26 и 31 августа","2"],
+  ["num","Лёгкие текстуры: Dr.Althea Watery вместо Celimax Noni, плотные кремы пока откладываем","3"],
+  ["num","Не давить — риск пигментации на месте каждого воспаления","4"],
+  ["num","Холодный компресс: тонер Celimax на диске, 5 минут в холодильнике, приложить на 2–3 минуты","5"]
+];
+const GUA_MAP = [
+  ["num","Лимфодренаж: от подбородка к ключицам, 5 раз","1"],
+  ["num","Линия челюсти: от центра к ушам, строго по кости, 7 раз","2"],
+  ["num","Диагональная складка: снизу вверх к виску, 7 раз","3"],
+  ["num","Скулы: от носа к верху уха, 5 раз","4"],
+  ["num","Финал: от висков к ключицам, 5 раз","5"]
+];
+const GUA_TECH = [
+  ["yes","Угол пластины к коже 15–30 градусов"],
+  ["yes","Медленно: одно движение — 2–3 секунды"],
+  ["yes","Направление всегда снизу вверх"],
+  ["yes","Ощущение — приятное скольжение, боли быть не должно"],
+  ["no","Не по сухой коже и не поверх масла или плотного крема"]
+];
+const GUA_AFTER = [
+  ["yes","Подождать 2–3 минуты"],
+  ["yes","Крем Medicube Zero Pore One Day тонким слоем, впечатывать"],
+  ["yes","Глаза: AXIS-Y Vegan Collagen или Medicube PDRN"],
+  ["yes","SPF обязательно"]
+];
 const RULES = [
-  ["no","14 и 15 августа — ноль активов: ни ретинола, ни кислот, ни витамина C"],
-  ["no","Смываемые маски не сушим до корки: AXIS-Y 5–7 минут, Fraijour 5–10, обе смываем"],
-  ["no","Kojic Acid Turmeric — только с 24.08, раз в две недели и только на ночь"],
+  ["yes","SPF каждый день, на солнце обновлять каждые 2 часа"],
+  ["yes","Двойное очищение вечером: масло, затем пенка"],
+  ["yes","PDRN и пептиды — безопасная база, их не отменяем ни на одном этапе"],
+  ["no","Смываемые маски держим 5–7 минут и смываем, до корки не сушим"],
+  ["no","Kojic Acid Turmeric — только с 24.08, раз в две недели, на ночь"],
   ["no","VT Reedle Shot для глаз — только с 25.08, один-два раза в неделю"],
-  ["yes","SPF каждый день без исключений, даже дома у окна"],
-  ["yes","Первые 48 часов после плазмы — без жары, бани и активного спорта, 1,5–2 л воды"],
-  ["yes","Очищение только мягкое: без трения, без скрабов, без щёток"]
+  ["no","Celimax Retinol и Retinal — до декабря, тюбик, скорее всего, навсегда"],
+  ["no","Аппарат Medicube — не раньше декабря, когда закончатся процедуры"]
 ];
 const FALLBACK = [
-  ["no","Краснота или высыпания — откат к базе на 2–3 дня, активы отменяются"],
-  ["yes","Тонер Celimax Dual Barrier, 2–3 слоя — это и есть замена керамидной сыворотке"],
-  ["yes","VT PDRN Essence в два слоя, сверху Celimax Noni или Remedy Rich"],
-  ["yes","Холодный компресс: тонер Celimax на ватном диске, 5 минут в холодильнике, приложить на 2–3 минуты"]
+  ["no","Краснота или новые высыпания — откат к базе на 2–3 дня, активы отменяются"],
+  ["yes","Тонер Celimax Dual Barrier, 2–3 слоя — замена керамидной сыворотке"],
+  ["yes","VT PDRN Essence в два слоя, сверху Dr.Althea Watery"],
+  ["yes","Холодный компресс: тонер на диске, 5 минут в холодильнике, приложить на 2–3 минуты"],
+  ["no","Гуаша при воспалениях не делаем — разносим по лицу"]
 ];
 const TIPS = [
-  ["tip","PDRN-слой работает сильнее так: эссенция → пауза 2 минуты → крем"],
-  ["tip","Маски чередуем: VT PDRN не смываем, AXIS-Y смываем обязательно"],
-  ["tip","Патчи под глаза утром снимают отёк лучше, чем крем — крем оставляем на вечер"],
-  ["tip","Ретинол и азелаика никогда не встречаются в один вечер"],
-  ["tip","Янтарные дни в ленте — нагрузка на кожу: 20, 22, 24, 27 и 28 августа. Между 27 и 28 перерыва нет, смотрим на реакцию"]
+  ["tip","PDRN-слой работает сильнее так: эссенция, пауза 2 минуты, крем"],
+  ["tip","Масло в двойном очищении и есть главный инструмент против подкожников — не пропускать"],
+  ["tip","Гуаша только по влажной коже, давление 2/10, всегда снизу вверх"],
+  ["tip","Дни покоя гуаша — 20, 23, 26 и 29 августа: мышцам лица тоже нужен отдых"],
+  ["tip","Янтарные дни в ленте — нагрузка: 22, 24 и 25 августа. Между ними всегда есть спокойный вечер"]
+];
+const BAG = [
+  "Очищение: medicube Oil и Capsule в мини-формате",
+  "Тонер: Celimax Dual Barrier или Round Lab, мини",
+  "Сыворотка: VT PDRN Essence, мини",
+  "Крем: Dr.Althea Watery, мини",
+  "SPF: Round Lab Pine Calming, три штуки",
+  "SPF-стик VT Air Cloud для обновления в течение дня",
+  "После солнца: AXIS-Y Mugwort, пара пакетиков",
+  "Глаза: AXIS-Y Vegan Collagen Eye Serum, мини",
+  "Физическая защита: шляпа, очки, одежда с UPF"
 ];
 
-const KEY = "skincare-aug2026-v1";
+const KEY = "skincare-2026-v2";
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
@@ -501,12 +562,12 @@ function tickBtn(checked){
   return b;
 }
 
-function renderSteps(listEl, day, slot, steps, onChange){
+function renderSteps(listEl, steps, isOn, toggle){
   listEl.textContent = "";
   steps.forEach((st, i) => {
     const li = document.createElement("li");
     if (st.hot) { li.className = "hot"; li.dataset.hue = st.hot; }
-    const checked = get(day, slot, i);
+    const checked = isOn(i);
     if (checked) li.classList.add("off");
     const btn = tickBtn(checked);
     btn.setAttribute("aria-label", st.k + ": " + st.v);
@@ -514,8 +575,7 @@ function renderSteps(listEl, day, slot, steps, onChange){
       const now = btn.getAttribute("aria-pressed") !== "true";
       btn.setAttribute("aria-pressed", now ? "true" : "false");
       li.classList.toggle("off", now);
-      setTick(day, slot, i, now);
-      onChange();
+      toggle(i, now);
     });
     const txt = document.createElement("div");
     txt.className = "txt";
@@ -529,15 +589,21 @@ function renderSteps(listEl, day, slot, steps, onChange){
 
 function renderRules(el, items){
   el.textContent = "";
-  items.forEach(([type, text]) => {
+  items.forEach(([type, text, num]) => {
     const row = document.createElement("div"); row.className = "rule";
     const m = document.createElement("span");
     m.className = "mark " + type;
-    m.textContent = type === "yes" ? "✓" : type === "no" ? "✕" : "i";
+    m.textContent = type === "yes" ? "✓" : type === "no" ? "✕" : type === "num" ? num : "i";
     const t = document.createElement("span"); t.textContent = text;
     row.append(m, t);
     el.append(row);
   });
+}
+
+function guaLabel(day){
+  if (day.gua === null) return {text:"гуаша рано", rest:true};
+  if (day.gua === 0) return {text:"покой", rest:true};
+  return {text:"гуаша " + day.gua + "′", rest:false};
 }
 
 function renderStrip(){
@@ -550,7 +616,9 @@ function renderStrip(){
     if (slotDone(day, "eve", day.s.length) === day.s.length) b.classList.add("done");
     const dt = document.createElement("span"); dt.className = "dt"; dt.textContent = day.d;
     const wd = document.createElement("span"); wd.className = "wd"; wd.textContent = day.wd;
-    b.append(dt, document.createElement("br"), wd);
+    const g = guaLabel(day);
+    const gu = document.createElement("span"); gu.className = "gu" + (g.rest ? " rest" : ""); gu.textContent = g.text;
+    b.append(dt, wd, gu);
     if (i === todayIdx) {
       const dot = document.createElement("span");
       dot.className = "today"; dot.title = "Сегодня";
@@ -561,27 +629,35 @@ function renderStrip(){
   });
 }
 
+function guaIndex(day){
+  return morningSteps(day).findIndex(st => st.k === "Гуаша");
+}
+
 function renderMeters(){
-  let eve = 0, mor = 0;
+  let eve = 0, mor = 0, gua = 0, guaTotal = 0;
   DAYS.forEach(day => {
     if (slotDone(day, "eve", day.s.length) === day.s.length) eve++;
-    const m = morningSteps(day).length;
-    if (slotDone(day, "mor", m) === m) mor++;
+    const m = morningSteps(day);
+    if (slotDone(day, "mor", m.length) === m.length) mor++;
+    const gi = guaIndex(day);
+    if (gi >= 0) { guaTotal++; if (get(day, "mor", gi)) gua++; }
   });
   $("m-eve").textContent = eve + " / " + DAYS.length;
   $("m-mor").textContent = mor + " / " + DAYS.length;
+  $("m-gua").textContent = gua + " / " + guaTotal;
   $("b-eve").style.width = (eve / DAYS.length * 100) + "%";
   $("b-mor").style.width = (mor / DAYS.length * 100) + "%";
-}
-
-function renderCounts(day, mor){
-  $("eve-count").textContent = slotDone(day, "eve", day.s.length) + " / " + day.s.length;
-  $("mor-count").textContent = slotDone(day, "mor", mor.length) + " / " + mor.length;
+  $("b-gua").style.width = (gua / guaTotal * 100) + "%";
 }
 
 function renderAll(){
   const day = DAYS[cur];
   const mor = morningSteps(day);
+  const after = () => {
+    $("eve-count").textContent = slotDone(day, "eve", day.s.length) + " / " + day.s.length;
+    $("mor-count").textContent = slotDone(day, "mor", mor.length) + " / " + mor.length;
+    renderMeters(); renderStrip();
+  };
 
   $("eve-when").textContent = "Вечер · " + day.d + " " + day.wd + (cur === todayIdx ? " · сегодня" : "");
   $("eve-title").textContent = day.t;
@@ -592,30 +668,28 @@ function renderAll(){
   if (day.note) { noteEl.hidden = false; noteEl.textContent = day.note; }
   else noteEl.hidden = true;
 
+  const g = guaLabel(day);
   $("mor-when").textContent = "Утро · " + day.d + " " + day.wd;
+  $("mor-title").textContent = g.rest ? "Без гуаша" : "С гуаша, " + day.gua + " минут";
 
-  const after = () => { renderCounts(day, mor); renderMeters(); renderStrip(); };
-  renderSteps($("eve-steps"), day, "eve", day.s, after);
-  renderSteps($("mor-steps"), day, "mor", mor, after);
+  renderSteps($("eve-steps"), day.s,
+    i => get(day, "eve", i),
+    (i, val) => { setTick(day, "eve", i, val); after(); });
+  renderSteps($("mor-steps"), mor,
+    i => get(day, "mor", i),
+    (i, val) => { setTick(day, "mor", i, val); after(); });
 
-  $("eve-reset").onclick = () => {
-    if (state[day.d]) state[day.d].eve = {};
-    save(); renderAll();
-  };
-  $("mor-reset").onclick = () => {
-    if (state[day.d]) state[day.d].mor = {};
-    save(); renderAll();
-  };
+  $("eve-reset").onclick = () => { if (state[day.d]) state[day.d].eve = {}; save(); renderAll(); };
+  $("mor-reset").onclick = () => { if (state[day.d]) state[day.d].mor = {}; save(); renderAll(); };
 
-  renderCounts(day, mor);
-  renderMeters();
-  renderStrip();
+  after();
 }
 
-function renderSchedule(el, pick){
+function renderSchedule(el){
   el.textContent = "";
+  const KEYS = ["Маска", "Маска на ночь", "Актив", "Глаза"];
   DAYS.forEach(day => {
-    const hit = pick(day);
+    const hit = day.s.find(st => KEYS.includes(st.k) && st.hot);
     if (!hit) return;
     const row = document.createElement("div"); row.className = "rule";
     const dt = document.createElement("span"); dt.className = "dayk"; dt.textContent = day.d;
@@ -628,13 +702,30 @@ function renderSchedule(el, pick){
   });
 }
 
-const MASK_KEYS = ["Маска", "Пилинг", "Маска на ночь"];
-renderSchedule($("sched-mask"), day => day.s.find(st => MASK_KEYS.includes(st.k)));
-renderSchedule($("sched-eyes"), day => day.s.find(st => st.k === "Глаза"));
+function renderBag(){
+  const steps = BAG.map(v => ({k:"В сумку", v}));
+  state.bag = state.bag || {};
+  const upd = () => {
+    let n = 0;
+    for (let i = 0; i < BAG.length; i++) if (state.bag[i]) n++;
+    $("bag-count").textContent = n + " / " + BAG.length;
+  };
+  renderSteps($("bag"), steps,
+    i => !!state.bag[i],
+    (i, val) => { state.bag[i] = val; save(); upd(); });
+  upd();
+  $("bag-reset").onclick = () => { state.bag = {}; save(); renderBag(); };
+}
 
+renderRules($("acne"), ACNE);
+renderRules($("gua-map"), GUA_MAP);
+renderRules($("gua-tech"), GUA_TECH);
+renderRules($("gua-after"), GUA_AFTER);
 renderRules($("rules"), RULES);
 renderRules($("fallback"), FALLBACK);
 renderRules($("tips"), TIPS);
+renderSchedule($("sched-mask"));
+renderBag();
 renderAll();
 </script>
 
