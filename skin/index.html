@@ -249,6 +249,11 @@ h2.section{font-family:var(--serif);font-weight:400;font-size:24px;margin:6px 0 
 footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:6px}
 footer a{color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- бакучиол ---------- */
+.chip[data-kind="buka"]{border-left-color:var(--retinol)}
+.kind[data-kind="buka"]{background:var(--retinol-soft);color:var(--retinol)}
+.steps li.hot[data-hue="buka"]{border-left-color:var(--retinol);background:var(--retinol-soft)}
 </style>
 </head>
 <body>
@@ -256,23 +261,23 @@ footer a{color:var(--ink-3)}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>Кожа <em>после плазмы</em> и дальше</h1>
-      <p class="sub">16–31 августа подробно, дальше этапы до декабря 2026. Задачи сейчас: убрать подкожники, восстановить барьер, вести гуаша и дойти до RF №3 спокойной кожей.</p>
+      <h1>Кожа <em>после PRP</em> и дальше</h1>
+      <p class="sub">19–31 августа подробно, дальше этапы до декабря 2026. Задачи сейчас: доводить восстановление после PRP, мягко ввести бакучиол Numbuzin №3 и дойти до RF №3 спокойной кожей.</p>
     </div>
     <div class="meters">
       <div class="meter">
         <div class="lab">Вечера закрыты</div>
-        <div class="val" id="m-eve">0 / 16</div>
+        <div class="val" id="m-eve">0 / 13</div>
         <div class="bar"><i id="b-eve" style="width:0%"></i></div>
       </div>
       <div class="meter">
         <div class="lab">Утра закрыты</div>
-        <div class="val" id="m-mor">0 / 16</div>
+        <div class="val" id="m-mor">0 / 13</div>
         <div class="bar"><i id="b-mor" style="width:0%"></i></div>
       </div>
       <div class="meter">
-        <div class="lab">Гуаша сделана</div>
-        <div class="val" id="m-gua">0 / 11</div>
+        <div class="lab">Ролик сделан</div>
+        <div class="val" id="m-gua">0 / 9</div>
         <div class="bar g"><i id="b-gua" style="width:0%"></i></div>
       </div>
     </div>
@@ -307,13 +312,17 @@ footer a{color:var(--ink-3)}
       <section class="panel">
         <div class="phead">
           <div>
-            <div class="when">Подкожники</div>
-            <h2>Как убираем воспаления</h2>
+            <div class="when">Старт 20.08, вечер</div>
+            <h2>Numbuzin №3: как вводим</h2>
           </div>
-          <span class="kind" data-kind="active">до 7–10 дней</span>
+          <span class="kind" data-kind="buka">бакучиол</span>
         </div>
-        <div class="rules" id="acne"></div>
-        <p class="note">Если подкожники не проходят за 7–10 дней — <b>к косметологу</b>, а не усиливать уход самой.</p>
+        <div class="rules" id="numb"></div>
+        <details>
+          <summary>Дни Numbuzin и дни VT PDRN</summary>
+          <div class="rules" id="sched-serum"></div>
+        </details>
+        <p class="note">Порядок в вечере: <b>тонер → сыворотка → глаза → крем</b>. Numbuzin и VT PDRN в один вечер не смешиваем — они идут через день.</p>
       </section>
 
       <section class="panel">
@@ -322,7 +331,7 @@ footer a{color:var(--ink-3)}
             <div class="when">Каждый вечер</div>
             <h2>Глаза: порядок и техника</h2>
           </div>
-          <span class="kind" data-kind="recover">после эссенции, до крема</span>
+          <span class="kind" data-kind="recover">после сыворотки, до крема</span>
         </div>
         <div class="rules" id="eyes-tech"></div>
         <details>
@@ -330,6 +339,18 @@ footer a{color:var(--ink-3)}
           <div class="rules" id="sched-eyes"></div>
         </details>
         <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем.</p>
+      </section>
+
+      <section class="panel">
+        <div class="phead">
+          <div>
+            <div class="when">Профилактика</div>
+            <h2>Подкожники: держим результат</h2>
+          </div>
+          <span class="kind" data-kind="recover">прошли, остались синячки</span>
+        </div>
+        <div class="rules" id="acne"></div>
+        <p class="note">Воспаления ушли после PRP, на их месте остались синячки — они сходят сами. Если подкожники возвращаются и не проходят за 7–10 дней — <b>к косметологу</b>, а не усиливать уход самой.</p>
       </section>
 
       <section class="panel">
@@ -367,21 +388,21 @@ footer a{color:var(--ink-3)}
       <section class="panel">
         <div class="phead">
           <div>
-            <div class="when">7 минут · 4–5 раз в неделю</div>
-            <h2>Гуаша: карта движений</h2>
+            <div class="when">7 минут · утром · 9 дней из 13</div>
+            <h2>Ролик: как катаем</h2>
           </div>
-          <span class="kind" data-kind="gua">давление 2/10</span>
+          <span class="kind" data-kind="gua">без нажима</span>
         </div>
         <div class="rules" id="gua-map"></div>
         <details>
-          <summary>Подготовка и техника</summary>
+          <summary>Среда и техника</summary>
           <div class="rules" id="gua-tech"></div>
         </details>
         <details>
-          <summary>После гуаша</summary>
+          <summary>После ролика</summary>
           <div class="rules" id="gua-after"></div>
         </details>
-        <p class="note">Не делать <b>первые 7–10 дней после процедур</b> и при активных воспалениях. Скольжение — по влажной коже с эссенцией или тонером, никогда по сухой и никогда по маслу.</p>
+        <p class="note">Связка дня: <b>Medicube PDRN Gel на лицо, сверху ролик</b>. Дни покоя — 19, 23, 26 и 29 августа, 25.08 ролик укороченный, 5 минут.</p>
       </section>
 
       <section class="panel">
@@ -409,31 +430,31 @@ footer a{color:var(--ink-3)}
       <h3>RF №3 и восстановление</h3>
       <div class="date">сентябрь · процедура ~3–5.09</div>
       <ul>
-        <li><b>1–7.09:</b> только база, PDRN и SPF. Активов нет, гуаша нет. Глаза — одно увлажнение: AXIS-Y или Medicube.</li>
-        <li><b>8–14.09:</b> кожа спокойная — гуаша 3–4 раза в неделю, антиоксиданты утром осторожно, азелаика один раз. Можно вернуть VT Reedle Shot Eye, аккуратно.</li>
-        <li><b>15–30.09:</b> полный стоп активам, только база, SPF и увлажнение. Гуаша — если кожа спокойная. Глаза — обычное чередование Medicube и AXIS-Y.</li>
-        <li><b>Бан с 15.09:</b> ретинол, кислоты, витамин C, энзимы.</li>
+        <li><b>Первые 7–10 дней после RF:</b> Numbuzin убираем, остаётся база — тонер, VT PDRN, крем, SPF. Глаза — одно увлажнение: AXIS-Y или Medicube.</li>
+        <li><b>Ролик:</b> только если после процедуры нет отёков. Есть отёк или болезненность — пропускаем.</li>
+        <li><b>С 15.09:</b> начинается полный стоп активам, он тянется до конца октября.</li>
+        <li><b>Бан на активы:</b> ретинол, кислоты, витамин C, энзимы.</li>
       </ul>
     </div>
     <div class="stage" data-tone="sun">
       <h3>Отпуск и RF №4</h3>
-      <div class="date">октябрь · процедура ~15–20.10</div>
+      <div class="date">октябрь · процедура ~15–20.10, финальная</div>
       <ul>
+        <li><b>15.09 – 30.10:</b> только база и SPF. Активов нет ни до отпуска, ни в отпуске, ни после RF №4.</li>
         <li><b>Утром в отпуске:</b> очищение, тонер, VT PDRN, глаза AXIS-Y Collagen как более лёгкий, крем, <b>SPF 50+ каждые 2 часа</b>, шляпа и очки.</li>
-        <li><b>Вечером:</b> масло и пенка мягко, Celimax Dual Barrier в 2–3 слоя, VT PDRN, глаза Medicube PDRN, после солнца AXIS-Y Mugwort 5 минут и смыть, крем Dr.Althea Watery.</li>
-        <li>Гуаша на солнце <b>не делаем</b> — риск пигментации. Активов нет вообще.</li>
-        <li><b>Конец октября — ноябрь:</b> восстановление после RF №4, база + PDRN + SPF, глаза на базовом увлажнении, гуаша через 7–10 дней, активы до декабря не трогаем.</li>
+        <li><b>Вечером:</b> масло и пенка мягко, Celimax Dual Barrier в 2–3 слоя, VT PDRN, глаза Medicube PDRN, после солнца AXIS-Y Wash Off 5 минут и смыть, крем Dr.Althea Watery.</li>
+        <li><b>Конец октября — ноябрь:</b> восстановление после RF №4, база, PDRN и SPF, ролик через 7–10 дней, активы до декабря не трогаем.</li>
       </ul>
     </div>
     <div class="stage" data-tone="back">
-      <h3>Возвращаем активы</h3>
+      <h3>Майнтенанс</h3>
       <div class="date">декабрь и дальше</div>
       <ul>
-        <li><b>Numbuzin №3 Bifida Bakuchiol</b> — чистый бакучиол без ретинола, 2–3 раза в неделю вечером: уплотнение и поры, подходит чувствительной коже.</li>
-        <li><b>Purito Seoul</b> — раз в 10–14 дней и только после патч-теста на стабильной коже.</li>
-        <li><b>Celimax Retinol Shot</b> (флакон, не тюбик) — раз в 3–4 недели, с буфером под низ, если кожа готова.</li>
-        <li><b>Celimax Retinal в тюбике</b> — скорее всего, навсегда нет. Аппарат Medicube — не раньше декабря, после всех процедур.</li>
-        <li><b>Всегда:</b> PDRN, пептиды, NAD+, керамиды, SPF каждый день, гуаша 4–5 раз в неделю для овала и регулярный уход за глазами.</li>
+        <li><b>Numbuzin №3 Bifida Bakuchiol</b> — 2–3 раза в неделю вечером.</li>
+        <li><b>Purito Seoul</b> — если придёт, раз в 10–14 дней и только после патч-теста на стабильной коже.</li>
+        <li><b>Ролик</b> — 4–5 раз в неделю по связке Medicube PDRN Gel и ролик сверху.</li>
+        <li><b>Изнутри:</b> коллаген, белок в каждом приёме пищи, сон. Подробности — на вкладке «Изнутри».</li>
+        <li><b>Celimax Retinol и Retinal</b> — отложены; возвращать только после консультации врача. Аппарат Medicube — не раньше декабря, когда закончатся процедуры.</li>
       </ul>
     </div>
   </div>
@@ -588,73 +609,59 @@ footer a{color:var(--ink-3)}
 </div>
 
 <script>
-const OIL = {k:"Очищение", v:"medicube Zero Pore Oil, затем Capsule Cleanser — масло вытягивает себум из пор"};
-const ALT = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — лёгкая текстура, пока идут подкожники"};
-const PDRN = {k:"Эссенция", v:"VT PDRN Essence 100, ждать 2 минуты", hot:"plasma"};
+const OIL   = {k:"Очищение", v:"medicube Zero Pore Oil, затем Capsule Cleanser — масло вытягивает себум из пор"};
+const ALT   = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — лёгкая текстура, плотные кремы пока не берём"};
+const PDRN  = {k:"Эссенция", v:"VT PDRN Essence 100, ждать 2 минуты", hot:"plasma"};
+const PDRN2 = {k:"Эссенция", v:"VT PDRN Essence 100, два слоя", hot:"plasma"};
+const NUM   = {k:"Сыворотка", v:"Numbuzin №3 Bifida Bakuchiol Zero Pore Serum — 2–3 капли, распределить, не втирать", hot:"buka"};
 const EYE_M = {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream — безымянным пальцем, похлопывая", hot:"eye"};
 const EYE_A = {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — безымянным пальцем, похлопывая", hot:"eye"};
+const T_CEL = {k:"Тонер", v:"Celimax Dual Barrier, два слоя"};
+const T_RL  = {k:"Тонер", v:"Round Lab 1025 Dokdo"};
+const T_PAD = {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"};
+const MASK_A= {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, не давать высохнуть, смыть тёплой водой", hot:"mask"};
 
 // вечерние схемы по дням
 const DAYS = [
- {d:"16.08", wd:"Вс", t:"День 2 после плазмы", kind:"mask", gua:null, antiox:"vitc",
-  note:"Ставка на подкожники: масло с пенкой вытягивают поры, маска подсушивает. Давить воспаления нельзя — останется пигмент.",
-  s:[OIL,
-     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, не давать высохнуть, смыть тёплой водой", hot:"mask"},
-     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, EYE_M, ALT]},
- {d:"17.08", wd:"Пн", t:"День 3 · первая гуаша", kind:"recover", gua:7, antiox:null,
-  note:"Первая гуаша после процедуры. Давление минимальное, при болезненности — отложить ещё на день.",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads — протереть, не смывать"}, PDRN, EYE_A, ALT]},
- {d:"18.08", wd:"Вт", t:"День 4", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M, ALT]},
- {d:"19.08", wd:"Ср", t:"День 5 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
-  s:[OIL,
-     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
-     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, EYE_A, ALT]},
- {d:"20.08", wd:"Чт", t:"День 6 · день покоя", kind:"recover", gua:0, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M, ALT]},
- {d:"21.08", wd:"Пт", t:"День 7 · маска VT PDRN", kind:"mask", gua:7, antiox:"vitc",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN,
-     {k:"Маска", v:"VT PDRN Daily Mask, 15 минут, остатки вбить, не смывать", hot:"mask"},
-     EYE_A, ALT]},
- {d:"22.08", wd:"Сб", t:"День 8 · азелаиновая кислота", kind:"active", gua:7, antiox:"glut",
-  note:"Первый актив после плазмы. Кожа спокойная — идём, есть краснота или свежие воспаления — переносим.",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"},
+ {d:"19.08", wd:"Ср", t:"День 5 · маска AXIS-Y", kind:"mask", roll:0, antiox:null,
+  note:"Подкожники после PRP прошли, на их месте остались синячки. Сегодня только восстановление: Numbuzin стартует завтра. Утро в присылке не расписано — оставлено без антиоксиданта.",
+  s:[OIL, MASK_A, T_CEL, PDRN2, EYE_M, ALT]},
+ {d:"20.08", wd:"Чт", t:"День 6 · старт Numbuzin №3", kind:"buka", roll:7, antiox:"vitc",
+  note:"Первый вечер с бакучиолом. Наносим после тонера, до крема. Если жжёт или пошла краснота — смыть и вернуться к VT PDRN на два дня.",
+  s:[OIL, T_RL, NUM, EYE_A, ALT]},
+ {d:"21.08", wd:"Пт", t:"День 7 · восстановление PDRN", kind:"recover", roll:7, antiox:"glut",
+  s:[OIL, T_PAD, PDRN, EYE_M, ALT]},
+ {d:"22.08", wd:"Сб", t:"День 8 · азелаика и Numbuzin", kind:"active", roll:7, antiox:"vitc",
+  note:"Самый нагруженный вечер недели: кислота, следом бакучиол. Кожа спокойная — идём, есть краснота или свежие воспаления — оставляем только азелаику.",
+  s:[OIL, T_RL,
      {k:"Актив", v:"Medicube Azelaic Acid Exosome Shot, ждать 10 минут", hot:"active"},
-     {k:"Тонер", v:"Celimax Dual Barrier"}, EYE_M, ALT]},
- {d:"23.08", wd:"Вс", t:"День 9 · день покоя", kind:"recover", gua:0, antiox:"vitc",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, EYE_A, ALT]},
- {d:"24.08", wd:"Пн", t:"День 10 · ночная маска с койевой кислотой", kind:"active", gua:7, antiox:"glut",
-  note:"Утром 25.08 SPF обязателен — койевая кислота повышает чувствительность к солнцу. Повтор не раньше чем через две недели. ⚠️ В присылке про крем два разных указания: в списке шагов его нет, а у маски помечено «поверх крема» — уточнить, наносим Dr.Althea под маску или маска идёт вместо него.",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_M,
-     {k:"Маска на ночь", v:"Medicube Kojic Acid Turmeric Mask — тонким слоем, оставить до утра", hot:"active"}]},
- {d:"25.08", wd:"Вт", t:"День 11 · первый VT Reedle Shot для глаз", kind:"active", gua:5, antiox:"vitc",
-  note:"Гуаша сегодня короткая и очень лёгкая. Покалывание от Reedle Shot в первые секунды — норма, дальше средство идёт раз в неделю.",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN,
+     NUM, EYE_A, ALT]},
+ {d:"23.08", wd:"Вс", t:"День 9 · восстановление PDRN", kind:"recover", roll:0, antiox:"glut",
+  s:[OIL, T_CEL, PDRN, EYE_M, ALT]},
+ {d:"24.08", wd:"Пн", t:"День 10 · ночная маска с койевой кислотой", kind:"active", roll:7, antiox:"vitc",
+  note:"Маска идёт поверх эссенции и заменяет крем — оставляем до утра. Наутро SPF обязателен: койевая кислота повышает чувствительность к солнцу. Повтор не раньше чем через две недели.",
+  s:[OIL, T_RL, PDRN, EYE_A,
+     {k:"Маска на ночь", v:"Medicube Kojic Acid Turmeric Mask — тонким слоем поверх, оставить до утра, крем не наносим", hot:"active"}]},
+ {d:"25.08", wd:"Вт", t:"День 11 · VT Reedle Shot для глаз", kind:"active", roll:5, antiox:"glut",
+  note:"Ролик сегодня укороченный и очень лёгкий — 5 минут. Покалывание от Reedle Shot в первые секунды — норма, дальше средство идёт раз в неделю.",
+  s:[OIL, T_CEL, PDRN,
      {k:"Глаза", v:"VT Reedle Shot Eye — только внешние уголки, зону с нитями обходим", hot:"retinol"},
      ALT]},
- {d:"26.08", wd:"Ср", t:"День 12 · маска AXIS-Y", kind:"mask", gua:0, antiox:"glut",
-  s:[OIL,
-     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
-     {k:"Тонер", v:"Celimax Dual Barrier, два слоя"},
-     PDRN, EYE_A, ALT]},
- {d:"27.08", wd:"Чт", t:"День 13", kind:"recover", gua:7, antiox:"vitc",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, EYE_M, ALT]},
- {d:"28.08", wd:"Пт", t:"День 14", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Тонер", v:"Round Lab 1025 Dokdo"}, PDRN, EYE_A, ALT]},
- {d:"29.08", wd:"Сб", t:"День 15 · день покоя", kind:"recover", gua:0, antiox:"vitc",
-  s:[OIL, {k:"Тонер", v:"Celimax Dual Barrier, два слоя"}, PDRN, EYE_M, ALT]},
- {d:"30.08", wd:"Вс", t:"День 16", kind:"recover", gua:7, antiox:"glut",
-  s:[OIL, {k:"Пэды", v:"Medicube PDRN Pads"}, PDRN, EYE_A, ALT]},
- {d:"31.08", wd:"Пн", t:"День 17 · маска AXIS-Y", kind:"mask", gua:7, antiox:"vitc",
-  s:[OIL,
-     {k:"Маска", v:"AXIS-Y Mugwort Wash Off, 5–7 минут, смыть", hot:"mask"},
-     {k:"Тонер", v:"Round Lab 1025 Dokdo"},
-     PDRN, EYE_M, ALT]}
+ {d:"26.08", wd:"Ср", t:"День 12 · маска AXIS-Y и Numbuzin", kind:"mask", roll:0, antiox:"vitc",
+  s:[OIL, MASK_A, T_CEL, NUM, EYE_M, ALT]},
+ {d:"27.08", wd:"Чт", t:"День 13 · восстановление PDRN", kind:"recover", roll:7, antiox:"glut",
+  s:[OIL, T_PAD, PDRN, EYE_A, ALT]},
+ {d:"28.08", wd:"Пт", t:"День 14 · Numbuzin", kind:"buka", roll:7, antiox:"vitc",
+  s:[OIL, T_RL, NUM, EYE_M, ALT]},
+ {d:"29.08", wd:"Сб", t:"День 15 · восстановление PDRN", kind:"recover", roll:0, antiox:"glut",
+  s:[OIL, T_CEL, PDRN, EYE_A, ALT]},
+ {d:"30.08", wd:"Вс", t:"День 16 · Numbuzin", kind:"buka", roll:7, antiox:"vitc",
+  s:[OIL, T_PAD, NUM, EYE_M, ALT]},
+ {d:"31.08", wd:"Пн", t:"День 17 · маска AXIS-Y", kind:"mask", roll:7, antiox:"glut",
+  s:[OIL, MASK_A, T_RL, PDRN, EYE_A, ALT]}
 ];
 
-const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска"};
+const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска", buka:"бакучиол"};
 
 function morningSteps(day){
   const out = [
@@ -665,40 +672,53 @@ function morningSteps(day){
     out.push({k:"Антиоксидант", v:"SkinJestique Vitamin C"});
   else if (day.antiox === "glut")
     out.push({k:"Антиоксидант", v:"Dr. Ceurance Glutathione & NMN Ampoule"});
-  out.push({k:"Эссенция", v:"VT PDRN Essence 100" + (day.gua ? ", два слоя — это и есть скользящая среда под гуаша" : ", ждать 2–3 минуты"), hot:"plasma"});
-  if (day.gua)
-    out.push({k:"Гуаша", v:day.gua + " минут по карте движений, давление 2/10" + (day.gua === 5 ? " — сегодня укороченная и очень лёгкая" : ""), hot:"gua"});
+  if (day.roll) {
+    out.push({k:"Гель", v:"Medicube PDRN Gel на всё лицо — это скользящая среда под ролик", hot:"plasma"});
+    out.push({k:"Ролик", v:day.roll + " минут: прокатывающими движениями от центра к ушам и снизу вверх, без нажима" +
+      (day.roll === 5 ? " — сегодня укороченный и очень лёгкий" : ""), hot:"gua"});
+    out.push({k:"Эссенция", v:"VT PDRN Essence 100 поверх, ждать 2 минуты", hot:"plasma"});
+  } else {
+    out.push({k:"Эссенция", v:"VT PDRN Essence 100, ждать 2–3 минуты", hot:"plasma"});
+  }
   out.push(ALT);
   out.push({k:"Санскрин", v:"SPF за 15 минут до выхода, на улице обновлять каждые 2 часа", hot:"plasma"});
   return out;
 }
 
+const NUMB = [
+  ["num","Старт — вечер 20 августа, дальше через день","1"],
+  ["num","Чередуем с VT PDRN: бакучиол не каждый день, между ним всегда восстановительный вечер","2"],
+  ["num","Порядок: тонер, затем Numbuzin, затем глаза, сверху крем","3"],
+  ["num","Расход — 2–3 капли на лицо, распределить, не втирать","4"],
+  ["num","Жжение или краснота: смыть и вернуться к VT PDRN на два дня, потом пробовать снова","5"],
+  ["no","На период заживления после RF (7–10 дней) Numbuzin убираем полностью"]
+];
 const ACNE = [
   ["num","Двойное очищение каждый вечер: medicube Zero Pore Oil, затем Capsule Cleanser","1"],
-  ["num","AXIS-Y Mugwort Wash Off — 2–3 раза в неделю: 16, 19, 26 и 31 августа","2"],
-  ["num","Лёгкие текстуры: Dr.Althea Watery вместо Celimax Noni, плотные кремы пока откладываем","3"],
-  ["num","Не давить — риск пигментации на месте каждого воспаления","4"],
+  ["num","AXIS-Y Mugwort Wash Off — 2–3 раза в неделю: 19, 26 и 31 августа","2"],
+  ["num","Лёгкие текстуры: Dr.Althea Watery, плотные кремы пока не берём","3"],
+  ["num","Не давить — на месте каждого выдавленного воспаления остаётся пигмент","4"],
   ["num","Холодный компресс: тонер Celimax на диске, 5 минут в холодильнике, приложить на 2–3 минуты","5"]
 ];
-const GUA_MAP = [
-  ["num","Лимфодренаж: от подбородка к ключицам, 5 раз","1"],
-  ["num","Линия челюсти: от центра к ушам, строго по кости, 7 раз","2"],
-  ["num","Диагональная складка: снизу вверх к виску, 7 раз","3"],
-  ["num","Скулы: от носа к верху уха, 5 раз","4"],
-  ["num","Финал: от висков к ключицам, 5 раз","5"]
+const ROLL_MAP = [
+  ["num","Утром, после тонера и антиоксиданта","1"],
+  ["num","Наносим Medicube PDRN Gel на всё лицо — катать по сухой коже нельзя","2"],
+  ["num","Прокатываем от центра лица к ушам","3"],
+  ["num","Каждую зону ведём снизу вверх","4"],
+  ["num","7 минут — этого достаточно, дольше не нужно","5"]
 ];
-const GUA_TECH = [
-  ["yes","Угол пластины к коже 15–30 градусов"],
-  ["yes","Медленно: одно движение — 2–3 секунды"],
-  ["yes","Направление всегда снизу вверх"],
-  ["yes","Ощущение — приятное скольжение, боли быть не должно"],
-  ["no","Не по сухой коже и не поверх масла или плотного крема"]
+const ROLL_TECH = [
+  ["yes","Среда — только Medicube PDRN Gel, не масло и не плотный крем"],
+  ["yes","Нажим минимальный: ролик скользит, кожа не тянется"],
+  ["yes","Медленно, без рывков, по одной зоне за раз"],
+  ["no","Не давить — синяки и растяжение вместо лимфодренажа"],
+  ["no","Не катать по воспалениям и по свежим синячкам"]
 ];
-const GUA_AFTER = [
-  ["yes","Подождать 2–3 минуты"],
-  ["yes","Крем Medicube Zero Pore One Day тонким слоем, впечатывать"],
-  ["yes","Глаза: AXIS-Y Vegan Collagen или Medicube PDRN"],
-  ["yes","SPF обязательно"]
+const ROLL_AFTER = [
+  ["yes","Сверху VT PDRN Essence, подождать 2 минуты"],
+  ["yes","Крем Dr.Althea Watery тонким слоем"],
+  ["yes","SPF обязательно"],
+  ["tip","Ролик мыть после каждого использования и сушить насухо"]
 ];
 const EYES_TECH = [
   ["yes","Наносим после сыворотки или эссенции, но до крема на лицо"],
@@ -706,31 +726,32 @@ const EYES_TECH = [
   ["yes","Расход — с рисовое зёрнышко на оба глаза"],
   ["no","Не подходить вплотную к ресничному краю: отступ 2–3 мм"],
   ["tip","Чередуем: Medicube PDRN Pink Peptide — питание и пептиды, AXIS-Y Vegan Collagen — увлажнение"],
-  ["tip","VT Reedle Shot Eye — микроиглы, только с 25.08 и раз в неделю"]
+  ["tip","VT Reedle Shot Eye — микроиглы, 25.08 и дальше раз в неделю"]
 ];
 const RULES = [
   ["yes","SPF каждый день, на солнце обновлять каждые 2 часа"],
-  ["yes","Уход за глазами каждый вечер: после эссенции, до крема"],
+  ["yes","Уход за глазами каждый вечер: после сыворотки, до крема"],
   ["yes","Двойное очищение вечером: масло, затем пенка"],
   ["yes","PDRN и пептиды — безопасная база, их не отменяем ни на одном этапе"],
   ["no","Смываемые маски держим 5–7 минут и смываем, до корки не сушим"],
-  ["no","Kojic Acid Turmeric — только с 24.08, раз в две недели, на ночь"],
-  ["no","VT Reedle Shot для глаз — только с 25.08 и раз в неделю"],
-  ["no","Celimax Retinol и Retinal — до декабря, тюбик, скорее всего, навсегда"],
-  ["no","Аппарат Medicube — не раньше декабря, когда закончатся процедуры"]
+  ["no","Kojic Acid Turmeric — раз в две недели, на ночь, наутро SPF"],
+  ["no","VT Reedle Shot для глаз — раз в неделю"],
+  ["no","Celimax Retinol и Retinal — отложены; возвращать только после консультации врача"],
+  ["no","Плотные кремы и аппарат Medicube — не раньше декабря, когда закончатся процедуры"]
 ];
 const FALLBACK = [
   ["no","Краснота или новые высыпания — откат к базе на 2–3 дня, активы отменяются"],
+  ["no","Жжение от Numbuzin — смыть, два дня только VT PDRN"],
   ["yes","Тонер Celimax Dual Barrier, 2–3 слоя — замена керамидной сыворотке"],
   ["yes","VT PDRN Essence в два слоя, сверху Dr.Althea Watery"],
   ["yes","Холодный компресс: тонер на диске, 5 минут в холодильнике, приложить на 2–3 минуты"],
-  ["no","Гуаша при воспалениях не делаем — разносим по лицу"]
+  ["no","Ролик при воспалениях и отёках не делаем"]
 ];
 const TIPS = [
   ["tip","PDRN-слой работает сильнее так: эссенция, пауза 2 минуты, крем"],
-  ["tip","Масло в двойном очищении и есть главный инструмент против подкожников — не пропускать"],
-  ["tip","Гуаша только по влажной коже, давление 2/10, всегда снизу вверх"],
-  ["tip","Дни покоя гуаша — 20, 23, 26 и 29 августа: мышцам лица тоже нужен отдых"],
+  ["tip","Утренняя связка дня — Medicube PDRN Gel, сверху ролик: гель работает и как уход, и как скольжение"],
+  ["tip","Масло в двойном очищении остаётся главным инструментом против подкожников — не пропускать"],
+  ["tip","Дни покоя ролика — 19, 23, 26 и 29 августа"],
   ["tip","Янтарные дни в ленте — нагрузка: 22, 24 и 25 августа. Между ними всегда есть спокойный вечер"]
 ];
 const BAG = [
@@ -745,7 +766,7 @@ const BAG = [
   "Физическая защита: шляпа, очки, одежда с UPF"
 ];
 
-const KEY = "skincare-2026-v3";   // v2 сброшен: в вечера добавился шаг с глазами, индексы галочек сдвинулись
+const KEY = "skincare-2026-v4";   // v3 сброшен: период сдвинут на 19–31.08, гуаша заменена роликом, добавлена Numbuzin №3
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
@@ -818,10 +839,9 @@ function renderRules(el, items){
   });
 }
 
-function guaLabel(day){
-  if (day.gua === null) return {text:"гуаша рано", rest:true};
-  if (day.gua === 0) return {text:"покой", rest:true};
-  return {text:"гуаша " + day.gua + "′", rest:false};
+function rollLabel(day){
+  if (!day.roll) return {text:"покой", rest:true};
+  return {text:"ролик " + day.roll + "′", rest:false};
 }
 
 function renderStrip(){
@@ -834,7 +854,7 @@ function renderStrip(){
     if (slotDone(day, "eve", day.s.length) === day.s.length) b.classList.add("done");
     const dt = document.createElement("span"); dt.className = "dt"; dt.textContent = day.d;
     const wd = document.createElement("span"); wd.className = "wd"; wd.textContent = day.wd;
-    const g = guaLabel(day);
+    const g = rollLabel(day);
     const gu = document.createElement("span"); gu.className = "gu" + (g.rest ? " rest" : ""); gu.textContent = g.text;
     b.append(dt, wd, gu);
     if (i === todayIdx) {
@@ -847,25 +867,25 @@ function renderStrip(){
   });
 }
 
-function guaIndex(day){
-  return morningSteps(day).findIndex(st => st.k === "Гуаша");
+function rollIndex(day){
+  return morningSteps(day).findIndex(st => st.k === "Ролик");
 }
 
 function renderMeters(){
-  let eve = 0, mor = 0, gua = 0, guaTotal = 0;
+  let eve = 0, mor = 0, roll = 0, rollTotal = 0;
   DAYS.forEach(day => {
     if (slotDone(day, "eve", day.s.length) === day.s.length) eve++;
     const m = morningSteps(day);
     if (slotDone(day, "mor", m.length) === m.length) mor++;
-    const gi = guaIndex(day);
-    if (gi >= 0) { guaTotal++; if (get(day, "mor", gi)) gua++; }
+    const ri = rollIndex(day);
+    if (ri >= 0) { rollTotal++; if (get(day, "mor", ri)) roll++; }
   });
   $("m-eve").textContent = eve + " / " + DAYS.length;
   $("m-mor").textContent = mor + " / " + DAYS.length;
-  $("m-gua").textContent = gua + " / " + guaTotal;
+  $("m-gua").textContent = roll + " / " + rollTotal;
   $("b-eve").style.width = (eve / DAYS.length * 100) + "%";
   $("b-mor").style.width = (mor / DAYS.length * 100) + "%";
-  $("b-gua").style.width = (gua / guaTotal * 100) + "%";
+  $("b-gua").style.width = (roll / rollTotal * 100) + "%";
 }
 
 function renderAll(){
@@ -886,9 +906,9 @@ function renderAll(){
   if (day.note) { noteEl.hidden = false; noteEl.textContent = day.note; }
   else noteEl.hidden = true;
 
-  const g = guaLabel(day);
+  const g = rollLabel(day);
   $("mor-when").textContent = "Утро · " + day.d + " " + day.wd;
-  $("mor-title").textContent = g.rest ? "Без гуаша" : "С гуаша, " + day.gua + " минут";
+  $("mor-title").textContent = g.rest ? "Без ролика" : "С роликом, " + day.roll + " минут";
 
   renderSteps($("eve-steps"), day.s,
     i => get(day, "eve", i),
@@ -905,7 +925,7 @@ function renderAll(){
 
 function renderSchedule(el){
   el.textContent = "";
-  const KEYS = ["Маска", "Маска на ночь", "Актив", "Глаза"];
+  const KEYS = ["Маска", "Маска на ночь", "Актив"];
   DAYS.forEach(day => {
     const hit = day.s.find(st => KEYS.includes(st.k) && st.hot);
     if (!hit) return;
@@ -914,6 +934,21 @@ function renderSchedule(el){
     const what = document.createElement("span"); what.className = "what";
     what.textContent = hit.v;
     const lab = document.createElement("small"); lab.textContent = hit.k;
+    what.append(lab);
+    row.append(dt, what);
+    el.append(row);
+  });
+}
+
+function renderSerum(el){
+  el.textContent = "";
+  DAYS.forEach(day => {
+    const num = day.s.some(st => st.k === "Сыворотка");
+    const row = document.createElement("div"); row.className = "rule";
+    const dt = document.createElement("span"); dt.className = "dayk"; dt.textContent = day.d;
+    const what = document.createElement("span"); what.className = "what";
+    what.textContent = num ? "Numbuzin №3 Bifida Bakuchiol" : "VT PDRN Essence 100";
+    const lab = document.createElement("small"); lab.textContent = num ? "бакучиол" : "восстановление";
     what.append(lab);
     row.append(dt, what);
     el.append(row);
@@ -1020,14 +1055,16 @@ renderRules($("food"), FOOD);
 renderRules($("life"), LIFE);
 renderInside();
 
+renderRules($("numb"), NUMB);
 renderRules($("acne"), ACNE);
-renderRules($("gua-map"), GUA_MAP);
-renderRules($("gua-tech"), GUA_TECH);
-renderRules($("gua-after"), GUA_AFTER);
+renderRules($("gua-map"), ROLL_MAP);
+renderRules($("gua-tech"), ROLL_TECH);
+renderRules($("gua-after"), ROLL_AFTER);
 renderRules($("rules"), RULES);
 renderRules($("fallback"), FALLBACK);
 renderRules($("tips"), TIPS);
 renderSchedule($("sched-mask"));
+renderSerum($("sched-serum"));
 renderRules($("eyes-tech"), EYES_TECH);
 renderEyes($("sched-eyes"));
 renderBag();
