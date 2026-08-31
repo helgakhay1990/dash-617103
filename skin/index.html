@@ -315,7 +315,7 @@ footer a{color:var(--ink-3)}
         <div class="phead">
           <div>
             <div class="when">Старт 02.09 · до 19.09</div>
-            <h2>Активы: Numbuzin №3 и Melaclear</h2>
+            <h2>Активы: три вечерних средства</h2>
           </div>
           <span class="kind" data-kind="buka">бакучиол</span>
         </div>
@@ -324,7 +324,7 @@ footer a{color:var(--ink-3)}
           <summary>Чем работаем в каждый вечер</summary>
           <div class="rules" id="sched-serum"></div>
         </details>
-        <p class="note">Порядок в вечере: <b>тонер → актив → глаза → крем</b>. Два актива в один вечер не смешиваем: <b>Numbuzin №3</b> идёт 02, 05, 09, 12, 15 и 18.09, <b>Melaclear</b> — 03, 07, 10, 13, 16 и 19.09, остальные вечера держит VT PDRN.</p>
+        <p class="note">Порядок в вечере: <b>тонер → актив → глаза → крем</b>. Два актива в один вечер не смешиваем: <b>Numbuzin №3</b> идёт 02, 05, 09, 12, 15 и 18.09, <b>Melaclear</b> — 03, 07, 10, 13, 16 и 19.09, <b>азелаиновая кислота</b> — 04, 11 и 17.09. Оставшиеся семь вечеров держит VT PDRN.</p>
       </section>
 
       <section class="panel">
@@ -340,7 +340,7 @@ footer a{color:var(--ink-3)}
           <summary>Чем мажем по датам</summary>
           <div class="rules" id="sched-eyes"></div>
         </details>
-        <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем. <b>15.09</b> — единственный вечер с Numbuzin №9 Eye Cream: в нём ретинол, поэтому это проба на спокойной коже, а не новый постоянный шаг.</p>
+        <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем. <b>15.09</b> — единственный вечер с Numbuzin №9 Eye Cream: в нём ретинол, поэтому это проба на спокойной коже, а не новый постоянный шаг. <b>18.09</b> — единственный вечер с VT Reedle Shot Eye, и ставим его только если проба 15.09 прошла спокойно.</p>
       </section>
 
       <section class="panel">
@@ -391,7 +391,7 @@ footer a{color:var(--ink-3)}
       <section class="panel">
         <div class="phead">
           <div>
-            <div class="when">Утром · 20 дней из 22</div>
+            <div class="when">Утром · 20 дней из 22 · Booster 4 раза</div>
             <h2>Age-R и ролик: как ведём</h2>
           </div>
           <span class="kind" data-kind="gua">без нажима</span>
@@ -434,7 +434,7 @@ footer a{color:var(--ink-3)}
           <span class="kind" data-kind="recover">состав цикла</span>
         </div>
         <div class="rules" id="stock"></div>
-        <p class="note">Средства из присланного списка, которые в подневном расписании не встречаются ни разу: <b>Medicube Azelaic Acid Shot</b>, <b>Age-R Booster Mode</b> и <b>Air Shot</b>. Они оставлены на полке — ставить их в дни без твоего слова не стала.</p>
+        <p class="note">Азелаиновая кислота и режим Booster поставлены в дни. <b>Air Shot</b> в цикл не помещается по твоему же ограничению: до 20.09 он запрещён, а с 20.09 начинается стоп активам. Первое окно для него — <b>после отпуска</b>.</p>
       </section>
     </div>
   </div>
@@ -477,6 +477,7 @@ footer a{color:var(--ink-3)}
         <li><b>Следующая процедура</b> — дата не назначена, схема пересобирается под неё.</li>
         <li><b>Возврат активов:</b> начинаем с Numbuzin №3 два-три раза в неделю, дальше по реакции. Melaclear возвращаем после него, не одновременно.</li>
         <li><b>Numbuzin №9 Eye Cream:</b> если тест 15.09 прошёл спокойно — можно вводить раз в неделю, иначе остаётся на полке.</li>
+        <li><b>Age-R Air Shot и VT Reedle Shot 100</b> — первое окно после отпуска: в цикле до 20.09 они запрещены, а дальше идёт стоп активам.</li>
         <li><b>Изнутри:</b> коллаген, белок в каждом приёме пищи, сон. Подробности — на вкладке «Изнутри».</li>
       </ul>
     </div>
@@ -645,6 +646,9 @@ const MELA  = {k:"Актив", v:"Dr.Althea Melaclear с транексамов�
 const MELA1 = {k:"Актив", v:"Dr.Althea Melaclear — первый вечер, тонкий слой на сухую кожу", hot:"active"};
 const EYE_M = {k:"Глаза", v:"Medicube PDRN Pink Peptide Eye Cream — безымянным пальцем, похлопывая", hot:"eye"};
 const EYE_A = {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — безымянным пальцем, похлопывая", hot:"eye"};
+const AZ1   = {k:"Актив", v:"Medicube Azelaic Acid Shot — первый раз, тонкий слой, зону вокруг глаз обходим", hot:"active"};
+const AZ    = {k:"Актив", v:"Medicube Azelaic Acid Shot — раз в неделю, тонкий слой, зону вокруг глаз обходим", hot:"active"};
+const EYE_R = {k:"Глаза", v:"VT Reedle Shot Eye — только внешние уголки, отступ от ресничного края 2–3 мм", hot:"retinol"};
 const EYE_N = {k:"Глаза", v:"Numbuzin №9 Eye Cream — первый тест, в составе ретинол. Печёт или краснеет — снимаем и возвращаемся к PDRN", hot:"retinol"};
 const T_CEL = {k:"Тонер", v:"Celimax Dual Barrier, два слоя"};
 const T_CEL3= {k:"Тонер", v:"Celimax Dual Barrier, три слоя"};
@@ -671,38 +675,40 @@ const DAYS = [
  {d:"03.09", wd:"Чт", n:8,  t:"День 8 · старт Melaclear", kind:"active", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"mela",
   note:"Первый вечер с транексамовой кислотой. Она работает по тону, поэтому SPF наутро обязателен без вариантов.",
   s:[OIL, T_RL, MELA1, EYE_A, ALT]},
- {d:"04.09", wd:"Пт", n:9,  t:"День 9 · отдых от активов", kind:"recover", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
-  s:[OIL, T_VG, PDRN_R, EYE_M, ALT]},
+ {d:"04.09", wd:"Пт", n:9,  t:"День 9 · старт азелаиновой кислоты", kind:"active", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"azel",
+  note:"Третий новый актив за три дня: 02.09 бакучиол, 03.09 Melaclear, сегодня азелаиновая кислота. Если кожа отзовётся краснотой или жжением, снимаем первой именно азелаинку — она вводится последней и стоит реже всех.",
+  s:[OIL, T_VG, AZ1, PDRN, EYE_M, ALT]},
  {d:"05.09", wd:"Сб", n:10, t:"День 10 · бакучиол", kind:"buka", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"num",
   s:[OIL, T_RL, NUM, EYE_A, ZERO]},
  {d:"06.09", wd:"Вс", n:11, t:"День 11 · коллагеновая маска", kind:"mask", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
   note:"Biodance держится три часа и не смывается — ставим её на вечер, когда никуда не идём.",
   s:[OIL, T_CEL, M_BIO, PDRN, EYE_M, ALT]},
- {d:"07.09", wd:"Пн", n:12, t:"День 12 · работа по тону", kind:"active", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"mela",
+ {d:"07.09", wd:"Пн", n:12, t:"День 12 · работа по тону", kind:"active", dev:"ager", min:5, boost:true, mtoner:"n9", mser:"full", neck:true, act:"mela",
   s:[OIL, T_RL, MELA, EYE_A, ALT]},
  {d:"08.09", wd:"Вт", n:13, t:"День 13 · маска для пор", kind:"mask", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
   s:[OIL, T_CEL, M_AX, PDRN, EYE_M, ALT]},
  {d:"09.09", wd:"Ср", n:14, t:"День 14 · бакучиол", kind:"buka", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"num",
   s:[OIL, T_RL, NUM, EYE_A, ZERO]},
- {d:"10.09", wd:"Чт", n:15, t:"День 15 · работа по тону", kind:"active", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"mela",
+ {d:"10.09", wd:"Чт", n:15, t:"День 15 · работа по тону", kind:"active", dev:"ager", min:5, boost:true, mtoner:"n9", mser:"full", neck:true, act:"mela",
   s:[OIL, T_VG, MELA, EYE_M, ALT]},
- {d:"11.09", wd:"Пт", n:16, t:"День 16 · отдых от активов", kind:"recover", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
-  s:[OIL, T_RL, PDRN_R, EYE_A, ALT]},
+ {d:"11.09", wd:"Пт", n:16, t:"День 16 · азелаиновая кислота", kind:"active", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"azel",
+  s:[OIL, T_RL, AZ, PDRN, EYE_A, ALT]},
  {d:"12.09", wd:"Сб", n:17, t:"День 17 · бакучиол", kind:"buka", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"num",
   s:[OIL, T_CEL, NUM, EYE_M, ALT]},
  {d:"13.09", wd:"Вс", n:18, t:"День 18 · работа по тону", kind:"active", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"mela",
   s:[OIL, T_RL, MELA, EYE_A, ZERO]},
- {d:"14.09", wd:"Пн", n:19, t:"День 19 · тканевая маска", kind:"mask", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
+ {d:"14.09", wd:"Пн", n:19, t:"День 19 · тканевая маска", kind:"mask", dev:"ager", min:5, boost:true, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
   s:[OIL, T_CEL, M_N9, PDRN, EYE_M, ALT]},
  {d:"15.09", wd:"Вт", n:20, t:"День 20 · тест крема для глаз", kind:"buka", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"num",
   note:"В Numbuzin №9 Eye Cream есть ретинол, а он в этой схеме был отложен. Ставим один тест на спокойной коже: нанести только на внешние уголки, наутро посмотреть реакцию. Печёт, краснеет, шелушится — снимаем и дальше идём на Medicube PDRN.",
   s:[OIL, T_RL, NUM, EYE_N, ALT]},
  {d:"16.09", wd:"Ср", n:21, t:"День 21 · работа по тону", kind:"active", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"mela",
   s:[OIL, T_VG, MELA, EYE_M, ALT]},
- {d:"17.09", wd:"Чт", n:22, t:"День 22 · отдых от активов", kind:"recover", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"pdrn",
-  s:[OIL, T_RL, PDRN_R, EYE_A, ALT]},
- {d:"18.09", wd:"Пт", n:23, t:"День 23 · бакучиол", kind:"buka", dev:"ager", min:5, mtoner:"n9", mser:"full", neck:true, act:"num",
-  s:[OIL, T_CEL, NUM, EYE_M, ZERO]},
+ {d:"17.09", wd:"Чт", n:22, t:"День 22 · азелаиновая кислота", kind:"active", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"azel",
+  s:[OIL, T_RL, AZ, PDRN, EYE_A, ALT]},
+ {d:"18.09", wd:"Пт", n:23, t:"День 23 · бакучиол и Reedle для глаз", kind:"buka", dev:"ager", min:5, boost:true, mtoner:"n9", mser:"full", neck:true, act:"num",
+  note:"Единственный вечер с VT Reedle Shot Eye в этом цикле: ставим его только если тест Numbuzin №9 Eye 15.09 прошёл без красноты и жжения. Есть сомнения — оставляем Medicube PDRN.",
+  s:[OIL, T_CEL, NUM, EYE_R, ZERO]},
  {d:"19.09", wd:"Сб", n:24, t:"День 24 · последний актив цикла", kind:"active", dev:"roll", min:7, mtoner:"n9", mser:"full", neck:true, act:"mela",
   note:"Последний вечер с активом. С завтрашнего дня кожа выходит из-под кислот и бакучиола и идёт к отпуску спокойной.",
   s:[OIL, T_RL, MELA, EYE_A, ALT]},
@@ -736,6 +742,9 @@ function morningSteps(day){
     out.push({k:"Гель", v:"Medicube PDRN Gel на всё лицо — скользящая среда под аппарат", hot:"plasma"});
     out.push({k:"Аппарат", v:"Medicube Age-R, режим микротоков, " + day.min + " минут: снизу вверх и от центра к ушам" +
       (day.d === "02.09" ? " — первый прогон после процедур, ведём легко" : ""), hot:"gua"});
+    if (day.boost)
+      out.push({k:"Аппарат", v:"Medicube Age-R, режим Booster, 3 минуты — сразу после микротоков, по тому же гелю" +
+        (day.d === "07.09" ? " — первый раз, идём по одной зоне и следим за реакцией" : ""), hot:"gua"});
   } else if (day.dev === "roll") {
     out.push({k:"Гель", v:"Medicube PDRN Gel на всё лицо — по сухой коже катать нельзя", hot:"plasma"});
     out.push({k:"Ролик", v:"Ролик M911, " + day.min + " минут: прокатывающими движениями от центра к ушам и снизу вверх, нажим 2 из 10" +
@@ -754,8 +763,10 @@ const NUMB = [
   ["num","Расход — 2–3 капли на лицо, распределить, не втирать","3"],
   ["num","Дальше через два-три вечера: 05, 09, 12, 15 и 18.09 — шесть вечеров за цикл","4"],
   ["yes","В свободные вечера чередуется с Dr.Althea Melaclear: 03, 07, 10, 13, 16 и 19.09"],
+  ["yes","Medicube Azelaic Acid Shot — раз в неделю, 04, 11 и 17.09, в вечера без бакучиола и Melaclear"],
+  ["no","Два актива в один вечер не идут: бакучиол, транексамовая и азелаиновая кислоты строго по очереди"],
   ["no","Жжение или краснота: смыть и вернуться к VT PDRN на два дня"],
-  ["no","С 20.09 оба актива снимаем: перед отпуском кожа выходит из-под кислот"]
+  ["no","С 20.09 снимаем все три актива: перед отпуском кожа выходит из-под кислот"]
 ];
 const ACNE = [
   ["yes","Двойное очищение каждый вечер: medicube Zero Pore Oil, затем Capsule Cleanser"],
@@ -774,7 +785,8 @@ const ROLL_MAP = [
 ];
 const ROLL_TECH = [
   ["yes","Аппарат и ролик чередуются через день: Age-R по нечётным дням цикла, ролик по чётным"],
-  ["yes","Age-R идёт только в режиме микротоков — Booster и Air Shot в этом цикле не включаем"],
+  ["yes","Режим Booster добавляем сразу после микротоков, 3 минуты: 07, 10, 14 и 18.09 — два раза в неделю"],
+  ["no","Air Shot в этот цикл не попадает: до 20.09 он запрещён, а с 20.09 начинается стоп активам"],
   ["yes","Нажим минимальный, 2 из 10: инструмент скользит, кожа не тянется"],
   ["no","Не катать по воспалениям и свежим синячкам"],
   ["no","01.09 — день без аппарата, кожа отдыхает"],
@@ -794,6 +806,7 @@ const EYES_TECH = [
   ["tip","Чередуем через вечер: Medicube PDRN Pink Peptide — питание и пептиды, AXIS-Y Vegan Collagen — увлажнение"],
   ["no","Numbuzin №9 Eye Cream содержит ретинол — до 14.09 не берём"],
   ["yes","15.09 один тест Numbuzin №9 Eye на спокойной коже, дальше по реакции"],
+  ["yes","VT Reedle Shot Eye — один раз за цикл, 18.09, и только если тест 15.09 прошёл спокойно"],
   ["no","С 20.09 возвращаемся на Medicube PDRN: перед отпуском активов у глаз нет"]
 ];
 const RULES = [
@@ -802,10 +815,10 @@ const RULES = [
   ["yes","Уход за глазами каждый вечер: после сыворотки, до крема"],
   ["yes","PDRN и пептиды — безопасная база, их не отменяем ни на одном этапе"],
   ["yes","Между слоями ждём 2 минуты, иначе средства скатываются"],
-  ["no","Активы никогда не идут в один вечер: Numbuzin №3 и Melaclear только по очереди"],
+  ["no","Активы никогда не идут в один вечер: бакучиол, Melaclear и азелаиновая кислота только по очереди"],
   ["no","VT Reedle Shot 100 и тонер Reedle Shot — весь цикл пропускаем, до 20.09 они запрещены"],
-  ["no","Medicube Azelaic Acid Shot в подневное расписание не поставлен — перед применением спросить врача"],
-  ["no","Age-R Booster Mode и Air Shot в этом цикле не включаем, только микротоки"],
+  ["yes","Medicube Azelaic Acid Shot — раз в неделю: 04, 11 и 17.09, в вечера без других активов"],
+  ["no","Age-R Air Shot в цикл не попадает: до 20.09 запрещён, с 20.09 стоп активам. Первое окно — после отпуска"],
   ["no","Смываемые маски держим 5–7 минут и смываем, до корки не сушим"],
   ["no","С 20.09 стоп всем активам: Numbuzin №3, Melaclear, кислоты, маски-эксфолианты, аппараты"],
   ["no","Celimax Retinol и Retinal — отложены, возвращать только после консультации врача"]
@@ -843,21 +856,21 @@ const BAG = [
   "Не берём: активы, аппарат Age-R, ролик"
 ];
 const STOCK = [
-  ["yes","Аппараты: Medicube Age-R в режиме микротоков и ролик M911, через день"],
+  ["yes","Аппараты: Medicube Age-R в режиме микротоков и ролик M911, через день. Режим Booster — 07, 10, 14 и 18.09"],
   ["yes","Тонеры: Numbuzin №9 с NAD+ утром, Round Lab, Celimax Dual Barrier и Vita Green вечером"],
   ["yes","Сыворотки утром: SkinJestique Sculptor Code по овалу, Numbuzin №9 Essence на лицо"],
-  ["yes","Активы вечером: Numbuzin №3 с бакучиолом и Dr.Althea Melaclear, по очереди через вечер"],
+  ["yes","Активы вечером: Numbuzin №3 с бакучиолом, Dr.Althea Melaclear и Medicube Azelaic Acid Shot, строго по очереди"],
   ["yes","База: VT PDRN Essence 100 на вечера отдыха и на весь период после 20.09"],
-  ["yes","Глаза: Medicube PDRN Pink Peptide и AXIS-Y Vegan Collagen через вечер"],
+  ["yes","Глаза: Medicube PDRN Pink Peptide и AXIS-Y Vegan Collagen через вечер, VT Reedle Shot Eye — 18.09"],
   ["yes","Кремы: Dr.Althea Watery на всё лицо, Medicube Zero Pore на Т-зону, Medicube Neck Cream на шею"],
   ["yes","Маски: SkinJestique Queen 01.09, Biodance 06.09, AXIS-Y Wash Off 08.09, Numbuzin №9 Sheet 14.09"],
   ["no","Отложено до 20.09 и дальше: VT Reedle Shot 100 и тонер Reedle Shot"],
-  ["no","Не поставлено в расписание: Medicube Azelaic Acid Shot, Age-R Booster Mode и Air Shot"],
+  ["no","Age-R Air Shot — единственное средство без места в цикле, первое окно после отпуска"],
   ["no","Отложено до консультации врача: Celimax Retinol и Retinal"],
   ["tip","Numbuzin №9 Eye Cream содержит ретинол — на 15.09 стоит один пробный вечер"]
 ];
 
-const KEY = "skincare-2026-v7";   // v6 сброшен: новый период 31.08–21.09, добавлены Age-R, Melaclear, линия Numbuzin №9, шея
+const KEY = "skincare-2026-v8";   // v7 сброшен: в вечера добавлена азелаиновая кислота, в утро режим Booster — индексы галочек сдвинулись, шея
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
@@ -1036,6 +1049,7 @@ function renderSchedule(el){
 const ACT_TEXT = {
   num:  ["Numbuzin №3 Bifida Bakuchiol", "бакучиол"],
   mela: ["Dr.Althea Melaclear", "тон и постакне"],
+  azel: ["Medicube Azelaic Acid Shot", "кислота, раз в неделю"],
   pdrn: ["VT PDRN Essence 100", "восстановление"]
 };
 function renderSerum(el){
