@@ -151,6 +151,25 @@ h1::before{content:"✿ ";font-style:normal;color:var(--retinol);font-size:.62em
 .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;align-items:start}
 @media (max-width:860px){.cols{grid-template-columns:1fr}}
 .stack{display:flex;flex-direction:column;gap:18px}
+.refhint{color:var(--ink-3);font-size:13px;margin:0 2px 4px}
+#tab-ref{display:flex;flex-direction:column;gap:12px}
+#tab-ref[hidden]{display:none}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.acc > summary{
+  cursor:pointer;list-style:none;padding:16px 18px;
+  font-family:var(--serif);font-size:20px;line-height:1.2;color:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.acc > summary::-webkit-details-marker{display:none}
+.acc > summary::after{content:"+";font-family:var(--ui);font-weight:700;font-size:19px;color:var(--plasma);flex:none}
+.acc[open] > summary{border-bottom:1px solid var(--line)}
+.acc[open] > summary::after{content:"–"}
+.acc > summary:hover{color:var(--plasma)}
+.acc .panel{border:0;border-radius:0;box-shadow:none;background:transparent}
+.acc .panel .phead{padding-top:14px}
+.accbody{padding:4px 0 8px}
+.accbody .road{padding:0 18px 14px}
+.accbody h2.section{padding:0 18px;font-size:19px}
 .panel{
   background:var(--card);border:1px solid var(--line);border-radius:20px;
   box-shadow:var(--shadow);overflow:hidden;
@@ -326,7 +345,8 @@ footer a{color:var(--ink-3)}
 
   <div class="tabrow">
     <div class="tabs" role="tablist">
-      <button class="tab-btn" type="button" role="tab" id="t-care" aria-selected="true" aria-controls="tab-care">Уход</button>
+      <button class="tab-btn" type="button" role="tab" id="t-care" aria-selected="true" aria-controls="tab-care">Сегодня</button>
+      <button class="tab-btn" type="button" role="tab" id="t-ref" aria-selected="false" aria-controls="tab-ref">Справочник</button>
       <button class="tab-btn" type="button" role="tab" id="t-inside" aria-selected="false" aria-controls="tab-inside">Изнутри</button>
     </div>
     <button class="theme-btn" id="theme-btn" type="button">🌙 тёмная тема</button>
@@ -352,68 +372,7 @@ footer a{color:var(--ink-3)}
           <button class="reset" id="eve-reset" type="button">Снять галочки вечера</button>
         </div>
       </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">02.09 – 16.09 · два актива</div>
-            <h2>Активы и пэды: чем работаем вечером</h2>
-          </div>
-          <span class="kind" data-kind="buka">бакучиол</span>
-        </div>
-        <div class="rules" id="numb"></div>
-        <details>
-          <summary>Чем работаем в каждый вечер</summary>
-          <div class="rules" id="sched-serum"></div>
-        </details>
-        <p class="note">Порядок в вечере: <b>очищение → пэд или маска → актив → глаза → крем → шея</b>. В дни с тканевой маской пэд не берём: маска ложится на голую кожу, актив идёт поверх вбитой эссенции. Пэд идёт в паре с активом: <b>Pink Pad</b> с бакучиолом, <b>Zero Pore Pad</b> с Melaclear, <b>Noni Pad</b> в дни покоя. Два актива в один вечер не смешиваем: <b>Numbuzin №3</b> — 03, 05, 08, 10, 12 и 15.09, <b>Melaclear</b> — 02, 04, 09, 11 и 16.09. Остальные вечера держит <b>Numbuzin №9 Essence</b>.</p>
-      </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Каждый вечер · спикулы до 15.09</div>
-            <h2>Глаза: порядок и техника</h2>
-          </div>
-          <span class="kind" data-kind="recover">после сыворотки, до крема</span>
-        </div>
-        <div class="rules" id="eyes-tech"></div>
-        <details>
-          <summary>Чем мажем по датам</summary>
-          <div class="rules" id="sched-eyes"></div>
-        </details>
-        <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем. <b>15.09</b> — единственный вечер с Numbuzin №9 Eye Cream: в нём ретинол, поэтому это проба на спокойной коже, а не новый постоянный шаг. <b>18.09</b> — единственный вечер с VT Reedle Shot Eye, и ставим его только если проба 15.09 прошла спокойно.</p>
-      </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Профилактика</div>
-            <h2>Поры и подкожники</h2>
-          </div>
-          <span class="kind" data-kind="mask">Zero Pore точечно</span>
-        </div>
-        <div class="rules" id="acne"></div>
-        <p class="note">Medicube Zero Pore Cream идёт <b>только на Т-зону</b> и только в вечера 05, 09, 13 и 18.09 — на всё лицо его не наносим. Если подкожники возвращаются и не проходят за 7–10 дней — <b>к косметологу</b>, а не усиливать уход самой.</p>
-      </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Отпуск с 02.10</div>
-            <h2>Что взять в отпуск</h2>
-          </div>
-          <span class="kind" data-kind="active" id="bag-count">0 / 12</span>
-        </div>
-        <ul class="steps" id="bag"></ul>
-        <div class="pfoot">
-          <span class="count">Отмечается отдельно от дней</span>
-          <button class="reset" id="bag-reset" type="button">Снять галочки сумки</button>
-        </div>
-      </section>
-
     </div>
-
     <div class="stack">
       <section class="panel">
         <div class="phead">
@@ -429,96 +388,179 @@ footer a{color:var(--ink-3)}
           <button class="reset" id="mor-reset" type="button">Снять галочки утра</button>
         </div>
       </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Утром · 10 дней из 30 · Booster 3, Air Shot 1</div>
-            <h2>Age-R и ролик: как ведём</h2>
-          </div>
-          <span class="kind" data-kind="gua">без нажима</span>
-        </div>
-        <div class="rules" id="gua-map"></div>
-        <details>
-          <summary>Среда и техника</summary>
-          <div class="rules" id="gua-tech"></div>
-        </details>
-        <details>
-          <summary>После процедуры</summary>
-          <div class="rules" id="gua-after"></div>
-        </details>
-        <p class="note">Связка дня: <b>Medicube PDRN Gel на лицо, сверху аппарат или ролик, следом Sculptor Code</b>. Age-R идёт <b>02, 04, 08, 10 и 12.09</b>, ролик — <b>03, 05, 09, 11 и 14.09</b>. Дни покоя — <b>06, 07 и 13.09</b>. Последний прогон <b>14.09</b>: с 15 сентября и до конца отпуска аппаратов нет.</p>
-      </section>
-
-      <section class="panel">
-        <div class="phead"><h2>Красные флаги</h2></div>
-        <div class="rules" id="rules"></div>
-        <details>
-          <summary>Если пошла реакция</summary>
-          <div class="rules" id="fallback"></div>
-        </details>
-        <details>
-          <summary>Маски и активы по датам</summary>
-          <div class="rules" id="sched-mask"></div>
-        </details>
-        <details>
-          <summary>Приёмы</summary>
-          <div class="rules" id="tips"></div>
-        </details>
-      </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Полка</div>
-            <h2>Что в работе и что отложено</h2>
-          </div>
-          <span class="kind" data-kind="recover">состав цикла</span>
-        </div>
-        <div class="rules" id="stock"></div>
-        <p class="note">Режим Booster и Air Shot расставлены по дням Age-R. На полке до твоего слова — <b>Medicube Azelaic Acid Shot</b> и <b>SkinJestique Queen Mask</b>: в новой схеме каждый вечер занят активом, маской или восстановлением, свободных окон под них не осталось.</p>
-      </section>
-
-      <section class="panel">
-        <div class="phead">
-          <div>
-            <div class="when">Сверено 04.09.2026</div>
-            <h2>Где заказывать после StyleKorean</h2>
-          </div>
-          <span class="kind" data-kind="mask">3 канала</span>
-        </div>
-        <div id="shops"></div>
-        <p class="note">StyleKorean закрыл прием заказов из России <b>7 сентября 2026</b>, поддержка дорабатывает до 7 октября. Двукратной разницы с московской розницей, как было там, ни один из каналов не дает: считай выигрыш в процентах, а не в разах.</p>
-      </section>
     </div>
   </div>
-
-  <h2 class="section">Что дальше</h2>
-  <div class="road">
-    <div class="stage" data-tone="sun">
-      <h3>Отпуск</h3>
-      <div class="date">со 02.10 · только защита</div>
-      <ul>
-        <li><b>Утром:</b> Medicube PDRN Cleansing Gel, Numbuzin №9 Toner, антиоксидант, крем Dr.Althea, шея, <b>SPF каждые 2 часа</b>, шляпа и очки.</li>
-        <li><b>Вечером:</b> масло и пенка мягко, Celimax Noni Pad, Numbuzin №9 Essence, глаза Medicube PDRN, крем Remedi Rich, шея.</li>
-        <li><b>После солнца:</b> AXIS-Y Mugwort из пакетика, 5 минут и смыть — если кожа покраснела.</li>
-        <li><b>Не берём:</b> активы, аппарат Age-R, ролик.</li>
-      </ul>
-    </div>
-    <div class="stage" data-tone="back">
-      <h3>После отпуска</h3>
-      <div class="date">даты уточняются</div>
-      <ul>
-        <li><b>Следующая процедура</b> — дата не назначена, схема пересобирается под неё.</li>
-        <li><b>Возврат активов:</b> начинаем с Numbuzin №3 два-три раза в неделю, дальше по реакции. Melaclear и спикулы VT Reedle возвращаем после него, не одновременно.</li>
-        <li><b>Numbuzin №9 Eye Cream</b> с ретинолом и <b>Medicube Azelaic Acid Shot</b> — на полке: в цикле до отпуска места им не нашлось, вводим после возвращения по одному.</li>
-        <li><b>VT Reedle Shot 100</b> — первое окно открывается только после возвращения: весь цикл до отъезда он под запретом.</li>
-        <li><b>Отпуск:</b> физическая защита — шляпа, очки, одежда с UPF, SPF каждые 2 часа.</li>
-        <li><b>Изнутри:</b> коллаген, белок в каждом приёме пищи, сон. Подробности — на вкладке «Изнутри».</li>
-      </ul>
-    </div>
   </div>
-  </div><!-- /tab-care -->
+
+  <div class="pane" id="tab-ref" role="tabpanel" aria-labelledby="t-ref" hidden>
+    <p class="refhint">Все разделы свёрнуты. Открывай тот, который нужен прямо сейчас — остальное не мешает.</p>
+    <details class="acc">
+      <summary>Активы и пэды по вечерам</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">02.09 – 16.09 · два актива</div>
+              <h2>Активы и пэды: чем работаем вечером</h2>
+            </div>
+            <span class="kind" data-kind="buka">бакучиол</span>
+          </div>
+          <div class="rules" id="numb"></div>
+          <details>
+            <summary>Чем работаем в каждый вечер</summary>
+            <div class="rules" id="sched-serum"></div>
+          </details>
+          <p class="note">Порядок в вечере: <b>очищение → пэд или маска → актив → глаза → крем → шея</b>. В дни с тканевой маской пэд не берём: маска ложится на голую кожу, актив идёт поверх вбитой эссенции. Пэд идёт в паре с активом: <b>Pink Pad</b> с бакучиолом, <b>Zero Pore Pad</b> с Melaclear, <b>Noni Pad</b> в дни покоя. Два актива в один вечер не смешиваем: <b>Numbuzin №3</b> — 03, 05, 08, 10, 12 и 15.09, <b>Melaclear</b> — 02, 04, 09, 11 и 16.09. Остальные вечера держит <b>Numbuzin №9 Essence</b>.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Глаза: порядок и техника</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Каждый вечер · спикулы до 15.09</div>
+              <h2>Глаза: порядок и техника</h2>
+            </div>
+            <span class="kind" data-kind="recover">после сыворотки, до крема</span>
+          </div>
+          <div class="rules" id="eyes-tech"></div>
+          <details>
+            <summary>Чем мажем по датам</summary>
+            <div class="rules" id="sched-eyes"></div>
+          </details>
+          <p class="note">Место в очереди фиксированное: <b>сыворотка или эссенция → глаза → крем на лицо</b>. Крем для лица поверх зоны глаз не растягиваем. <b>15.09</b> — единственный вечер с Numbuzin №9 Eye Cream: в нём ретинол, поэтому это проба на спокойной коже, а не новый постоянный шаг. <b>18.09</b> — единственный вечер с VT Reedle Shot Eye, и ставим его только если проба 15.09 прошла спокойно.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Поры и подкожники</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Профилактика</div>
+              <h2>Поры и подкожники</h2>
+            </div>
+            <span class="kind" data-kind="mask">Zero Pore точечно</span>
+          </div>
+          <div class="rules" id="acne"></div>
+          <p class="note">Medicube Zero Pore Cream идёт <b>только на Т-зону</b> и только в вечера 05, 09, 13 и 18.09 — на всё лицо его не наносим. Если подкожники возвращаются и не проходят за 7–10 дней — <b>к косметологу</b>, а не усиливать уход самой.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Age-R и ролик: как ведём</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Утром · 10 дней из 30 · Booster 3, Air Shot 1</div>
+              <h2>Age-R и ролик: как ведём</h2>
+            </div>
+            <span class="kind" data-kind="gua">без нажима</span>
+          </div>
+          <div class="rules" id="gua-map"></div>
+          <details>
+            <summary>Среда и техника</summary>
+            <div class="rules" id="gua-tech"></div>
+          </details>
+          <details>
+            <summary>После процедуры</summary>
+            <div class="rules" id="gua-after"></div>
+          </details>
+          <p class="note">Связка дня: <b>Medicube PDRN Gel на лицо, сверху аппарат или ролик, следом Sculptor Code</b>. Age-R идёт <b>02, 04, 08, 10 и 12.09</b>, ролик — <b>03, 05, 09, 11 и 14.09</b>. Дни покоя — <b>06, 07 и 13.09</b>. Последний прогон <b>14.09</b>: с 15 сентября и до конца отпуска аппаратов нет.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Красные флаги и откат</summary>
+        <section class="panel">
+          <div class="phead"><h2>Красные флаги</h2></div>
+          <div class="rules" id="rules"></div>
+          <details>
+            <summary>Если пошла реакция</summary>
+            <div class="rules" id="fallback"></div>
+          </details>
+          <details>
+            <summary>Маски и активы по датам</summary>
+            <div class="rules" id="sched-mask"></div>
+          </details>
+          <details>
+            <summary>Приёмы</summary>
+            <div class="rules" id="tips"></div>
+          </details>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Что в работе и что отложено</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Полка</div>
+              <h2>Что в работе и что отложено</h2>
+            </div>
+            <span class="kind" data-kind="recover">состав цикла</span>
+          </div>
+          <div class="rules" id="stock"></div>
+          <p class="note">Режим Booster и Air Shot расставлены по дням Age-R. На полке до твоего слова — <b>Medicube Azelaic Acid Shot</b> и <b>SkinJestique Queen Mask</b>: в новой схеме каждый вечер занят активом, маской или восстановлением, свободных окон под них не осталось.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Где заказывать косметику</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Сверено 04.09.2026</div>
+              <h2>Где заказывать косметику</h2>
+            </div>
+            <span class="kind" data-kind="mask">4 канала</span>
+          </div>
+          <div id="shops"></div>
+          <p class="note">StyleKorean закрыл прием заказов из России <b>7 сентября 2026</b>. Двукратной разницы, как было там, не дает ни один канал: считай выигрыш в процентах. Метод сверки — <b>цена за миллилитр</b>, а не за банку, и одна позиция сразу по всем магазинам.</p>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Что взять в отпуск</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">Отпуск с 02.10</div>
+              <h2>Что взять в отпуск</h2>
+            </div>
+            <span class="kind" data-kind="active" id="bag-count">0 / 12</span>
+          </div>
+          <ul class="steps" id="bag"></ul>
+          <div class="pfoot">
+            <span class="count">Отмечается отдельно от дней</span>
+            <button class="reset" id="bag-reset" type="button">Снять галочки сумки</button>
+          </div>
+        </section>
+    </details>
+    <details class="acc">
+      <summary>Что дальше: отпуск и после</summary>
+      <div class="accbody">
+      <h2 class="section">Что дальше</h2>
+      <div class="road">
+        <div class="stage" data-tone="sun">
+          <h3>Отпуск</h3>
+          <div class="date">со 02.10 · только защита</div>
+          <ul>
+            <li><b>Утром:</b> Medicube PDRN Cleansing Gel, Numbuzin №9 Toner, антиоксидант, крем Dr.Althea, шея, <b>SPF каждые 2 часа</b>, шляпа и очки.</li>
+            <li><b>Вечером:</b> масло и пенка мягко, Celimax Noni Pad, Numbuzin №9 Essence, глаза Medicube PDRN, крем Remedi Rich, шея.</li>
+            <li><b>После солнца:</b> AXIS-Y Mugwort из пакетика, 5 минут и смыть — если кожа покраснела.</li>
+            <li><b>Не берём:</b> активы, аппарат Age-R, ролик.</li>
+          </ul>
+        </div>
+        <div class="stage" data-tone="back">
+          <h3>После отпуска</h3>
+          <div class="date">даты уточняются</div>
+          <ul>
+            <li><b>Следующая процедура</b> — дата не назначена, схема пересобирается под неё.</li>
+            <li><b>Возврат активов:</b> начинаем с Numbuzin №3 два-три раза в неделю, дальше по реакции. Melaclear и спикулы VT Reedle возвращаем после него, не одновременно.</li>
+            <li><b>Numbuzin №9 Eye Cream</b> с ретинолом и <b>Medicube Azelaic Acid Shot</b> — на полке: в цикле до отпуска места им не нашлось, вводим после возвращения по одному.</li>
+            <li><b>VT Reedle Shot 100</b> — первое окно открывается только после возвращения: весь цикл до отъезда он под запретом.</li>
+            <li><b>Отпуск:</b> физическая защита — шляпа, очки, одежда с UPF, SPF каждые 2 часа.</li>
+            <li><b>Изнутри:</b> коллаген, белок в каждом приёме пищи, сон. Подробности — на вкладке «Изнутри».</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </details>
+  </div>
 
   <div class="pane" id="tab-inside" role="tabpanel" aria-labelledby="t-inside" hidden>
 
@@ -1168,34 +1210,39 @@ function renderEyes(el){
 }
 
 const SHOPS = [
-  {name:"fromkorea.me", url:"https://fromkorea.me/", tag:"основной канал",
+  {name:"fromkorea.me", url:"https://fromkorea.me/", tag:"прямо из Кореи",
    facts:[
-     "Отправка напрямую из Сеула, доставка бесплатная до 15 кг, витрина в рублях",
-     "Москва 10–14 дней, регионы до 24 дней, плюс до 7 рабочих дней на сборку заказа",
-     "Оплата картами российских банков и через СБП",
-     "Почта России до 4 кг без паспортных данных, 5Post до 15 кг — паспорт нужен, ФИО должно совпадать точно",
-     "Порог 200 € на посылку, сверх него пошлина 15% с суммы превышения: крупный заказ выгоднее разбить на две отправки",
-     "Есть все бренды схемы: Medicube, VT, Numbuzin, Dr.Althea, Round Lab, AXIS-Y, Celimax, Biodance, Anua"
+     "Отправка из Сеула, доставка бесплатная до 15 кг, витрина в рублях, карты РФ и СБП",
+     "Москва 10–14 дней, регионы до 24 дней, плюс до 7 рабочих дней на сборку",
+     "Порог 200 € на посылку, сверх него пошлина 15% с превышения",
+     "Есть все бренды схемы: Medicube, VT, Numbuzin, Dr.Althea, Round Lab, AXIS-Y, Celimax, Biodance"
    ],
-   verdict:"Ближайшая замена по устройству. Сверено на твоих позициях: <b>Pink Peptide Eye Cream 1 684 ₽</b> против 2 150 ₽ в Hollyshop, <b>Zero Pore Pad 2.0 2 790 ₽</b> против 2 950 ₽. Выигрыш 5–22% против московской розницы."},
+   verdict:"Единственный проверенный канал напрямую из Кореи. Сверено 04.09: <b>Pink Peptide Eye Cream 1 684 ₽</b> против 2 150 ₽ в Hollyshop, <b>Zero Pore Pad 2.0 2 790 ₽</b> против 2 950 ₽."},
 
-  {name:"bbccdd.ru", url:"https://bbccdd.ru/", tag:"оптовые цены",
+  {name:"koreyaryadom.ru", url:"https://koreyaryadom.ru/", tag:"дешевле РРЦ",
    facts:[
-     "Тот же владелец, что у fromkorea, но оптовая витрина в долларах по курсу сайта",
-     "Скидка растет от суммы заказа, первая ступень — от 500 $",
-     "Склад в Корее, доставка карго за свой счет, срок 3–5 недель",
-     "Растаможка и стикеры на покупателе — условия уточнять при заказе"
+     "Единственный из российских магазинов, кто заметно уходит вниз от рекомендованной цены",
+     "В августе давал −21% на Beauty of Joseon Relief Sun против общей цены рынка",
+     "Склад в России: доставка обычная, без таможни и ожидания"
    ],
-   verdict:"Берем на <b>большую закупку или в складчину</b>: за одной баночкой сюда идти незачем, минимальная сумма и карго съедят выгоду."},
+   verdict:"Первое место, куда смотреть, если нужно <b>быстро и по-российски</b>, без трех недель ожидания."},
 
-  {name:"Olive Young через CDEK Forward", url:"https://global.cdek.ru/catalog/kr/olive-young", tag:"чего нет у первых двух",
+  {name:"Hollyshop и КореяМаркет", url:"https://hollyshop.ru/", tag:"опорная цена",
    facts:[
-     "Olive Young напрямую в Россию не отправляет — работает только схема с посредником",
-     "CDEK Forward выкупает товар: комиссия 10% от стоимости, минимум 5 $",
-     "Доставка считается отдельно от комиссии, тариф уточняется в поддержке сервиса",
-     "Оплата картами Visa и Mastercard российских банков"
+     "Официальные дистрибьюторы, держат единую рекомендованную цену — совпадают до рубля",
+     "Искать, кто из них дешевле, бессмысленно: это одна и та же цена",
+     "Оригинальность гарантирована, возврат работает"
    ],
-   verdict:"Заходим за <b>редкими позициями и корейскими акциями</b>, которых нет на первых двух площадках. Дороже по итогу, зато ассортимент полный."}
+   verdict:"Не самый дешевый канал, а <b>эталон для сверки</b>: увидела цену ниже — считай экономию от нее."},
+
+  {name:"Маркетплейсы и частные продавцы", url:"https://www.ozon.ru/category/koreyskaya-kosmetika/", tag:"проверять руками",
+   facts:[
+     "Ozon и Wildberries периодически уходят ниже всех за счет акций продавцов",
+     "Совместные закупки и личные представители берут оптом и делятся скидкой",
+     "Автоматически сверить цены здесь нельзя: площадки закрыты для проверки, у части магазинов капча",
+     "Риск подделок выше: смотри на продавца, дату производства и защитную пленку"
+   ],
+   verdict:"Самый дешевый канал и самый неровный. Если подруга берет оптом — <b>проси цену за миллилитр</b> и сравнивай с Hollyshop, так видно реальную скидку."}
 ];
 
 function renderShops(){
@@ -1281,7 +1328,7 @@ function renderInside(){
 }
 
 (function tabs(){
-  const map = {"t-care":"tab-care", "t-inside":"tab-inside"};
+  const map = {"t-care":"tab-care", "t-ref":"tab-ref", "t-inside":"tab-inside"};
   const show = id => {
     Object.entries(map).forEach(([btn, pane]) => {
       const on = btn === id;
@@ -1289,11 +1336,12 @@ function renderInside(){
       $(pane).hidden = !on;
     });
     document.querySelector(".meters").style.display = id === "t-care" ? "" : "none";
+    document.querySelector(".strip").style.display = id === "t-care" ? "" : "none";
     state.tab = id; save();
-    try { history.replaceState(null, "", id === "t-inside" ? "#inside" : "#care"); } catch(e){}
+    try { history.replaceState(null, "", id === "t-inside" ? "#inside" : id === "t-ref" ? "#ref" : "#care"); } catch(e){}
   };
   Object.keys(map).forEach(btn => $(btn).addEventListener("click", () => show(btn)));
-  const fromHash = location.hash === "#inside" ? "t-inside" : location.hash === "#care" ? "t-care" : null;
+  const fromHash = location.hash === "#inside" ? "t-inside" : location.hash === "#ref" ? "t-ref" : location.hash === "#care" ? "t-care" : null;
   show(fromHash || (map[state.tab] ? state.tab : "t-care"));
 })();
 
