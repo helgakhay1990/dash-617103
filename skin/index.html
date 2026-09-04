@@ -224,17 +224,6 @@ li.off .v,li.off .k{opacity:.45;text-decoration:line-through;text-decoration-thi
 .dayk{flex:none;width:46px;font-family:var(--ui);font-weight:700;font-size:12px;font-variant-numeric:tabular-nums;color:var(--plasma);padding-top:2px}
 .rule .what{flex:1}
 .rule .what small{display:block;color:var(--ink-3);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;margin-top:1px}
-.shop{padding:14px 18px;font-size:13.5px;line-height:1.5}
-.shop + .shop{border-top:1px solid var(--line)}
-.shop .stop{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:7px}
-.shop a.sname{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--plasma);text-decoration:none;border-bottom:1px solid var(--plasma-soft)}
-.shop a.sname:hover{border-bottom-color:var(--plasma)}
-.shop .stag{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--plasma-soft);color:var(--plasma);font-weight:700}
-.shop ul.sfacts{list-style:none;margin:0 0 8px;padding:0}
-.shop ul.sfacts li{position:relative;padding-left:15px;margin:3px 0;color:var(--ink-2)}
-.shop ul.sfacts li:before{content:"";position:absolute;left:3px;top:8px;width:4px;height:4px;border-radius:50%;background:var(--ink-3)}
-.shop .sverdict{background:var(--sunk);border-radius:10px;padding:9px 12px;color:var(--ink)}
-.shop .sverdict b{color:var(--plasma)}
 details{border-top:1px solid var(--line)}
 details summary{
   cursor:pointer;padding:13px 18px;font-family:var(--serif);font-size:17px;list-style:none;
@@ -497,20 +486,6 @@ footer a{color:var(--ink-3)}
           </div>
           <div class="rules" id="stock"></div>
           <p class="note">Режим Booster и Air Shot расставлены по дням Age-R. На полке до твоего слова — <b>Medicube Azelaic Acid Shot</b> и <b>SkinJestique Queen Mask</b>: в новой схеме каждый вечер занят активом, маской или восстановлением, свободных окон под них не осталось.</p>
-        </section>
-    </details>
-    <details class="acc">
-      <summary>Где заказывать косметику</summary>
-        <section class="panel">
-          <div class="phead">
-            <div>
-              <div class="when">Сверено 04.09.2026</div>
-              <h2>Где заказывать косметику</h2>
-            </div>
-            <span class="kind" data-kind="mask">4 канала</span>
-          </div>
-          <div id="shops"></div>
-          <p class="note">StyleKorean закрыл прием заказов из России <b>7 сентября 2026</b>. Двукратной разницы, как было там, не дает ни один канал: считай выигрыш в процентах. Метод сверки — <b>цена за миллилитр</b>, а не за банку, и одна позиция сразу по всем магазинам.</p>
         </section>
     </details>
     <details class="acc">
@@ -1209,60 +1184,6 @@ function renderEyes(el){
   });
 }
 
-const SHOPS = [
-  {name:"fromkorea.me", url:"https://fromkorea.me/", tag:"прямо из Кореи",
-   facts:[
-     "Отправка из Сеула, доставка бесплатная до 15 кг, витрина в рублях, карты РФ и СБП",
-     "Москва 10–14 дней, регионы до 24 дней, плюс до 7 рабочих дней на сборку",
-     "Порог 200 € на посылку, сверх него пошлина 15% с превышения",
-     "Есть все бренды схемы: Medicube, VT, Numbuzin, Dr.Althea, Round Lab, AXIS-Y, Celimax, Biodance"
-   ],
-   verdict:"Единственный проверенный канал напрямую из Кореи. Сверено 04.09: <b>Pink Peptide Eye Cream 1 684 ₽</b> против 2 150 ₽ в Hollyshop, <b>Zero Pore Pad 2.0 2 790 ₽</b> против 2 950 ₽."},
-
-  {name:"koreyaryadom.ru", url:"https://koreyaryadom.ru/", tag:"дешевле РРЦ",
-   facts:[
-     "Единственный из российских магазинов, кто заметно уходит вниз от рекомендованной цены",
-     "В августе давал −21% на Beauty of Joseon Relief Sun против общей цены рынка",
-     "Склад в России: доставка обычная, без таможни и ожидания"
-   ],
-   verdict:"Первое место, куда смотреть, если нужно <b>быстро и по-российски</b>, без трех недель ожидания."},
-
-  {name:"Hollyshop и КореяМаркет", url:"https://hollyshop.ru/", tag:"опорная цена",
-   facts:[
-     "Официальные дистрибьюторы, держат единую рекомендованную цену — совпадают до рубля",
-     "Искать, кто из них дешевле, бессмысленно: это одна и та же цена",
-     "Оригинальность гарантирована, возврат работает"
-   ],
-   verdict:"Не самый дешевый канал, а <b>эталон для сверки</b>: увидела цену ниже — считай экономию от нее."},
-
-  {name:"Маркетплейсы и частные продавцы", url:"https://www.ozon.ru/category/koreyskaya-kosmetika/", tag:"проверять руками",
-   facts:[
-     "Ozon и Wildberries периодически уходят ниже всех за счет акций продавцов",
-     "Совместные закупки и личные представители берут оптом и делятся скидкой",
-     "Автоматически сверить цены здесь нельзя: площадки закрыты для проверки, у части магазинов капча",
-     "Риск подделок выше: смотри на продавца, дату производства и защитную пленку"
-   ],
-   verdict:"Самый дешевый канал и самый неровный. Если подруга берет оптом — <b>проси цену за миллилитр</b> и сравнивай с Hollyshop, так видно реальную скидку."}
-];
-
-function renderShops(){
-  const el = $("shops");
-  if (!el) return;
-  el.textContent = "";
-  SHOPS.forEach(sh => {
-    const box = document.createElement("div"); box.className = "shop";
-    const top = document.createElement("div"); top.className = "stop";
-    const a = document.createElement("a"); a.className = "sname";
-    a.href = sh.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = sh.name;
-    const tag = document.createElement("span"); tag.className = "stag"; tag.textContent = sh.tag;
-    top.append(a, tag);
-    const ul = document.createElement("ul"); ul.className = "sfacts";
-    sh.facts.forEach(f => { const li = document.createElement("li"); li.textContent = f; ul.append(li); });
-    const v = document.createElement("div"); v.className = "sverdict"; v.innerHTML = sh.verdict;
-    box.append(top, ul, v);
-    el.append(box);
-  });
-}
 
 function renderBag(){
   const steps = BAG.map(v => ({k:"В сумку", v}));
@@ -1363,7 +1284,6 @@ renderSerum($("sched-serum"));
 renderRules($("eyes-tech"), EYES_TECH);
 renderEyes($("sched-eyes"));
 renderBag();
-renderShops();
 renderAll();
 
 /* ---------- переключатель темы ---------- */
