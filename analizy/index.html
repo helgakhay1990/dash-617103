@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Анализы к приёму терапевта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F9FA; --card:#FFFFFF; --sunk:#E9F4F6; --line:#D5E8EC;
+  --ink:#22343A; --ink-2:#5A757E; --ink-3:#8CA6AE;
+  --teal:#1F7F8C; --teal-soft:#DEF1F4;
+  --stop:#C4443F; --stop-soft:#FBE6E4;
+  --gold:#B07A22; --gold-soft:#FBF0DC;
+  --green:#2E8B62; --green-soft:#DEF3E8;
+  --violet:#6D5BC4; --violet-soft:#EAE6FA;
+  --glow-1:rgba(150,215,225,.42); --glow-2:rgba(180,200,245,.34);
+  --shadow:0 1px 2px rgba(30,80,95,.06), 0 10px 26px -14px rgba(30,90,105,.3);
+  --serif:"Playfair Display",Charter,Georgia,serif;
+  --ui:"Nunito","Avenir Next","Helvetica Neue",system-ui,sans-serif;
+  --mono:Menlo,"SF Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#10191C; --card:#18262A; --sunk:#1E3037; --line:#2A424A;
+    --ink:#EAF6F8; --ink-2:#A9C4CC; --ink-3:#74919A;
+    --teal:#5FCBD9; --teal-soft:#123840;
+    --stop:#FF8B85; --stop-soft:#3D1F1E;
+    --gold:#E8B463; --gold-soft:#3A2C13;
+    --green:#5CCB92; --green-soft:#123328;
+    --violet:#A996F0; --violet-soft:#26214A;
+    --glow-1:rgba(30,90,110,.5); --glow-2:rgba(50,55,110,.42);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#10191C; --card:#18262A; --sunk:#1E3037; --line:#2A424A;
+  --ink:#EAF6F8; --ink-2:#A9C4CC; --ink-3:#74919A;
+  --teal:#5FCBD9; --teal-soft:#123840;
+  --stop:#FF8B85; --stop-soft:#3D1F1E;
+  --gold:#E8B463; --gold-soft:#3A2C13;
+  --green:#5CCB92; --green-soft:#123328;
+  --violet:#A996F0; --violet-soft:#26214A;
+  --glow-1:rgba(30,90,110,.5); --glow-2:rgba(50,55,110,.42);
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--ink);
+  background:radial-gradient(1000px 600px at 10% -8%,var(--glow-1),transparent 60%),
+             radial-gradient(880px 540px at 92% 2%,var(--glow-2),transparent 58%),var(--paper);
+  background-attachment:fixed;
+  font-family:var(--ui);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 80px;display:flex;flex-direction:column;gap:20px}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 24px;justify-content:space-between}
+h1{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.14;margin:0 0 7px;letter-spacing:-.005em}
+h1 em{font-style:italic;background:linear-gradient(96deg,var(--teal),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1::before{content:"✚ ";font-style:normal;color:var(--teal);font-size:.6em;vertical-align:.24em}
+.sub{color:var(--ink-2);font-size:13.5px;margin:0;max-width:60ch}
+.meter{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 15px;min-width:150px;box-shadow:var(--shadow)}
+.meter .lab{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.meter .val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:20px;margin-top:3px}
+.bar{height:4px;border-radius:99px;background:var(--sunk);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:99px;transition:width .35s ease}
+.theme-btn{appearance:none;font:inherit;font-size:12.5px;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 15px;color:var(--ink-2);box-shadow:var(--shadow)}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.phead{padding:16px 18px 14px;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
+.phead h2{font-family:var(--serif);font-weight:400;font-size:21px;margin:0;line-height:1.2}
+.phead .when{font-family:var(--ui);font-weight:700;font-size:11.5px;color:var(--teal);letter-spacing:.09em;text-transform:uppercase}
+.tag{flex:none;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal)}
+
+.alert{background:var(--stop-soft);border:1px solid var(--stop);border-radius:20px;padding:18px;box-shadow:var(--shadow)}
+.alert h2{font-family:var(--serif);font-weight:500;font-size:21px;margin:0 0 9px;color:var(--stop)}
+.alert p{margin:0 0 9px;font-size:14px}
+.alert p:last-child{margin-bottom:0}
+.alert b{color:var(--stop)}
+
+ol.prep{margin:0;padding:0;list-style:none;counter-reset:p}
+ol.prep li{counter-increment:p;position:relative;padding:12px 18px 12px 46px;font-size:13.8px;line-height:1.5}
+ol.prep li + li{border-top:1px solid var(--line)}
+ol.prep li:before{
+  content:counter(p);position:absolute;left:16px;top:12px;width:20px;height:20px;border-radius:7px;
+  background:var(--stop-soft);color:var(--stop);font-family:var(--mono);font-size:11px;font-weight:700;
+  display:grid;place-items:center;
+}
+
+ul.tests{margin:0;padding:0;list-style:none}
+ul.tests li{display:flex;gap:11px;padding:11px 18px;align-items:flex-start}
+ul.tests li + li{border-top:1px solid var(--line)}
+ul.tests input{appearance:none;flex:none;width:19px;height:19px;margin:2px 0 0;border:1.5px solid var(--ink-3);border-radius:6px;cursor:pointer;position:relative;background:transparent}
+ul.tests input:checked{background:var(--teal);border-color:var(--teal)}
+ul.tests input:checked:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:700}
+ul.tests input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+ul.tests .txt{flex:1;min-width:0}
+ul.tests .nm{font-weight:600;font-size:14px}
+ul.tests .why{color:var(--ink-2);font-size:12.8px;line-height:1.45;margin-top:2px}
+ul.tests li.done .nm{color:var(--ink-3);text-decoration:line-through}
+ul.tests li.key{background:var(--gold-soft)}
+ul.tests li.key .nm{color:var(--gold)}
+
+.pfoot{padding:12px 18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--sunk)}
+.count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.reset{appearance:none;font:inherit;font-size:12.5px;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;color:var(--ink-2)}
+.note{margin:0;padding:13px 18px;background:var(--sunk);color:var(--ink-2);font-size:13px;line-height:1.5;border-top:1px solid var(--line)}
+.note b{color:var(--ink)}
+
+.acc{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.acc > summary{cursor:pointer;list-style:none;padding:15px 18px;font-family:var(--serif);font-size:19px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.acc > summary::-webkit-details-marker{display:none}
+.acc > summary::after{content:"+";font-family:var(--ui);font-weight:700;font-size:18px;color:var(--teal)}
+.acc[open] > summary{border-bottom:1px solid var(--line)}
+.acc[open] > summary::after{content:"–"}
+.acc ul.plain{margin:0;padding:14px 18px;list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13.8px}
+.acc ul.plain li{position:relative;padding-left:16px;color:var(--ink-2)}
+.acc ul.plain li:before{content:"";position:absolute;left:3px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.acc ul.plain b{color:var(--ink)}
+.doclink{display:inline-block;margin-top:2px;color:var(--teal);font-size:13px}
+footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:6px}
+footer a{color:var(--ink-3)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1>Анализы <em>к приёму терапевта</em></h1>
+      <p class="sub">Собрано 4 сентября 2026 года под твои вводные: удалённая щитовидная железа на заместительной терапии, 41 год, добавки курсами с перерывами. Это список для разговора с врачом, а не назначение — финальный набор определяет терапевт.</p>
+      <a class="doclink" href="https://docs.google.com/document/d/1zirftzehiPXv2JIO3WeIm-xnUCLBeX-nn2Z-AHNrJt4/edit" target="_blank" rel="noopener noreferrer">Открыть полный документ с обоснованиями →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+      <div class="meter">
+        <div class="lab">Сдано</div>
+        <div class="val" id="m-val">0 / 0</div>
+        <div class="bar"><i id="m-bar" style="width:0%"></i></div>
+      </div>
+      <button class="theme-btn" id="theme-btn" type="button">🌙 тёмная тема</button>
+    </div>
+  </header>
+
+  <div class="alert">
+    <h2>Сначала отмени биотин</h2>
+    <p>Ты пьёшь биотин по вечерам. Лабораторные тесты на гормоны построены на связке биотин-стрептавидин, и лишний биотин ломает результат: <b>ТТГ выходит ложно заниженным, свободные Т4 и Т3 — ложно завышенными</b>. Картина читается как передозировка заместительной терапии при правильной дозе, и по такому анализу дозу могут срезать.</p>
+    <p>Отдельно биотин искажает <b>тиреоглобулин</b> — основной маркер контроля после удаления железы.</p>
+    <p>Американская тиреоидологическая ассоциация требует отмены минимум за 2 дня. В добавках для волос дозы 5 000–10 000 мкг против суточной нормы в 30 мкг, поэтому тебе надёжнее выдержать <b>5–7 дней</b>.</p>
+  </div>
+
+  <section class="panel">
+    <div class="phead">
+      <div>
+        <div class="when">До похода в лабораторию</div>
+        <h2>Подготовка</h2>
+      </div>
+      <span class="tag">6 шагов</span>
+    </div>
+    <ol class="prep">
+      <li><b>Биотин отменить за 5–7 дней.</b> Без этого блок щитовидной железы сдавать бессмысленно, результат будет недостоверным.</li>
+      <li><b>Остальные добавки отменить за 3–5 дней</b> — витамины A, E, D, магний, хром, альфа-липоевую кислоту, инозитол. Иначе анализ покажет концентрацию после вчерашней капсулы, а не твой уровень.</li>
+      <li><b>Кровь на щитовидную железу — до приёма левотироксина.</b> Таблетку выпить уже после забора.</li>
+      <li><b>Натощак 8–12 часов</b>, пить воду можно. Забор до 11:00: у железа и части гормонов есть суточный ритм.</li>
+      <li><b>Женские гормоны — на 2–5 день цикла.</b> Скорее всего это отдельный визит.</li>
+      <li>За сутки исключить алкоголь и тяжёлую тренировку.</li>
+    </ol>
+  </section>
+
+  <div id="blocks"></div>
+
+  <details class="acc">
+    <summary>Что сказать терапевту</summary>
+    <ul class="plain">
+      <li><b>Щитовидная железа удалена</b>, идёт заместительная терапия — назвать препарат и дозу.</li>
+      <li><b>Биотин отменён за 5–7 дней</b> перед сдачей, это сделано осознанно.</li>
+      <li>Добавки принимаются <b>нерегулярно</b>: два-четыре дня подряд, потом перерыв.</li>
+      <li>Состав: витамины D, E, A, женский пребиотик, хлорофилл, инозитол, биотин, альфа-липоевая кислота, пиколинат хрома, магний.</li>
+      <li>Спросить про <b>альфа-липоевую кислоту с левотироксином</b>: описано связывание в кишечнике и снижение превращения Т4 в Т3. Данные в основном на животных, но развести приём по времени стоит.</li>
+      <li>Напомнить, что <b>магний мешает всасыванию левотироксина</b> — разрыв нужен 4 часа.</li>
+    </ul>
+  </details>
+
+  <details class="acc">
+    <summary>Что уточнить до сдачи</summary>
+    <ul class="plain">
+      <li><b>Дозировки добавок.</b> В подборке они не учтены, потому что неизвестны. Для витаминов A и E это принципиально: разница между профилактической и накопительной дозой десятикратная.</li>
+      <li><b>Дата последних анализов</b> и что тогда было вне нормы.</li>
+      <li><b>Жалобы:</b> выпадение волос, отёки, судороги в икрах, онемение пальцев, утомляемость. Судороги и онемение — прямой повод усилить блок кальция и паратгормона.</li>
+    </ul>
+  </details>
+
+  <footer>Галочки хранятся в этом браузере. · <a href="../">К списку дашбордов</a></footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const KEY = "analizy-v1";
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
+
+const BLOCKS = [
+ {t:"Щитовидная и паращитовидные железы", when:"Основной блок", tag:"ради этого всё",
+  tests:[
+   ["ТТГ","Базовый контроль дозы заместительной терапии",0],
+   ["Т4 свободный","Показывает, доходит ли доза: одного ТТГ мало",0],
+   ["Т3 свободный","Активная форма. Важен ещё и потому, что альфа-липоевая кислота может снижать превращение Т4 в Т3",0],
+   ["Тиреоглобулин","Маркер контроля после удаления железы. Именно его искажает биотин",1],
+   ["Антитела к тиреоглобулину","Без них тиреоглобулин нельзя интерпретировать",0],
+   ["Кальций общий и ионизированный","Паращитовидные железы задевают при операции чаще всего",1],
+   ["Паратгормон","Прямая проверка работы паращитовидных желёз",1],
+   ["Фосфор","Читается в паре с кальцием и паратгормоном",0]
+  ],
+  note:"Кальций, паратгормон и фосфор в обычные чекапы не входят, и их пропускают. Между тем последствия — судороги, ломкость ногтей, утомляемость — развиваются годами и списываются на щитовидную железу."},
+
+ {t:"Дефициты", when:"Блок 2", tag:"давно пора",
+  tests:[
+   ["Ферритин","Запасы железа. Рекомендован ещё в августе и до сих пор не сдан",1],
+   ["Железо, ОЖСС, трансферрин","Читаются только вместе с ферритином, поодиночке недостоверны",0],
+   ["Витамин 25(OH)D","Принимаешь витамин D нерегулярно, нужен факт",0],
+   ["Витамин B12","Второй из трёх, рекомендованных в августе",0],
+   ["Фолиевая кислота","Читается в паре с B12",0],
+   ["Магний","Принимаешь эпизодически. Учти: магний мешает всасыванию левотироксина",0],
+   ["Общий анализ крови с формулой","База, на которой читаются все дефициты",0]
+  ]},
+
+ {t:"Печень и почки на фоне добавок", when:"Блок 3", tag:"под твой список",
+  tests:[
+   ["АЛТ, АСТ, ГГТ","Витамины A и E копятся в печени. Пиколинат хрома при длительном приёме в редких случаях даёт нарушение функции печени",1],
+   ["Билирубин общий и прямой","Читается с ферментами при подозрении на избыток витамина A",0],
+   ["Ретинол в сыворотке","Прямая проверка витамина A. Отдельный его приём встречается редко, уровень стоит увидеть",1],
+   ["Креатинин с расчётом СКФ","Нарушение работы почек описано при приёме хрома 1 200–2 400 мкг в сутки месяцами",0],
+   ["Мочевая кислота","Общий обменный показатель, сдаётся заодно",0]
+  ]},
+
+ {t:"Углеводный обмен", when:"Блок 4", tag:"инозитол и хром",
+  tests:[
+   ["Глюкоза натощак","База",0],
+   ["Гликированный гемоглобин","Средний сахар за 3 месяца, не зависит от одного дня",0],
+   ["Инсулин с расчётом HOMA","Собственно инсулинорезистентность, ради которой обычно пьют инозитол",0],
+   ["Липидограмма","При недостаточной дозе заместительной терапии липиды растут",0]
+  ],
+  note:"Инозитол, альфа-липоевая кислота и пиколинат хрома — все три работают с чувствительностью к инсулину. Этот блок покажет, есть ли предмет."},
+
+ {t:"Гормональный фон по возрасту", when:"Блок 5", tag:"2–5 день цикла",
+  tests:[
+   ["ФСГ и ЛГ","Показывают, началась ли перименопауза",0],
+   ["Эстрадиол","Читается вместе с ФСГ и ЛГ",0],
+   ["Пролактин","Влияет на цикл, вес и самочувствие",0],
+   ["АМГ","Овариальный резерв, от дня цикла не зависит",0]
+  ],
+  note:"Смысл блока — разделить причины. Усталость и набор веса при удалённой щитовидной железе автоматически списывают на дозу гормонов, хотя в 41 год источник может быть другим."},
+
+ {t:"Воспаление", when:"Блок 6", tag:"фон",
+  tests:[
+   ["C-реактивный белок высокочувствительный","Хроническое воспаление низкой степени. Стресс высокий, посмотреть уместно",0],
+   ["Гомоцистеин","Читается с B12 и фолиевой кислотой, показывает, работают ли они",0]
+  ]}
+];
+
+let TOTAL = 0;
+BLOCKS.forEach(b => TOTAL += b.tests.length);
+
+function updMeter(){
+  let n = 0;
+  BLOCKS.forEach((b,bi) => b.tests.forEach((t,ti) => { if (state[bi+"_"+ti]) n++; }));
+  $("m-val").textContent = n + " / " + TOTAL;
+  $("m-bar").style.width = TOTAL ? Math.round(n/TOTAL*100) + "%" : "0%";
+}
+
+function render(){
+  const root = $("blocks");
+  root.textContent = "";
+  root.style.display = "flex";
+  root.style.flexDirection = "column";
+  root.style.gap = "20px";
+
+  BLOCKS.forEach((b, bi) => {
+    const sec = document.createElement("section"); sec.className = "panel";
+
+    const head = document.createElement("div"); head.className = "phead";
+    const hl = document.createElement("div");
+    const w = document.createElement("div"); w.className = "when"; w.textContent = b.when;
+    const h = document.createElement("h2"); h.textContent = b.t;
+    hl.append(w, h);
+    const tg = document.createElement("span"); tg.className = "tag"; tg.textContent = b.tag;
+    head.append(hl, tg);
+
+    const ul = document.createElement("ul"); ul.className = "tests";
+    b.tests.forEach((t, ti) => {
+      const key = bi + "_" + ti;
+      const li = document.createElement("li");
+      if (t[2]) li.classList.add("key");
+      if (state[key]) li.classList.add("done");
+      const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = !!state[key];
+      cb.setAttribute("aria-label", t[0]);
+      const txt = document.createElement("div"); txt.className = "txt";
+      const nm = document.createElement("div"); nm.className = "nm"; nm.textContent = t[0];
+      const why = document.createElement("div"); why.className = "why"; why.textContent = t[1];
+      txt.append(nm, why);
+      cb.addEventListener("change", () => {
+        state[key] = cb.checked; save();
+        li.classList.toggle("done", cb.checked);
+        updCount(); updMeter();
+      });
+      li.append(cb, txt);
+      ul.append(li);
+    });
+
+    const foot = document.createElement("div"); foot.className = "pfoot";
+    const cnt = document.createElement("span"); cnt.className = "count"; cnt.dataset.bi = bi;
+    const btn = document.createElement("button"); btn.className = "reset"; btn.type = "button";
+    btn.textContent = "Снять галочки блока";
+    btn.addEventListener("click", () => {
+      b.tests.forEach((t, ti) => { delete state[bi+"_"+ti]; });
+      save(); render(); updMeter();
+    });
+    foot.append(cnt, btn);
+
+    sec.append(head, ul);
+    if (b.note){
+      const n = document.createElement("p"); n.className = "note"; n.textContent = b.note;
+      sec.append(n);
+    }
+    sec.append(foot);
+    root.append(sec);
+  });
+  updCount();
+}
+
+function updCount(){
+  document.querySelectorAll(".count[data-bi]").forEach(el => {
+    const bi = +el.dataset.bi;
+    const b = BLOCKS[bi];
+    let n = 0;
+    b.tests.forEach((t, ti) => { if (state[bi+"_"+ti]) n++; });
+    el.textContent = n + " / " + b.tests.length;
+  });
+}
+
+render();
+updMeter();
+
+const THEME_KEY = "analizy-theme";
+const themeBtn = $("theme-btn");
+function applyTheme(t){
+  document.documentElement.dataset.theme = t;
+  themeBtn.textContent = t === "dark" ? "☀️ светлая тема" : "🌙 тёмная тема";
+}
+let theme = "light";
+try { theme = localStorage.getItem(THEME_KEY) || "light"; } catch(e){}
+applyTheme(theme);
+themeBtn.addEventListener("click", () => {
+  theme = theme === "dark" ? "light" : "dark";
+  applyTheme(theme);
+  try { localStorage.setItem(THEME_KEY, theme); } catch(e){}
+});
+</script>
+</body></html>
