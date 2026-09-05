@@ -311,7 +311,7 @@ footer a{color:var(--ink-3)}
   <header class="top">
     <div>
       <h1>Кожа <em>от PRP до отпуска</em></h1>
-      <p class="sub">26 августа сделаны сразу PRP и RF, схема идёт с седьмого дня после процедур. По дням расписано со 2 сентября по 1 октября — все 30 дней до отъезда: антиоксидант каждое утро, ролик и Age-R через день, вечер на пэдах, два актива по очереди, одиннадцать масок, шея утром и вечером. Инструменты заканчиваются 14 сентября, активы — 16-го, с 21-го идёт только восстановление, 2 октября — отпуск.</p>
+      <p class="sub">26 августа сделаны сразу PRP и RF, схема идёт с седьмого дня после процедур. По дням расписано со 2 сентября по 1 октября — все 30 дней до отъезда: утро на мисте и антиоксиданте, ролик и Age-R через день, вечер на пэдах, два актива по очереди, одиннадцать масок, крем для глаз и шея дважды в день. Инструменты заканчиваются 14 сентября, активы — 16-го, спикулы — 19-го, с 21-го идёт только восстановление, 2 октября — отпуск.</p>
     </div>
     <div class="meters">
       <div class="meter">
@@ -729,80 +729,80 @@ const RICH_P= {k:"Крем", v:"SkinJestique Remedi Rich Cream — плотны�
 /* act: "num" — Numbuzin №3, "mela" — Melaclear, "pdrn" — вечер восстановления на Numbuzin №9 Essence */
 /* ant: "c" — SkinJestique Vitamin C, "g" — Dr.Ceurance Glutathione, строго через день */
 const DAYS = [
- {d:"02.09", wd:"Ср", n:7, t:"День 7 · маска PDRN и Melaclear", kind:"mask", dev:"ager", min:5, mtoner:"n9", ant:"g", act:"mela",
+ {d:"02.09", wd:"Ср", n:7, t:"День 7 · маска PDRN и Melaclear", kind:"mask", dev:"ager", min:5, mtoner:"n9", meye:"m", ant:"g", act:"mela",
   note:"Новый порядок вечера: маска идёт сразу после очищения, на голую кожу, и только потом актив. Пэд в дни с маской не берём — маска сама работает по тонизации.",
   s:[OIL, M_VTP, MELA, EYE_R, ALT, NECK_E]},
- {d:"03.09", wd:"Чт", n:8, t:"День 8 · бакучиол", kind:"buka", dev:"roll", min:7, mtoner:"n9", ant:"c", act:"num",
+ {d:"03.09", wd:"Чт", n:8, t:"День 8 · бакучиол", kind:"buka", dev:"roll", min:7, mtoner:"n9", meye:"m", ant:"c", act:"num",
   s:[OIL, PAD_P, NUM, EYE_R, ALT, NECK_E]},
- {d:"04.09", wd:"Пт", n:9, t:"День 9 · смываемая маска и работа по тону", kind:"mask", dev:"ager", min:5, boost:true, mtoner:"n9", ant:"g", act:"mela",
+ {d:"04.09", wd:"Пт", n:9, t:"День 9 · смываемая маска и работа по тону", kind:"mask", dev:"ager", min:5, boost:true, mtoner:"n9", meye:"m", ant:"g", act:"mela",
   note:"AXIS-Y смываемая, поэтому схема другая: маска, смыть, тонер, и уже потом актив. Режим Booster идёт 3 минуты сразу после микротоков, по тому же гелю — первый раз по одной зоне, следим за реакцией.",
   s:[OIL, M_AX, T_N9, MELA, EYE_M, ALT, NECK_E]},
- {d:"05.09", wd:"Сб", n:10, t:"День 10 · бакучиол", kind:"buka", dev:"roll", min:7, mtoner:"n9", ant:"c", act:"num",
+ {d:"05.09", wd:"Сб", n:10, t:"День 10 · бакучиол", kind:"buka", dev:"roll", min:7, mtoner:"n9", meye:"m", ant:"c", act:"num",
   s:[OIL, PAD_P, NUM, EYE_R, ZERO, NECK_E]},
- {d:"06.09", wd:"Вс", n:11, t:"День 11 · коллагеновая маска", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"06.09", wd:"Вс", n:11, t:"День 11 · коллагеновая маска", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   note:"Biodance держится три часа: клеим сразу после умывания, снимаем и только потом идём по эссенции и крему. Ставим её на вечер, когда никуда не идём.",
-  s:[OIL, M_BIO, N9E, EYE_A, RICH, NECK_E]},
- {d:"07.09", wd:"Пн", n:12, t:"День 12 · день покоя", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
+  s:[OIL, M_BIO, PDRN_R, EYE_A, RICH, NECK_E]},
+ {d:"07.09", wd:"Пн", n:12, t:"День 12 · день покоя", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
   note:"Второй день подряд без аппарата: кожа отдыхает и от ролика, и от Age-R.",
   s:[OIL, PAD_N, N9E, EYE_M, RICH, NECK_E]},
- {d:"08.09", wd:"Вт", n:13, t:"День 13 · маска PDRN и бакучиол", kind:"mask", dev:"ager", min:5, boost:true, mtoner:"n9", ant:"g", act:"num",
+ {d:"08.09", wd:"Вт", n:13, t:"День 13 · маска PDRN и бакучиол", kind:"mask", dev:"ager", min:5, boost:true, mtoner:"n9", meye:"m", ant:"g", act:"num",
   s:[OIL, M_VTP, NUM, EYE_R, ALT, NECK_E]},
- {d:"09.09", wd:"Ср", n:14, t:"День 14 · работа по тону", kind:"active", dev:"roll", min:7, mtoner:"n9", ant:"c", act:"mela",
+ {d:"09.09", wd:"Ср", n:14, t:"День 14 · работа по тону", kind:"active", dev:"roll", min:7, mtoner:"n9", meye:"m", ant:"c", act:"mela",
   s:[OIL, PAD_Z, MELA, EYE_R, ALT, NECK_E]},
- {d:"10.09", wd:"Чт", n:15, t:"День 15 · бакучиол и Air Shot", kind:"buka", dev:"ager", min:5, air:true, mtoner:"n9", ant:"g", act:"num",
+ {d:"10.09", wd:"Чт", n:15, t:"День 15 · бакучиол и Air Shot", kind:"buka", dev:"ager", min:5, air:true, mtoner:"n9", meye:"m", ant:"g", act:"num",
   note:"Единственный Air Shot за цикл: он идёт сразу после микротоков, по одной зоне, без задержек на месте.",
   s:[OIL, PAD_P, NUM, EYE_R, ALT, NECK_E]},
- {d:"11.09", wd:"Пт", n:16, t:"День 16 · маска PDRN и работа по тону", kind:"mask", dev:"roll", min:7, mtoner:"n9", ant:"c", act:"mela",
+ {d:"11.09", wd:"Пт", n:16, t:"День 16 · маска PDRN и работа по тону", kind:"mask", dev:"roll", min:7, mtoner:"n9", meye:"m", ant:"c", act:"mela",
   s:[OIL, M_VTP, MELA, EYE_M, ALT, NECK_E]},
- {d:"12.09", wd:"Сб", n:17, t:"День 17 · бакучиол", kind:"buka", dev:"ager", min:5, boost:true, mtoner:"n9", ant:"g", act:"num",
+ {d:"12.09", wd:"Сб", n:17, t:"День 17 · бакучиол", kind:"buka", dev:"ager", min:5, boost:true, mtoner:"n9", meye:"m", ant:"g", act:"num",
   s:[OIL, PAD_P, NUM, EYE_R, ZERO, NECK_E]},
- {d:"13.09", wd:"Вс", n:18, t:"День 18 · день покоя", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
+ {d:"13.09", wd:"Вс", n:18, t:"День 18 · день покоя", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"a", ant:"c", act:"pdrn",
   note:"Аппарата нет, активов нет: вечер целиком на восстановление, крем плотный.",
-  s:[OIL, PAD_N, N9E, EYE_A, RICH, NECK_E]},
- {d:"14.09", wd:"Пн", n:19, t:"День 19 · последний ролик и тканевая маска", kind:"mask", dev:"roll", min:7, last:true, mtoner:"n9", ant:"g", act:"pdrn",
+  s:[OIL, PAD_N, PDRN_R, EYE_A, RICH, NECK_E]},
+ {d:"14.09", wd:"Пн", n:19, t:"День 19 · последний ролик и тканевая маска", kind:"mask", dev:"roll", min:7, last:true, mtoner:"n9", meye:"m", ant:"g", act:"pdrn",
   note:"Ролик сегодня последний раз: с 15.09 инструментов нет вообще. Numbuzin №9 держим 20 минут, следом силиконовая накладка остаётся на ночь.",
   s:[OIL, M_N9, SIL, N9E, EYE_M, RICH, NECK_E]},
- {d:"15.09", wd:"Вт", n:20, t:"День 20 · последний вечер с бакучиолом", kind:"buka", dev:null, min:0, mtoner:"n9", ant:"c", act:"num",
+ {d:"15.09", wd:"Вт", n:20, t:"День 20 · последний вечер с бакучиолом", kind:"buka", dev:null, min:0, mtoner:"n9", meye:"r", ant:"c", act:"num",
   note:"Numbuzin №3 и VT Reedle Shot Eye идут сегодня последний раз — дальше кожа выходит из-под активов. Аппарат и ролик с этого дня тоже не берём.",
   s:[OIL, PAD_P, NUM, EYE_R, ALT, NECK_E]},
- {d:"16.09", wd:"Ср", n:21, t:"День 21 · последний вечер с Melaclear", kind:"active", dev:null, min:0, mtoner:"n9", ant:"g", act:"mela",
+ {d:"16.09", wd:"Ср", n:21, t:"День 21 · последний вечер с Melaclear", kind:"active", dev:null, min:0, mtoner:"n9", meye:"m", ant:"g", act:"mela",
   note:"Последний актив цикла. С 17.09 вечера идут только на восстановление.",
   s:[OIL, PAD_Z, MELA, EYE_M, ALT, NECK_E]},
- {d:"17.09", wd:"Чт", n:22, t:"День 22 · маска PDRN, активов больше нет", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
-  s:[OIL, M_VTP, N9E, EYE_M, ALT, NECK_E]},
- {d:"18.09", wd:"Пт", n:23, t:"День 23 · восстановление", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"17.09", wd:"Чт", n:22, t:"День 22 · маска PDRN, активов больше нет", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"r", ant:"c", act:"pdrn",
+  s:[OIL, M_VTP, PDRN_R, EYE_M, ALT, NECK_E]},
+ {d:"18.09", wd:"Пт", n:23, t:"День 23 · восстановление", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"g", act:"pdrn",
   s:[OIL, PAD_Z, N9E, EYE_A, ALT, NECK_E]},
- {d:"19.09", wd:"Сб", n:24, t:"День 24 · восстановление", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
-  s:[OIL, PAD_P, N9E, EYE_M, ALT, NECK_E]},
- {d:"20.09", wd:"Вс", n:25, t:"День 25 · стоп активам", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"19.09", wd:"Сб", n:24, t:"День 24 · восстановление", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"r", ant:"c", act:"pdrn",
+  s:[OIL, PAD_P, PDRN_R, EYE_M, ALT, NECK_E]},
+ {d:"20.09", wd:"Вс", n:25, t:"День 25 · стоп активам", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   note:"Отсюда и до отпуска убираем Numbuzin №3, Melaclear, VT Reedle Shot, Age-R, ролик и кислотные пэды. Остаются очищение, Numbuzin №9, крем, шея и SPF.",
-  s:[OIL, M_BIO, N9E, EYE_M, RICH, NECK_E]},
- {d:"21.09", wd:"Пн", n:26, t:"День 26 · первый день без активов", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
+  s:[OIL, M_BIO, PDRN_R, EYE_M, RICH, NECK_E]},
+ {d:"21.09", wd:"Пн", n:26, t:"День 26 · первый день без активов", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
   note:"Пэдов в вечере больше нет: после умывания сразу эссенция. Если кожа стянута, тонер Numbuzin №9 в один слой допустим.",
-  s:[OIL, N9E, EYE_M, RICH, NECK_E]},
- {d:"22.09", wd:"Вт", n:27, t:"День 27 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+  s:[OIL, PDRN_R, EYE_M, RICH, NECK_E]},
+ {d:"22.09", wd:"Вт", n:27, t:"День 27 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   s:[OIL, N9E, EYE_A, ALT, NECK_E]},
- {d:"23.09", wd:"Ср", n:28, t:"День 28 · маска PDRN", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
-  s:[OIL, M_VTP, N9E, EYE_M, ALT, NECK_E]},
- {d:"24.09", wd:"Чт", n:29, t:"День 29 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"23.09", wd:"Ср", n:28, t:"День 28 · маска PDRN", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
+  s:[OIL, M_VTP, PDRN_R, EYE_M, ALT, NECK_E]},
+ {d:"24.09", wd:"Чт", n:29, t:"День 29 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   s:[OIL, N9E, EYE_A, RICH, NECK_E]},
- {d:"25.09", wd:"Пт", n:30, t:"День 30 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
-  s:[OIL, N9E, EYE_M, ALT, NECK_E]},
- {d:"26.09", wd:"Сб", n:31, t:"День 31 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"25.09", wd:"Пт", n:30, t:"День 30 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
+  s:[OIL, PDRN_R, EYE_M, ALT, NECK_E]},
+ {d:"26.09", wd:"Сб", n:31, t:"День 31 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   s:[OIL, N9E, EYE_A, RICH, NECK_E]},
- {d:"27.09", wd:"Вс", n:32, t:"День 32 · коллагеновая маска", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
+ {d:"27.09", wd:"Вс", n:32, t:"День 32 · коллагеновая маска", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
   note:"Biodance держится три часа — ставим её на вечер, когда никуда не идём.",
-  s:[OIL, M_BIO, N9E, EYE_M, RICH, NECK_E]},
- {d:"28.09", wd:"Пн", n:33, t:"День 33 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+  s:[OIL, M_BIO, PDRN_R, EYE_M, RICH, NECK_E]},
+ {d:"28.09", wd:"Пн", n:33, t:"День 33 · лёгкая база", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   s:[OIL, N9E, EYE_A, ALT, NECK_E]},
- {d:"29.09", wd:"Вт", n:34, t:"День 34 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
-  s:[OIL, N9E, EYE_M, RICH, NECK_E]},
- {d:"30.09", wd:"Ср", n:35, t:"День 35 · последняя маска дома", kind:"mask", dev:null, min:0, mtoner:"n9", ant:"g", act:"pdrn",
+ {d:"29.09", wd:"Вт", n:34, t:"День 34 · питание", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
+  s:[OIL, PDRN_R, EYE_M, RICH, NECK_E]},
+ {d:"30.09", wd:"Ср", n:35, t:"День 35 · последняя маска дома", kind:"mask", dev:null, min:0, mtoner:"n9", meye:"a", ant:"g", act:"pdrn",
   note:"Последняя маска перед отъездом: в отпуск берём только тканевые Biodance и VT PDRN на случай, если кожа перегреется.",
-  s:[OIL, M_VTP, N9E, EYE_A, ALT, NECK_E]},
- {d:"01.10", wd:"Чт", n:36, t:"День 36 · последний день дома", kind:"recover", dev:null, min:0, mtoner:"n9", ant:"c", act:"pdrn",
+  s:[OIL, M_VTP, PDRN_R, EYE_A, ALT, NECK_E]},
+ {d:"01.10", wd:"Чт", n:36, t:"День 36 · последний день дома", kind:"recover", dev:null, min:0, mtoner:"n9", meye:"m", ant:"c", act:"pdrn",
   note:"Собираем кожу и косметичку: тонер в три слоя, эссенция в два, крем плотно. Никаких проб и новых средств — завтра в отпуск.",
-  s:[OIL, T_N9V, N9E2, EYE_M, RICH_P, NECK_E]}
+  s:[OIL, T_N9V, PDRN2, EYE_M, RICH_P, NECK_E]}
 ];
 
 const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска", buka:"бакучиол", proc:"процедура"};
@@ -810,12 +810,13 @@ const DEV_LABEL = {roll:"ролик M911", ager:"Medicube Age-R, режим ми
 
 function morningSteps(day){
   const out = [
-    {k:"Очищение", v:"Medicube PDRN Cleansing Gel — умываемся мягко, без трения"}
+    {k:"Очищение", v:"Medicube PDRN Cleansing Gel — умываемся мягко, без трения"},
+    {k:"Мист", v:"Dr.Althea Rapid Rescue Mist — распыляем на лицо и ждём 30–60 секунд, пока впитается"}
   ];
   out.push({k:"Тонер", v:"Numbuzin №9 Toner с NAD+"});
   out.push(day.ant === "c"
-    ? {k:"Антиоксидант", v:"SkinJestique Vitamin C — ждём 2–3 минуты до полного впитывания"}
-    : {k:"Антиоксидант", v:"Dr.Ceurance Glutathione — ждём 2–3 минуты до полного впитывания"});
+    ? {k:"Антиоксидант", v:"SkinJestique Antioxidant Vit C — эту банку доходим до ноября 2026, дальше на её место встаёт SkinJestique Vitamin C serum. Ждём 2–3 минуты до полного впитывания"}
+    : {k:"Антиоксидант", v:"Dr.Ceuracle Glutathione — ждём 2–3 минуты до полного впитывания"});
   if (day.dev === "ager") {
     out.push({k:"Гель", v:"Medicube PDRN Gel на всё лицо — скользящая среда под аппарат", hot:"plasma"});
     out.push({k:"Аппарат", v:"Medicube Age-R, режим микротоков, " + day.min + " минут: снизу вверх и от центра к ушам", hot:"gua"});
@@ -831,9 +832,10 @@ function morningSteps(day){
       (day.last ? " — последний раз перед отпуском" : ""), hot:"gua"});
     out.push({k:"Сыворотка", v:"SkinJestique Sculptor Code с пептидами — сразу после ролика, по овалу и шее, снизу вверх"});
   }
+  out.push(day.meye === "r" ? EYE_R : (day.meye === "a" ? EYE_A : EYE_M));
   out.push(ALT);
   out.push({k:"Шея", v:"Medicube Neck Cream 5% — на шею и декольте, массажными движениями снизу вверх"});
-  out.push({k:"Санскрин", v:"SPF за 15 минут до выхода, на улице обновлять каждые 2 часа", hot:"plasma"});
+  out.push({k:"Санскрин", v:"SPF за 15 минут до выхода — Round Lab или стик VT, на улице обновляем каждые 2 часа", hot:"plasma"});
   return out;
 }
 
@@ -845,11 +847,11 @@ const NUMB = [
   ["num","Numbuzin №3 с бакучиолом — 03, 05, 08, 10, 12 и 15.09, шесть вечеров","3"],
   ["num","Dr.Althea Melaclear по тону — 02, 04, 09, 11 и 16.09, пять вечеров","4"],
   ["num","Расход сыворотки — 2–3 капли на лицо, распределить, не втирать","5"],
-  ["yes","Вечера без активов идут на Numbuzin №9 Essence: 06, 07, 13, 14 и с 17.09 до отпуска"],
+  ["yes","Вечера без активов идут на две эссенции по очереди: VT PDRN 06, 13, 17, 19, 20, 21, 23, 25, 27, 29, 30.09 и 01.10, Numbuzin №9 — 07, 14, 18, 22, 24, 26 и 28.09"],
   ["yes","Пэд подбираем под актив: Pink Pad с бакучиолом — 03, 05, 10, 12, 15 и 19.09; Zero Pore Pad с Melaclear — 09, 16 и 18.09; Noni Pad в дни покоя — 07 и 13.09"],
-  ["no","С 21.09 пэдов в вечере нет: после умывания сразу Numbuzin №9 Essence"],
+  ["no","С 21.09 пэдов в вечере нет: после умывания сразу эссенция"],
   ["no","Два актива в один вечер не идут: бакучиол и транексамовая кислота строго по очереди"],
-  ["no","Жжение или краснота: смыть и вернуться к Numbuzin №9 Essence на два дня"],
+  ["no","Жжение или краснота: смыть и вернуться к VT PDRN Essence на два дня"],
   ["no","Numbuzin №3 заканчивается 15.09, Melaclear — 16.09, дальше только восстановление"]
 ];
 const ACNE = [
@@ -892,15 +894,19 @@ const EYES_TECH = [
   ["yes","Безымянным пальцем, лёгкими похлопываниями"],
   ["yes","Расход — с рисовое зёрнышко на оба глаза"],
   ["no","Не подходить вплотную к ресничному краю: отступ 2–3 мм"],
-  ["yes","VT Reedle Shot Eye — 02, 03, 05, 08, 09, 10, 12 и 15.09, в вечера с активами"],
+  ["yes","VT Reedle Shot Eye вечером — 02, 03, 05, 08, 09, 10, 12 и 15.09, в вечера с активами"],
+  ["yes","VT Reedle Shot Eye утром — 15, 17 и 19.09, последний раз перед стопом активам"],
+  ["yes","Утром глаза идут после аппарата и Sculptor Code, до крема на лицо"],
   ["tip","Medicube PDRN Pink Peptide — питание, AXIS-Y Vegan Collagen — увлажнение, дальше идут через вечер"],
-  ["no","VT Reedle Shot Eye заканчивается 15.09: спикулы перед отпуском не берём"],
-  ["yes","С 16.09 и до отъезда глаза идут только на Medicube PDRN и AXIS-Y"]
+  ["no","VT Reedle Shot Eye заканчивается 19.09: с 20.09 спикулы перед отпуском не берём"],
+  ["yes","С 20.09 и до отъезда глаза идут только на Medicube PDRN и AXIS-Y"]
 ];
 const RULES = [
   ["yes","SPF каждый день, на солнце обновлять каждые 2 часа"],
   ["yes","Шея и декольте — Medicube Neck Cream 5% каждый день, утром и вечером"],
-  ["yes","Антиоксидант каждое утро: SkinJestique Vitamin C и Dr.Ceurance Glutathione через день"],
+  ["yes","Антиоксидант каждое утро: SkinJestique Antioxidant Vit C и Dr.Ceuracle Glutathione через день"],
+  ["yes","Мист Dr.Althea Rapid Rescue идёт вторым шагом утра: после умывания, до тонера, пауза 30–60 секунд"],
+  ["yes","Крем для глаз теперь и утром, и вечером"],
   ["yes","Уход за глазами каждый вечер: после сыворотки, до крема"],
   ["yes","PDRN и пептиды — безопасная база, их не отменяем ни на одном этапе"],
   ["yes","Между слоями ждём 2 минуты, иначе средства скатываются"],
@@ -908,7 +914,8 @@ const RULES = [
   ["no","Смываемые маски держим 5–7 минут и смываем, до корки не сушим"],
   ["yes","Тканевая маска идёт на очищенную кожу до актива: 15–20 минут, остатки эссенции вбиваем и не смываем"],
   ["yes","Плотный крем SkinJestique Remedi Rich — только в вечера без активов"],
-  ["no","С 15.09 нет аппаратов и спикул, с 17.09 — активов. С 21.09 и до отъезда только очищение, тонер, Numbuzin №9, крем, шея и SPF"],
+  ["no","С 15.09 нет аппаратов, с 17.09 — активов, с 20.09 снимаются и спикулы VT Reedle Shot Eye"],
+  ["no","С 21.09 и до отъезда вечер короткий: очищение, эссенция, глаза, крем и шея"],
   ["no","Matte-кремы Zero Pore в отпуск не берём: на солнце нужна защита, а не матирование"],
   ["no","Celimax Retinol и Retinal — отложены, возвращать только после консультации врача"]
 ];
@@ -934,8 +941,9 @@ const BAG = [
   "Очищение: Medicube PDRN Cleansing Gel и пенка в мини-формате",
   "Пэды: Celimax Noni Pad, небольшая банка",
   "Тонер: Numbuzin №9 Toner, мини",
-  "Антиоксидант: SkinJestique Vitamin C или Dr.Ceurance Glutathione, мини",
-  "Сыворотка: Numbuzin №9 Essence, мини",
+  "Антиоксидант: SkinJestique Antioxidant Vit C или Dr.Ceuracle Glutathione, мини",
+  "Мист: Dr.Althea Rapid Rescue, дорожный флакон",
+  "Сыворотка: VT PDRN Essence 100 и Numbuzin №9 Essence, мини",
   "Крем: Dr.Althea Watery и SkinJestique Remedi Rich на вечер, мини",
   "Шея: Medicube Neck Cream, мини",
   "SPF: Round Lab Pine Calming, три штуки",
@@ -950,20 +958,26 @@ const STOCK = [
   ["yes","Аппараты: Medicube Age-R в режиме микротоков и ролик M911 через день, до 14.09. Booster — 04, 08 и 12.09, Air Shot — 10.09"],
   ["yes","Очищение: Medicube PDRN Cleansing Gel утром, масло и пенка вечером"],
   ["yes","Тонер и пэды: Numbuzin №9 Toner утром, Pink Pad, Zero Pore Pad и Celimax Noni Pad вечером"],
-  ["yes","Утро: антиоксиданты SkinJestique Vitamin C и Dr.Ceurance Glutathione через день, Sculptor Code — только в дни с инструментом"],
+  ["yes","Утро: мист Dr.Althea Rapid Rescue, антиоксиданты SkinJestique Antioxidant Vit C и Dr.Ceuracle Glutathione через день, Sculptor Code — только в дни с инструментом"],
   ["yes","Активы вечером: Numbuzin №3 с бакучиолом и Dr.Althea Melaclear, строго по очереди, до 16.09"],
-  ["yes","База вечером: Numbuzin №9 Essence — вечера восстановления и весь период с 17.09 до отъезда"],
-  ["yes","Глаза: VT Reedle Shot Eye в вечера с активами до 15.09, дальше Medicube PDRN и AXIS-Y Vegan Collagen"],
+  ["yes","База вечером: VT PDRN Essence 100 и Numbuzin №9 Essence через вечер — вечера восстановления и весь период с 17.09 до отъезда"],
+  ["yes","Глаза утром и вечером: VT Reedle Shot Eye до 19.09, дальше Medicube PDRN Pink Peptide и AXIS-Y Vegan Collagen через день"],
   ["yes","Кремы: Dr.Althea Watery в будни, SkinJestique Remedi Rich в вечера без активов, Medicube Zero Pore на Т-зону"],
   ["yes","Шея: Medicube Neck Cream 5% каждый день утром и вечером"],
   ["yes","Маски до стопа: VT PDRN 02, 10 и 17.09, Biodance 06 и 20.09, AXIS-Y Wash Off 08.09, Numbuzin №9 Sheet 14.09"],
   ["yes","Маски перед отпуском: VT PDRN 23 и 30.09, Biodance 27.09 — всего десять за цикл"],
   ["no","На полке до её слова: Medicube Azelaic Acid Shot и SkinJestique Queen Mask — свободных вечеров под них нет"],
   ["no","Отложено до конца цикла: VT Reedle Shot 100 и тонер Reedle Shot"],
-  ["no","Отложено до консультации врача: Celimax Retinol и Retinal, Numbuzin №9 Eye Cream с ретинолом"]
+  ["no","Отложено до консультации врача: Celimax Retinol и Retinal, Numbuzin №9 Eye Cream с ретинолом"],
+  ["tip","На полке, ждут своего дня: SkinJestique Vitamin C serum — с ноября 2026, когда закончится Antioxidant Vit C"],
+  ["tip","Celimax Noni Energy Cream — если кожа станет очень сухой"],
+  ["tip","Absolute Gorgeous Firming Cream — чередовать с SkinJestique Remedi Rich"],
+  ["tip","Medicube Kojic Acid Mask — раз в две недели вечером, наутро SPF обязателен"],
+  ["tip","The Ordinary Caffeine Solution — точечно под глаза при отёке"],
+  ["tip","Celimax Retinol Shot во флаконе — пробуем не раньше декабря 2026, тюбик Retinal остаётся на полке"]
 ];
 
-const KEY = "skincare-2026-v10";   // v8 сброшен: утро перестроено (антиоксидант ежедневно, Sculptor только в дни аппарата), в вечера добавлена шея — индексы галочек сдвинулись
+const KEY = "skincare-2026-v13";   // v10 сброшен: в утро добавлены мист и крем для глаз — индексы галочек сдвинулись
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){} };
