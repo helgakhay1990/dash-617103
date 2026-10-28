@@ -625,6 +625,7 @@ footer a{color:var(--ink-3)}
         <div class="dose">1000–2000 мг EPA + DHA</div>
         <dl>
           <dt>Роль</dt><dd>Снимает микровоспаления, защищает коллаген от разрушения</dd>
+          <dt>Пауза</dt><dd>07–15.11, перед филлером: омега-3 усиливает синяки</dd>
         </dl>
       </div>
       <div class="card-s">
@@ -947,7 +948,7 @@ const ROLL_TECH = [
   ["no","Не катать по воспалениям, папулам и свежим следам от инъекций"]
 ];
 const ROLL_AFTER = [
-  ["yes","Сверху крем Dr.Althea Aqua Marine"],
+  ["yes","Sculpture Code и есть дневной крем: второй крем поверх не нужен"],
   ["yes","SPF обязательно, включая шею"],
   ["tip","Ролик и насадку аппарата мыть после каждого использования и сушить насухо"],
   ["tip","Ощутимый лифтинг в этом цикле дают процедуры. Аппарат и ролик поддерживают тонус и снимают утренний отек, но процедуру не заменяют"]
@@ -1201,10 +1202,11 @@ const ACT_TEXT = {
   pdrn:  ["Эссенция и крем", "вечер отдыха"]
 };
 function restText(day){
+  const name = v => v.split(/ — |, | после | на \d/)[0];
   const mask = day.s.find(st => st.k === "Маска");
-  if (mask) return [mask.v.split(" —")[0], "маска"];
-  const ess = day.s.find(st => st.k === "Эссенция");
-  if (ess) return [ess.v.split(" —")[0].split(",")[0], "вечер отдыха"];
+  if (mask) return [name(mask.v), "маска"];
+  const ess = day.s.find(st => ["Эссенция", "Ампула", "Сыворотка"].includes(st.k));
+  if (ess) return [name(ess.v), day.kind === "proc" ? "день процедуры, без активов" : "вечер отдыха"];
   return ACT_TEXT.pdrn;
 }
 function renderSerum(el){
