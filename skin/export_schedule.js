@@ -1,7 +1,7 @@
 const fs=require('fs');
 let html=fs.readFileSync('/Users/olgakhaidukova/dashboards/skin/index.html','utf8');
 let src=html.match(/<script>([\s\S]*?)<\/script>/)[1];
-src=src.replace(/^[\s\S]*?const OIL/,'const OIL');
+src=src.slice(src.indexOf('/* ---------- шаги вечера'));
 src=src.slice(0,src.indexOf('const NUMB'));
 const scope=new Function(src+'; return {DAYS, morningSteps};')();
 const DAYS=scope.DAYS, morningSteps=scope.morningSteps;
