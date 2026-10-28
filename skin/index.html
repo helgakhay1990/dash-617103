@@ -690,7 +690,7 @@ const CL_PROC= {k:"Очищение", v:"Пенка AXIS-Y Sunday Morning кон
 const CL_SA  = {k:"Очищение", v:"Масло Zero Pore, затем голубая пенка Zero Pore Capsule только на лоб, нос и подбородок: в ней салициловая кислота. Щеки моем пенкой AXIS-Y", hot:"active"};
 const CL_SA2 = {k:"Очищение", v:"Масло Zero Pore, затем голубая пенка Zero Pore Capsule только на лоб и нос. Подбородок и щеки моем пенкой AXIS-Y: кислоты на зону филлера не раньше 4 недель", hot:"active"};
 const CLAY   = {k:"Глина", v:"AXIS-Y Mugwort Wash Off на лоб и нос на 10 минут, до корки не сушим, смываем. Каолин и бентонит, кислот нет. На щеки не наносим: бентонит сушит", hot:"mask"};
-const T_CEL  = {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner, 2 слоя похлопывающими движениями"};
+const T_CEL  = {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner, 1 слой. Второй слой — только если кожа тянет"};
 const PAD_PK = {k:"Пэд", v:"Medicube PDRN Pink Collagen Gel Pad на щеки на 3 минуты, остаток вбить"};
 
 const MELA1 = {k:"Актив", v:"Dr.Althea Melaclear Cream с транексамовой кислотой — первый вечер после процедуры: тонкий слой, места проколов обходим", hot:"active"};
@@ -702,13 +702,13 @@ const BUF   = {k:"Буфер", v:"SkinJestique Remedy Rich Cream тонким с
 const RET1  = {k:"Ретиноид", v:"Purito Seoul Retinol Retinal 2000 — первый раз: горошина на все лицо поверх буфера, мимо век, крыльев носа и уголков рта. Поверх ничего, кроме глаз и шеи", hot:"retinol"};
 const RET   = {k:"Ретиноид", v:"Purito Seoul Retinol Retinal 2000 — горошина поверх буфера. Ретинол 0,1% и ретиналь 0,1%: частоту не поднимаем, пока кожа спокойна 2 недели подряд", hot:"retinol"};
 
-const PDRN  = {k:"Эссенция", v:"VT PDRN Essence 100, 2 слоя, ждем 2 минуты", hot:"plasma"};
+const PDRN  = {k:"Эссенция", v:"VT PDRN Essence 100, 1 слой, ждем 2 минуты", hot:"plasma"};
 const N9E   = {k:"Эссенция", v:"Numbuzin №9 NAD+ Bio Lifting-sil Essence — по овалу снизу вверх, около 50 пептидов в составе"};
 const SILK  = {k:"Ампула", v:"Sungboon Editor Silk Peptide Intensive Lifting Ampoule — 2–3 капли по овалу и носогубной зоне"};
 const CICA  = {k:"Сыворотка", v:"Skin1004 Hyalu-Cica Blue Serum — центелла и 6 форм гиалуроновой кислоты, без активов"};
 const CAMP  = {k:"Ампула", v:"Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла", hot:"plasma"};
 
-const M_BIO = {k:"Маска", v:"Biodance Bio-Collagen Real Deep Mask после тонера, на 3–4 часа или на ночь, пока не станет прозрачной. Остаток вбить", hot:"mask"};
+const M_BIO = {k:"Маска", v:"Biodance Bio-Collagen Real Deep Mask после тонера, на 3–4 часа, снять до сна: на ночь под пленкой жирной коже душно. Остаток вбить", hot:"mask"};
 const M_VTP = {k:"Маска", v:"VT PDRN Daily Mask на 15 минут, остаток вбить", hot:"mask"};
 const M_N9  = {k:"Маска", v:"Numbuzin №9 Sheet Mask на 20 минут, сверху силиконовая накладка", hot:"mask"};
 const M_N9F = {k:"Маска", v:"Numbuzin №9 Sheet Mask на 20 минут, без силиконовой накладки: подбородок после филлера не прижимаем", hot:"mask"};
@@ -723,7 +723,7 @@ const EYE_S = {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — тольк
 
 const CR_FIRM= {k:"Крем", v:"SkinJestique Absolute Gorgeous Firming Cream — 2 пептида по 2%, по овалу снизу вверх"};
 const CR_OAT = {k:"Крем", v:"Purito Oat-in Calming Gel Cream — овес и пантенол. При папулах берем его вместо любого другого"};
-const CR_MEL = {k:"Крем", v:"Dr.Melaxin Cemenrete Calcium Volume Cream — плотнее, без отдушки, для сухих щек"};
+const CR_MEL = {k:"Крем", v:"Dr.Melaxin Cemenrete Calcium Volume Cream — только на щеки и только если тянет, Т-зону обходим"};
 const CR_ALT = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — легкий гель-крем на все лицо"};
 const NECK_E = {k:"Шея", v:"Medicube Neck Cream — на шею и декольте снизу вверх. Если на тюбике PDRN Collagen Gua Sha Neck Wrinkle Cream, в нем ретинол, поэтому крем только вечером"};
 const NECK_P = {k:"Шея", v:"Medicube Neck Cream — на шею и декольте снизу вверх, точки входа канюли у угла челюсти обходим"};
@@ -740,7 +740,7 @@ const DAYS = [
   s:[CL_OIL, T_CEL, M_BIO, PDRN, EYE_L, CR_ALT, NECK_E]},
  {d:"30.10", wd:"Пт", n:3, t:"Канун процедуры", kind:"recover", dev:null, min:0, ant:"c", meye:"k", act:"cica",
   note:"Канун Гемокомпакта: без активов, аппарата и алкоголя. Вечер на базе, чтобы завтра кожа пришла спокойной.",
-  s:[CL_OIL, T_CEL, CICA, EYE_A, CR_MEL, NECK_E]},
+  s:[CL_OIL, T_CEL, CICA, EYE_A, CR_OAT, NECK_E]},
  {d:"31.10", wd:"Сб", n:4, t:"Гемокомпакт · день процедуры", kind:"proc", dev:null, min:0, ant:"g", meye:"a", recov:true, act:"rest",
   note:"Утром обычный мягкий уход без аппарата, на процедуру — без макияжа. Вечером только мягкое умывание и увлажнение, места проколов не трогаем. Памятки производитель не публикует, поэтому приоритет у слов вашего врача.",
   s:[CL_PROC, T_CEL, CAMP, EYE_A, CR_OAT, NECK_P]},
@@ -806,7 +806,7 @@ const DAYS = [
   s:[CL_SOFT, T_CEL, BUF, RET1, EYE_A, NECK_E]},
  {d:"22.11", wd:"Вс", n:26, t:"Вечер отдыха после ретиноида", kind:"recover", dev:null, min:0, ant:"g", meye:"p", act:"rest",
   note:"После ретиноида всегда вечер без активов.",
-  s:[CL_SOFT, T_CEL, PAD_PK, PDRN, EYE_P, CR_MEL, NECK_E]},
+  s:[CL_SOFT, T_CEL, PDRN, EYE_P, CR_OAT, NECK_E]},
  {d:"23.11", wd:"Пн", n:27, t:"Азелаиновая кислота", kind:"active", dev:null, min:0, ant:"c", meye:"k", act:"azel",
   s:[CL_OIL, T_CEL, AZ, EYE_A, CR_OAT, NECK_E]},
  {d:"24.11", wd:"Вт", n:28, t:"Тон: Melaclear", kind:"active", dev:null, min:0, ant:"g", meye:"k", act:"mela",
@@ -838,9 +838,8 @@ function morningSteps(day){
   out.push(day.trip
     ? {k:"Очищение", v:"Пенка Purito Mighty Bamboo из набора Seoul, мягко"}
     : {k:"Очищение", v:"Пенка AXIS-Y Sunday Morning, pH 5,5" + (day.recov ? ": мягко, без трения, места проколов обходим" : "")});
-  out.push(day.mist === "r"
-    ? {k:"Мист", v:"Dr.Althea Rapid Hypochlorous Rescue Mist — гипохлористая кислота после инъекций, ждем 30–60 секунд", hot:"plasma"}
-    : {k:"Мист", v:"Dr.Althea 345 Relief Cream Mist — распылить и дать впитаться 30 секунд"});
+  if (day.mist === "r")
+    out.push({k:"Мист", v:"Dr.Althea Rapid Hypochlorous Rescue Mist — гипохлористая кислота после инъекций, ждем 30–60 секунд", hot:"plasma"});
   out.push(day.recov
     ? {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner"}
     : (day.trip ? {k:"Тонер", v:"Purito Wonder Releaf Centella Toner"} : {k:"Тонер", v:"Round Lab 1025 Dokdo Toner"}));
@@ -859,8 +858,7 @@ function morningSteps(day){
     out.push({k:"Ролик", v:"Ролик M911, " + day.min + " минут: от центра к ушам, затем по шее вниз к ключицам, нажим 2 из 10" +
       (day.d === "28.11" ? ". Подбородок и линию челюсти обходим: после филлера до 4 недель" : ""), hot:"gua"});
   }
-  if (!day.recov && !day.trip)
-    out.push({k:"Дренаж", v:"SkinJestique Your Sculpture Code Cream — кофеин на 2-м месте в составе. По овалу и под скулами снизу вверх, без нажима"});
+
   if (day.meye === "p") {
     out.push({k:"Глаза", v:"VT Caffeine Eye Patch на 10–15 минут, пока собираетесь, затем остаток вбить", hot:"eye"});
   } else if (day.meye === "k") {
@@ -869,8 +867,10 @@ function morningSteps(day){
     out.push({k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — касанием, без похлопывания", hot:"eye"});
   }
   out.push(day.recov
-    ? {k:"Крем", v:"Purito Oat-in Calming Gel Cream"}
-    : {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream на лицо, Medicube Zero Pore One Day Cream только на Т-зону: в нем BHA и отдушка, щеки обходим"});
+    ? {k:"Крем", v:"Purito Oat-in Calming Gel Cream — тонким слоем"}
+    : day.dev
+      ? {k:"Крем", v:"SkinJestique Your Sculpture Code Cream вместо дневного крема — кофеин на 2-м месте в составе, по овалу и под скулами снизу вверх. Второй крем сверху не нужен"}
+      : {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream на щеки, Medicube Zero Pore One Day Cream вместо него на Т-зону — не поверх. Один крем на каждую зону"});
   out.push({k:"Санскрин", v:"SPF 50+ за 15 минут до выхода: VT Air Cloud Balance Layer стик в несколько проходов по каждой зоне, включая шею. На улице обновляем каждые 2 часа. Пигмент после Египта усилился, поэтому защита обязательна и в пасмурный день", hot:"plasma"});
   return out;
 }
@@ -940,7 +940,8 @@ const RULES = [
   ["no","Сауна, хамам, горячий душ и интенсивный спорт — 3 дня после Гемокомпакта и сутки после филлера, жару лучше отложить на 2 дня"],
   ["no","2 недели после филлера: без массажа лица, ролика, сна лицом вниз и кислот на подбородок"],
   ["no","Омега-3, витамин E и аспирин без назначения — пауза с 07 по 15.11. Назначенные врачом препараты не отменяем сами"],
-  ["yes","Между слоями ждем 2 минуты, иначе средства скатываются"],
+  ["yes","Норма слоев: утром тонер, антиоксидант, один крем и SPF; вечером тонер, одна сыворотка или актив, один крем. Если средство не впиталось за 2 минуты, следующий слой не кладем"],
+  ["no","Признаки перегруза: кожа блестит через час после крема, щиплет от привычных средств, мелкие папулы у рта и носа. Тогда на 3 дня убираем плотные кремы и маски, остаются тонер, Hyalu-Cica и Oat-in"],
   ["yes","Тканевая маска идет после тонера на голую кожу, эссенция и крем — после нее"],
   ["no","Папулы не проходят за 2–4 недели после отмены активов, появились у рта, носа или глаз, есть приливы — к дерматологу"]
 ];
