@@ -489,6 +489,20 @@ footer a{color:var(--ink-3)}
         </section>
     </details>
     <details class="acc">
+      <summary>Что отложено в запас</summary>
+        <section class="panel">
+          <div class="phead">
+            <div>
+              <div class="when">16 средств вне календаря ноября</div>
+              <h2>Запас: что ждет и когда вернется</h2>
+            </div>
+            <span class="kind" data-kind="recover">полка</span>
+          </div>
+          <div class="rules" id="reserve"></div>
+          <p class="note">Из запаса возвращаем <b>по одному средству раз в 2 недели</b> и только на спокойную кожу. Новое средство первые 2 раза наносим на одну щеку или линию челюсти: если за 48 часов папул нет, переходим на все лицо.</p>
+        </section>
+    </details>
+    <details class="acc">
       <summary>Что взять в поездку 29.11</summary>
         <section class="panel">
           <div class="phead">
@@ -898,6 +912,24 @@ const ACNE = [
   ["no","Не давить: на месте каждого выдавленного воспаления остается пигмент, а после Египта кожа к нему склонна"],
   ["no","Кислотные пэды Zero Pore в ноябре не берем: кислоты и спирт против раздраженных щек"]
 ];
+const RESERVE = [
+  ["yes","На замену, когда закончится аналог: Numbuzin №9 Toner — вместо Round Lab утром, ниацинамид в нем на 3-м месте, поэтому не в один день с Numbuzin №5"],
+  ["yes","На замену: Axis-Y Triple PDRN Gel Toner — вместо Medicube PDRN Booster Gel под аппарат"],
+  ["yes","На замену: Celimax Noni Energy Repair Cream — вместо Oat-in в спокойные вечера. В составе масло розмарина, поэтому в дни реакции не берем"],
+  ["yes","Запасные: стик Round Lab Pine Calming — только Т-зона и шея, в нем 6 эфирных масел; Dr.Althea 345 Relief Cream Mist — в самолет и в поездку"],
+  ["num","Arencia Vitamin C Booster Shot — сразу, как закончится Super C Glow, даже в ноябре. Этил-аскорбиновая кислота 5%: первую неделю через утро","1"],
+  ["num","Декабрь: Numbuzin №5 Glutathione Vitamin — когда закончится Melaclear. Транексамовая кислота 4% и ниацинамид 5%, вечером вместо Melaclear","2"],
+  ["num","Декабрь: VT Reedle Shot Synergy Sparkling Toner — бромелайн, мягкий ферментный пилинг, 1–2 вечера в неделю. Спикул в нем нет","3"],
+  ["num","Декабрь: Fraijour Wormwood Enzyme Pack — энзимная пудра с папаином и кислотами, 1 раз в неделю на Т-зону, не в вечер ретиноида","4"],
+  ["num","Декабрь: Dr.Ceuracle Vegan BHA & Matcha — салициловая кислота, Т-зона, отдельным вечером","5"],
+  ["num","Декабрь: Medicube Kojic Acid Night Wrapping Mask — койевая и аскорбиновая кислоты и следы ретинола, 1 раз в неделю, не в вечер Purito","6"],
+  ["num","Январь: Arencia Eraser Shot Glycolic Booster — самая сильная кислота из запаса, последней и только при спокойных щеках","7"],
+  ["tip","Ретинол для глаз — один за раз: SkinJestique Pure Beauty Genius Retinol Eye или K-Secret Retinal Eye, когда закончится Numbuzin №9 Eye"],
+  ["no","Полка без срока: Celimax Retinal Shot — ретиналь и спикулы в одном флаконе, после такого сочетания появлялись папулы"],
+  ["no","Полка без срока: Medicube Zero Pore Pad оригинал — молочная и салициловая кислоты, спирт и 7 эфирных масел"],
+  ["no","Полка без срока: Celimax Noni Calming Glow Pad — охлаждающий агент как у ментола и эфирные масла"],
+  ["no","Только тело: Medicube Azelaic Acid Shot — спикулы и всего 0,01% азелаиновой кислоты, на лицо не идет"]
+];
 const ROLL_MAP = [
   ["num","Утром, после тонера и антиоксиданта","1"],
   ["num","Medicube PDRN Booster Gel на все лицо — по сухой коже ни ролик, ни аппарат не идут","2"],
@@ -1297,6 +1329,7 @@ renderInside();
 
 renderRules($("numb"), NUMB);
 renderRules($("stock"), STOCK);
+renderRules($("reserve"), RESERVE);
 renderRules($("acne"), ACNE);
 renderRules($("gua-map"), ROLL_MAP);
 renderRules($("gua-tech"), ROLL_TECH);
