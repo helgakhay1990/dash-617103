@@ -250,8 +250,8 @@
      "v": "Celimax Dual Barrier Creamy Toner, 1 слой. Второй слой — только если кожа тянет"
     },
     {
-     "k": "Ампула",
-     "v": "Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла"
+     "k": "Сыворотка",
+     "v": "Skin1004 Hyalu-Cica Blue Serum — 1 слой, места проколов обходим"
     },
     {
      "k": "Глаза",
@@ -318,8 +318,8 @@
      "v": "Celimax Dual Barrier Creamy Toner, 1 слой. Второй слой — только если кожа тянет"
     },
     {
-     "k": "Ампула",
-     "v": "Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла"
+     "k": "Сыворотка",
+     "v": "Skin1004 Hyalu-Cica Blue Serum — 1 слой, места проколов обходим"
     },
     {
      "k": "Глаза",
@@ -1266,8 +1266,8 @@
      "v": "Celimax Dual Barrier Creamy Toner, 1 слой. Второй слой — только если кожа тянет"
     },
     {
-     "k": "Ампула",
-     "v": "Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла"
+     "k": "Сыворотка",
+     "v": "Skin1004 Hyalu-Cica Blue Serum — 1 слой, места проколов обходим"
     },
     {
      "k": "Глаза",
@@ -1334,8 +1334,8 @@
      "v": "Celimax Dual Barrier Creamy Toner, 1 слой. Второй слой — только если кожа тянет"
     },
     {
-     "k": "Ампула",
-     "v": "Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла"
+     "k": "Сыворотка",
+     "v": "Skin1004 Hyalu-Cica Blue Serum — 1 слой, места проколов обходим"
     },
     {
      "k": "Глаза",
@@ -2307,11 +2307,11 @@
    "steps": [
     {
      "k": "Очищение",
-     "v": "Skin1004 Light Cleansing Oil из дорожного набора, затем пенка Purito Mighty Bamboo из набора Seoul"
+     "v": "Масло Zero Pore из дорожного флакона, если днем был SPF, затем пенка AXIS-Y Sunday Morning"
     },
     {
      "k": "Тонер",
-     "v": "Purito Wonder Releaf Centella Toner из набора Seoul Best Kit"
+     "v": "Celimax Dual Barrier Creamy Toner из дорожного флакона"
     },
     {
      "k": "Сыворотка",
@@ -2329,7 +2329,7 @@
    "msteps": [
     {
      "k": "Очищение",
-     "v": "Пенка Purito Mighty Bamboo из набора Seoul, мягко"
+     "v": "Пенка AXIS-Y Sunday Morning, мягко"
     },
     {
      "k": "Тонер",
@@ -2371,11 +2371,11 @@
    "steps": [
     {
      "k": "Очищение",
-     "v": "Skin1004 Light Cleansing Oil из дорожного набора, затем пенка Purito Mighty Bamboo из набора Seoul"
+     "v": "Масло Zero Pore из дорожного флакона, если днем был SPF, затем пенка AXIS-Y Sunday Morning"
     },
     {
      "k": "Тонер",
-     "v": "Purito Wonder Releaf Centella Toner из набора Seoul Best Kit"
+     "v": "Celimax Dual Barrier Creamy Toner из дорожного флакона"
     },
     {
      "k": "Сыворотка",
@@ -2393,7 +2393,7 @@
    "msteps": [
     {
      "k": "Очищение",
-     "v": "Пенка Purito Mighty Bamboo из набора Seoul, мягко"
+     "v": "Пенка AXIS-Y Sunday Morning, мягко"
     },
     {
      "k": "Тонер",

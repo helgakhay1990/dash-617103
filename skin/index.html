@@ -493,7 +493,7 @@ footer a{color:var(--ink-3)}
         <section class="panel">
           <div class="phead">
             <div>
-              <div class="when">13 средств вне календаря ноября</div>
+              <div class="when">14 средств вне календаря ноября</div>
               <h2>Запас: что ждет и когда вернется</h2>
             </div>
             <span class="kind" data-kind="recover">полка</span>
@@ -528,8 +528,8 @@ footer a{color:var(--ink-3)}
           <h3>Поездка</h3>
           <div class="date">29.11 – 07.12 · только база и защита</div>
           <ul>
-            <li><b>Утром:</b> пенка Purito, тонер Purito, антиоксидант, Hyalu-Cica, крем, <b>SPF каждые 2 часа</b>, шляпа и очки.</li>
-            <li><b>Вечером:</b> масло и пенка Skin1004, тонер, Hyalu-Cica или Centella Ampoule, глаза AXIS-Y, крем Dr.Melaxin.</li>
+            <li><b>Утром:</b> пенка AXIS-Y, тонер Celimax, антиоксидант, Hyalu-Cica, крем Oat-in, <b>SPF каждые 2 часа</b>, шляпа и очки.</li>
+            <li><b>Вечером:</b> масло Zero Pore и пенка AXIS-Y, тонер Celimax, Hyalu-Cica, глаза AXIS-Y, крем Dr.Melaxin на щеки.</li>
             <li><b>Не берем:</b> активы, ретиноиды, Age-R и ролик.</li>
           </ul>
         </div>
@@ -720,7 +720,7 @@ const PDRN  = {k:"Эссенция", v:"VT PDRN Essence 100, 1 слой, жде�
 const N9E   = {k:"Эссенция", v:"Numbuzin №9 NAD+ Bio Lifting-sil Essence — по овалу снизу вверх, около 50 пептидов в составе"};
 const SILK  = {k:"Ампула", v:"Sungboon Editor Silk Peptide Intensive Lifting Ampoule — 2–3 капли по овалу и носогубной зоне"};
 const CICA  = {k:"Сыворотка", v:"Skin1004 Hyalu-Cica Blue Serum — центелла и 6 форм гиалуроновой кислоты, без активов"};
-const CAMP  = {k:"Ампула", v:"Skin1004 Centella Ampoule — в составе 7 компонентов, только центелла", hot:"plasma"};
+const CAMP  = {k:"Сыворотка", v:"Skin1004 Hyalu-Cica Blue Serum — 1 слой, места проколов обходим", hot:"plasma"};
 
 const M_BIO = {k:"Маска", v:"Biodance Bio-Collagen Real Deep Mask после тонера, на 3–4 часа, снять до сна: на ночь под пленкой жирной коже душно. Остаток вбить", hot:"mask"};
 const M_VTP = {k:"Маска", v:"VT PDRN Daily Mask на 15 минут, остаток вбить", hot:"mask"};
@@ -742,8 +742,8 @@ const CR_ALT = {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream — легк
 const NECK_E = {k:"Шея", v:"Medicube Neck Cream — на шею и декольте снизу вверх. Если на тюбике PDRN Collagen Gua Sha Neck Wrinkle Cream, в нем ретинол, поэтому крем только вечером"};
 const NECK_P = {k:"Шея", v:"Medicube Neck Cream — на шею и декольте снизу вверх, точки входа канюли у угла челюсти обходим"};
 
-const T_TRV = {k:"Тонер", v:"Purito Wonder Releaf Centella Toner из набора Seoul Best Kit"};
-const CL_TRV= {k:"Очищение", v:"Skin1004 Light Cleansing Oil из дорожного набора, затем пенка Purito Mighty Bamboo из набора Seoul"};
+const T_TRV = {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner из дорожного флакона"};
+const CL_TRV= {k:"Очищение", v:"Масло Zero Pore из дорожного флакона, если днем был SPF, затем пенка AXIS-Y Sunday Morning"};
 
 const DAYS = [
  {d:"28.10", wd:"Ср", n:1, t:"Успокоение барьера", kind:"recover", dev:"roll", min:5, ant:"c", meye:"p", act:"cica",
@@ -850,13 +850,13 @@ const DEV_LABEL = {roll:"ролик M911", ager:"Medicube Age-R, режим ми
 function morningSteps(day){
   const out = [];
   out.push(day.trip
-    ? {k:"Очищение", v:"Пенка Purito Mighty Bamboo из набора Seoul, мягко"}
+    ? {k:"Очищение", v:"Пенка AXIS-Y Sunday Morning, мягко"}
     : {k:"Очищение", v:"Пенка AXIS-Y Sunday Morning, pH 5,5" + (day.recov ? ": мягко, без трения, места проколов обходим" : "")});
   if (day.mist === "r")
     out.push({k:"Мист", v:"Dr.Althea Rapid Hypochlorous Rescue Mist — гипохлористая кислота после инъекций, ждем 30–60 секунд", hot:"plasma"});
   out.push(day.recov
     ? {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner"}
-    : (day.trip ? {k:"Тонер", v:"Purito Wonder Releaf Centella Toner"} : {k:"Тонер", v:"Round Lab 1025 Dokdo Toner"}));
+    : (day.trip ? {k:"Тонер", v:"Celimax Dual Barrier Creamy Toner"} : {k:"Тонер", v:"Round Lab 1025 Dokdo Toner"}));
   if (!day.ant) {
     out.push({k:"Пауза", v:"Антиоксидант сегодня пропускаем"});
   } else {
@@ -890,7 +890,7 @@ function morningSteps(day){
 }
 
 const NUMB = [
-  ["num","Ступень 0, с первого дня — средства без активов: пенка AXIS-Y, тонеры Celimax Dual Barrier и Round Lab Dokdo, Skin1004 Hyalu-Cica Blue и Centella Ampoule, кремы Purito Oat-in, Dr.Melaxin Cemenrete, SkinJestique Remedy Rich и Dr.Althea Aqua Marine, маски Biodance и VT PDRN Daily","0"],
+  ["num","Ступень 0, с первого дня — средства без активов: пенка AXIS-Y, тонеры Celimax Dual Barrier и Round Lab Dokdo, Skin1004 Hyalu-Cica Blue, кремы Purito Oat-in, Dr.Melaxin Cemenrete, SkinJestique Remedy Rich и Dr.Althea Aqua Marine, маски Biodance и VT PDRN Daily","0"],
   ["num","Ступень 1, сразу и с 3-го дня после процедур — мягкие: VT PDRN Essence, Numbuzin №9 Essence, Sungboon Silk Peptide, SkinJestique Absolute Gorgeous, Dr.Ceuracle Glutathione, Super C Glow, Dr.Althea Melaclear, Numbuzin №3 с бакучиолом, пэд Pink Collagen, маска Numbuzin №9, кофеин для глаз","1"],
   ["num","Ступень 2, по одному новому средству: Dr.Ceuracle Azelaic 10 — с 05.11, Numbuzin №9 Eye Cream с ретинолом — с 09.11, голубая пенка Zero Pore и глина AXIS-Y — только на Т-зону","2"],
   ["num","Ступень 3, с 21.11 раз в неделю: Purito Seoul Retinol Retinal 2000, где ретинол 0,1% и ретиналь 0,1%. Только с буфером, отдельным вечером и с вечером отдыха следом","3"],
@@ -914,6 +914,7 @@ const ACNE = [
 ];
 const RESERVE = [
   ["yes","На замену, когда закончится аналог: Numbuzin №9 Toner — вместо Round Lab утром, ниацинамид в нем на 3-м месте, поэтому не в один день с Numbuzin №5"],
+  ["yes","На замену: Arencia Fresh Green Rice Mochi Cleanser — вместо AXIS-Y, когда она закончится, и не в дни процедур. Мягкие ПАВ, кислот нет, но в составе миндальная мука и рисовая пудра, то есть мягкий скраб, и отдушка. Щеки не тереть"],
   ["yes","На замену: Axis-Y Triple PDRN Gel Toner — вместо Medicube PDRN Booster Gel под аппарат"],
   ["yes","На замену: Celimax Noni Energy Repair Cream — вместо Oat-in в спокойные вечера. В составе масло розмарина, поэтому в дни реакции не берем"],
   ["num","Arencia Vitamin C Booster Shot — сразу, как закончится Super C Glow, даже в ноябре. Этил-аскорбиновая кислота 5%: первую неделю через утро","1"],
@@ -993,9 +994,9 @@ const TIPS = [
   ["tip","Шляпа и очки защищают от пигментации надежнее любого крема"]
 ];
 const BAG = [
-  "Очищение: набор Skin1004 Double Cleansing Duo — масло и пенка",
-  "Набор Purito Seoul Best Kit: тонер, сыворотка, крем и SPF-лосьон с центеллой",
-  "Skin1004 Hyalu-Cica Blue Serum или Centella Ampoule из дорожного набора",
+  "Очищение: масло Zero Pore и пенка AXIS-Y в дорожных флаконах",
+  "Тонер Celimax Dual Barrier в дорожном флаконе",
+  "Skin1004 Hyalu-Cica Blue Serum",
   "Крем Dr.Melaxin Cemenrete в мини-баночке: в самолете сухой воздух",
   "AXIS-Y Vegan Collagen Eye Serum",
   "Патчи VT Caffeine Eye Patch — после перелета от отеков",
