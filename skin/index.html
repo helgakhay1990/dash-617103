@@ -765,7 +765,7 @@ const DAYS = [
   note:"Тканевую маску кладем без нажима на линию челюсти. Активов еще нет.",
   s:[CL_SOFT, T_CEL, M_VTP, EYE_A, CR_OAT, NECK_P]},
  {d:"03.11", wd:"Вт", n:7, t:"День 3 · возвращаем тон", kind:"active", dev:null, min:0, ant:"c", meye:"k", act:"mela",
-  note:"Первым из активов возвращается транексамовая кислота, она самая мягкая. Утром — витамин C Super C Glow: в нем аскорбилглюкозид 2%, это мягкая форма.",
+  note:"Первым из активов возвращается транексамовая кислота, она самая мягкая. Утром — Arencia Vitamin C Booster Shot вместо закончившегося SkinJestique Super C Glow, в те же дни витамина C.",
   s:[CL_SOFT, T_CEL, MELA1, EYE_L, CR_FIRM, NECK_E]},
  {d:"04.11", wd:"Ср", n:8, t:"Вечер отдыха · глина на Т-зону", kind:"recover", dev:null, min:0, ant:"g", meye:"p", act:"rest",
   note:"Глина только на лоб и нос. Пэд Pink кладем на щеки после тонера.",
@@ -863,7 +863,7 @@ function morningSteps(day){
     out.push({k:"Пауза", v:"Антиоксидант сегодня пропускаем"});
   } else {
     out.push(day.ant === "c"
-      ? {k:"Антиоксидант", v:"SkinJestique Super C Glow Serum — аскорбилглюкозид 2% и феруловая кислота 1%. Когда флакон закончится, на его место встает Arencia Vitamin C Booster Shot, сначала через утро. Ждем 2 минуты"}
+      ? {k:"Антиоксидант", v:"Arencia Vitamin C Booster Shot — этил-аскорбиновая кислота 5%. Вместо закончившегося SkinJestique Super C Glow, с той же периодичностью по календарю. Ждем 2 минуты"}
       : {k:"Антиоксидант", v:"Dr.Ceuracle Glutathione & NMN Ampoule — ждем 2 минуты"});
   }
   if (day.dev === "ager") {
@@ -893,7 +893,7 @@ function morningSteps(day){
 
 const NUMB = [
   ["num","Ступень 0, с первого дня — средства без активов: пенка AXIS-Y, тонеры Celimax Dual Barrier и Round Lab Dokdo, Skin1004 Hyalu-Cica Blue, кремы Purito Oat-in, Dr.Melaxin Cemenrete, SkinJestique Remedy Rich и Dr.Althea Aqua Marine, маски Biodance и VT PDRN Daily","0"],
-  ["num","Ступень 1, сразу и с 3-го дня после процедур — мягкие: VT PDRN Essence, Numbuzin №9 Essence, Sungboon Silk Peptide, SkinJestique Absolute Gorgeous, Dr.Ceuracle Glutathione, Super C Glow, Dr.Althea Melaclear, Numbuzin №3 с бакучиолом, пэд Pink Collagen, маска Numbuzin №9, кофеин для глаз","1"],
+  ["num","Ступень 1, сразу и с 3-го дня после процедур — мягкие: VT PDRN Essence, Numbuzin №9 Essence, Sungboon Silk Peptide, SkinJestique Absolute Gorgeous, Dr.Ceuracle Glutathione, Dr.Althea Melaclear, Numbuzin №3 с бакучиолом, пэд Pink Collagen, маска Numbuzin №9, кофеин для глаз","1"],
   ["num","Ступень 2, по одному новому средству: Dr.Ceuracle Azelaic 10 — с 05.11, Numbuzin №9 Eye Cream с ретинолом — с 09.11, голубая пенка Zero Pore и глина AXIS-Y — только на Т-зону","2"],
   ["num","Ступень 3, с 21.11 раз в неделю: Purito Seoul Retinol Retinal 2000, где ретинол 0,1% и ретиналь 0,1%. Только с буфером, отдельным вечером и с вечером отдыха следом","3"],
   ["tip","Декабрь, после поездки, одно новое средство раз в 2 недели: Numbuzin №5 с транексамовой кислотой 4% и ниацинамидом 5%, энзимная пудра Fraijour, тонер VT Reedle Shot Synergy с бромелайном, Dr.Ceuracle BHA & Matcha, Arencia Glycolic Booster, Medicube Kojic Night Mask"],
@@ -919,7 +919,7 @@ const RESERVE = [
   ["yes","На замену: Arencia Fresh Green Rice Mochi Cleanser — вместо AXIS-Y, когда она закончится, и не в дни процедур. Мягкие ПАВ, кислот нет, но в составе миндальная мука и рисовая пудра, то есть мягкий скраб, и отдушка. Щеки не тереть"],
   ["yes","На замену: Axis-Y Triple PDRN Gel Toner — вместо Medicube PDRN Booster Gel под аппарат"],
   ["yes","На замену: Celimax Noni Energy Repair Cream — вместо Oat-in в спокойные вечера. В составе масло розмарина, поэтому в дни реакции не берем"],
-  ["num","Arencia Vitamin C Booster Shot — сразу, как закончится Super C Glow, даже в ноябре. Этил-аскорбиновая кислота 5%: первую неделю через утро","1"],
+  ["num","Уже в схеме: Arencia Vitamin C Booster Shot вместо закончившегося SkinJestique Super C Glow. Этил-аскорбиновая кислота 5%, те же утренние дни витамина C по календарю","1"],
   ["num","Декабрь: Numbuzin №5 Glutathione Vitamin — когда закончится Melaclear. Транексамовая кислота 4% и ниацинамид 5%, вечером вместо Melaclear","2"],
   ["num","Декабрь: VT Reedle Shot Synergy Sparkling Toner — бромелайн, мягкий ферментный пилинг, 1–2 вечера в неделю. Спикул в нем нет","3"],
   ["num","Декабрь: Fraijour Wormwood Enzyme Pack — энзимная пудра с папаином и кислотами, 1 раз в неделю на Т-зону, не в вечер ретиноида","4"],
