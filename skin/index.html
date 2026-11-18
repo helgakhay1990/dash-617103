@@ -343,6 +343,11 @@ footer a{color:var(--ink-3)}
     <button class="theme-btn" id="theme-btn" type="button">🌙 темная тема</button>
   </div>
 
+  <section class="panel" aria-label="Уход после пилинга">
+    <div class="phead"><h2>После пилинга · временные замены с 18.11</h2></div>
+    <p class="note">Zero Pore One Day временно заменен на Purito Oat-in. Тонеры и привычный уход для глаз сохраняются, если не щиплет; ретинол, бакучиол и патчи для глаз временно заменены на AXIS-Y. До конца шелушения и исчезновения чувствительности — пауза для кислот, Arencia, ретиноидов, бакучиола, скрабов, пэдов, масок и аппарата. Не снимать пленочки. SPF 50 днем. При боли, нарастающей красноте, мокнутии или пузырях — связаться с врачом.</p>
+    <div class="pfoot"><span class="count" id="peel-status"></span><button class="reset" id="peel-toggle" type="button"></button></div>
+  </section>
   <div class="pane" id="tab-care" role="tabpanel" aria-labelledby="t-care">
   <nav class="strip" id="strip" aria-label="Дни схемы"></nav>
 
@@ -846,6 +851,31 @@ const DAYS = [
   s:[CL_TRV, T_TRV, CICA, EYE_A, CR_MEL]}
 ];
 
+// Временные замены после пилинга с 18.11; прежний календарь сохраняется.
+const PEEL_KEY = "skin-peel-20261118";
+let peelCare = true;
+try { peelCare = localStorage.getItem(PEEL_KEY) !== "finished"; } catch(e){}
+const peelCream = {k:"Крем", v:"Purito Oat-in Calming Gel Cream — тонкий слой, повторно при стянутости, если не щиплет. Zero Pore One Day пока отложен"};
+if (peelCare) DAYS.forEach(day => {
+  if (day.n < 22) return;
+  day.peel = true;
+  day.dev = null; day.min = 0;
+  if (day.ant === "c") day.ant = null;
+  const hadActive = day.s.some(st => ["Актив","Ретиноид","Буфер"].includes(st.k));
+  day.s = day.s.filter(st => !["Актив","Ретиноид","Буфер","Маска","Маска на ночь","Глина","Пэд"].includes(st.k))
+    .map(st => {
+      if (st.k === "Очищение") return {...CL_SOFT, v:"Пенка AXIS-Y — мягко, чуть теплой водой, без трения. Для удаления SPF — только привычное переносимое очищение, без массажа"};
+      if (st.k === "Крем") return peelCream;
+      if (st.k === "Глаза" && [EYE_L,EYE_P,EYE_N,EYE_N1].includes(st)) return {...EYE_S, v:EYE_S.v + ". Только на неповрежденную кожу, если комфортно"};
+      return st;
+    });
+  if (hadActive && !day.s.some(st => ["Сыворотка","Эссенция","Ампула"].includes(st.k)))
+    day.s.splice(day.s.findIndex(st=>st.k==="Тонер")+1,0,CICA);
+  if (!day.s.some(st=>st.k==="Крем")) day.s.splice(day.s.findIndex(st=>st.k==="Глаза")+1,0,peelCream);
+  day.kind = "recover"; day.act = "rest";
+  day.t = "После пилинга · " + (day.trip ? "дорожный уход" : "увлажнение");
+  day.note = "До окончания шелушения и исчезновения чувствительности: без кислот, Arencia, ретиноидов, бакучиола, скрабов, пэдов, масок и аппарата. Привычные тонеры, сыворотки и уход для глаз сохраняются при хорошей переносимости. Не тереть и не снимать пленочки. Памятка врача по пилингу важнее календаря. " + (day.trip ? "В поездке — SPF, шляпа и тень." : "");
+});
 const KIND_LABEL = {recover:"восстановление", active:"актив", mask:"маска", buka:"бакучиол", proc:"процедура", retin:"ретиноид"};
 const DEV_LABEL = {roll:"ролик M911", ager:"Medicube Age-R, режим микротоков"};
 
@@ -888,6 +918,15 @@ function morningSteps(day){
       ? {k:"Крем", v:"SkinJestique Your Sculpture Code Cream вместо дневного крема — кофеин на 2-м месте в составе, по овалу и под скулами снизу вверх. Второй крем сверху не нужен"}
       : {k:"Крем", v:"Dr.Althea Aqua Marine Watery Cream на щеки, Medicube Zero Pore One Day Cream вместо него на Т-зону — не поверх. Один крем на каждую зону"});
   out.push({k:"Санскрин", v:"Round Lab Pine Calming Cica Primer Sunscreen SPF 50+ PA++++ за 15 минут до выхода: 2 полоски длиной с палец на лицо и шею. Матовый гель без эфирных масел и отдушки, подходит жирной коже. На улице обновляем каждые 2 часа стиком VT Air Cloud поверх, в несколько проходов. Пигмент после Египта усилился, поэтому защита обязательна и в пасмурный день", hot:"plasma"});
+  if (day.peel) {
+    const kept = out.filter(st => !["Пауза","Маска","Гель","Аппарат","Ролик"].includes(st.k));
+    return kept.map(st => {
+      if (st.k === "Крем") return peelCream;
+      if (st.k === "Глаза" && /Patch/.test(st.v)) return {...EYE_S, v:EYE_S.v + ". На неповрежденную кожу, если комфортно"};
+      if (st.k === "Тонер") return {...st, v:st.v + " — если не щиплет, без ватного диска и трения"};
+      return st;
+    });
+  }
   return out;
 }
 
@@ -1018,6 +1057,13 @@ const STOCK = [
   ["tip","Вопрос врачу: если 31.10 препарат введут по протоколу нижней трети, он попадет в подбородок. Не лучше ли филлер через 3 недели, 21.11? Ботокс от этого не зависит"]
 ];
 
+document.getElementById("peel-status").textContent = peelCare ? "Временные замены включены" : "Плановый календарь; в поездке по-прежнему только база";
+const peelToggle = document.getElementById("peel-toggle");
+peelToggle.textContent = peelCare ? "Шелушение и чувствительность прошли — вернуть календарь" : "Включить уход после пилинга";
+peelToggle.addEventListener("click", () => {
+  try { localStorage.setItem(PEEL_KEY, peelCare ? "finished" : "active"); } catch(e) { return; }
+  location.reload();
+});
 const KEY = "skincare-2026-v16";   // v10 сброшен: в утро добавлены мист и крем для глаз — индексы галочек сдвинулись
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
@@ -1032,11 +1078,12 @@ const todayIdx = (() => {
 let cur = todayIdx < 0 ? 0 : todayIdx;
 
 const $ = id => document.getElementById(id);
-const get = (day, slot, i) => !!(state[day.d] && state[day.d][slot] && state[day.d][slot][i]);
+const tickDay = day => day.peel ? day.d + "-peel-20261118" : day.d;
+const get = (day, slot, i) => !!(state[tickDay(day)] && state[tickDay(day)][slot] && state[tickDay(day)][slot][i]);
 const setTick = (day, slot, i, val) => {
-  state[day.d] = state[day.d] || {};
-  state[day.d][slot] = state[day.d][slot] || {};
-  state[day.d][slot][i] = val;
+  state[tickDay(day)] = state[tickDay(day)] || {};
+  state[tickDay(day)][slot] = state[tickDay(day)][slot] || {};
+  state[tickDay(day)][slot][i] = val;
   save();
 };
 const slotDone = (day, slot, total) => {
@@ -1172,8 +1219,8 @@ function renderAll(){
     i => get(day, "mor", i),
     (i, val) => { setTick(day, "mor", i, val); after(); });
 
-  $("eve-reset").onclick = () => { if (state[day.d]) state[day.d].eve = {}; save(); renderAll(); };
-  $("mor-reset").onclick = () => { if (state[day.d]) state[day.d].mor = {}; save(); renderAll(); };
+  $("eve-reset").onclick = () => { if (state[tickDay(day)]) state[tickDay(day)].eve = {}; save(); renderAll(); };
+  $("mor-reset").onclick = () => { if (state[tickDay(day)]) state[tickDay(day)].mor = {}; save(); renderAll(); };
 
   after();
 }
