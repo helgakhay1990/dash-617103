@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>Схема ухода 28.10 – 30.11</title>
+<title>Схема ухода 28.10 – 15.12</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -343,11 +343,7 @@ footer a{color:var(--ink-3)}
     <button class="theme-btn" id="theme-btn" type="button">🌙 темная тема</button>
   </div>
 
-  <section class="panel" aria-label="Уход после пилинга">
-    <div class="phead"><h2>Уход после пилинга</h2></div>
-    <p class="note">Крем — Purito Oat-in. Для глаз — AXIS-Y. Тонеры наносить, если не щиплет. До конца шелушения и исчезновения чувствительности — пауза для кислот, Arencia, ретиноидов, бакучиола, скрабов, пэдов, масок и аппарата. Не снимать пленочки. SPF 50 днем. При боли, нарастающей красноте, мокнутии или пузырях — связаться с врачом.</p>
-    <div class="pfoot"><span class="count" id="peel-status"></span><button class="reset" id="peel-toggle" type="button"></button></div>
-  </section>
+<section class="panel" aria-label="План до 15 декабря"><div class="phead"><h2>Поездка и возвращение · до 15 декабря</h2></div><p class="note">На 27.11 шелушение прошло. 30.11–7.12 — Гонконг, Макао и Шэньчжэнь; 8–10.12 — база после дороги; 11 и 15.12 — знакомый Melaclear по переносимости. Тонеры и уход для глаз сохранены. Purito с ретиноидами пока не начинаем. При возобновлении сухости или раздражения актив отложить.</p><p class="note"><a href="../skin-trip/?v=20261127#care">Открыть подробную схему с погодой и режимом чувствительной кожи →</a></p></section>
   <div class="pane" id="tab-care" role="tabpanel" aria-labelledby="t-care">
   <nav class="strip" id="strip" aria-label="Дни схемы"></nav>
 
@@ -395,7 +391,7 @@ footer a{color:var(--ink-3)}
         <section class="panel">
           <div class="phead">
             <div>
-              <div class="when">28.10 – 30.11 · от мягкого к сильному</div>
+              <div class="when">28.10 – 15.12 · от мягкого к сильному</div>
               <h2>Ступени активов и сочетаемость</h2>
             </div>
             <span class="kind" data-kind="buka">по одному</span>
@@ -837,27 +833,44 @@ const DAYS = [
   s:[CL_OIL, T_CEL, CICA, N9E, EYE_L, CR_ALT, NECK_E]},
  {d:"26.11", wd:"Чт", n:30, t:"Бакучиол", kind:"buka", dev:null, min:0, ant:"g", meye:"p", act:"buka",
   s:[CL_OIL, T_CEL, BUKA, EYE_A, CR_FIRM, NECK_E]},
- {d:"27.11", wd:"Пт", n:31, t:"Вечер отдыха · Т-зона", kind:"recover", dev:null, min:0, ant:"c", meye:"k", act:"rest",
-  note:"Голубая пенка и глина — только на лоб и нос, подбородок обходим: кислоты на зону филлера не раньше 4 недель.",
-  s:[CL_SA2, CLAY, T_CEL, SILK, EYE_N, CR_FIRM, NECK_E]},
- {d:"28.11", wd:"Сб", n:32, t:"Ретиноид · сборы в дорогу", kind:"retin", dev:null, min:0, ant:"g", meye:"k", act:"retin",
-  note:"Ролик пока на паузе: 2 недели после филлера заканчиваются 29.11; в поездку его не берем, подбородок и линию челюсти обходим до 13.12. Собираем дорожный набор, список в справочнике.",
-  s:[CL_SOFT, T_CEL, BUF, RET, EYE_A, NECK_E]},
- {d:"29.11", wd:"Вс", n:33, t:"Перелет", kind:"recover", dev:null, min:0, ant:"g", meye:"k", recov:true, trip:true, act:"rest",
-  note:"В самолете воздух сухой: перед вылетом Biodance не нужна, хватит плотного крема. После перелета только база.",
-  s:[CL_TRV, T_TRV, CICA, EYE_A, CR_MEL]},
- {d:"30.11", wd:"Пн", n:34, t:"Гонконг · база и SPF", kind:"recover", dev:null, min:0, ant:"c", meye:"k", recov:true, trip:true, act:"rest",
-  note:"В поездке активов нет: солнце, перелеты и новая вода. Главная задача — SPF каждые 2 часа, чтобы пигмент не вернулся.",
-  s:[CL_TRV, T_TRV, CICA, EYE_A, CR_MEL]}
 ];
 
+const EXT_DAYS = [
+['27.11','Пт','Москва','Коррекция ботокса'],['28.11','Сб','Москва','Спокойный уход'],['29.11','Вс','Москва / дорога','Подготовка к поездке'],
+['30.11','Пн','Гонконг','Начало маршрута'],['01.12','Вт','Гонконг','Городской день'],['02.12','Ср','Гонконг → Макао','Переезд'],['03.12','Чт','Макао','Городской день'],['04.12','Пт','Макао → Шэньчжэнь','Переезд'],['05.12','Сб','Шэньчжэнь','Городской день'],['06.12','Вс','Шэньчжэнь','Городской день'],['07.12','Пн','Шэньчжэнь → Москва','Возвращение'],
+['08.12','Вт','Москва','Адаптация после дороги'],['09.12','Ср','Москва','Адаптация к отоплению'],['10.12','Чт','Москва','Проверка комфорта кожи'],['11.12','Пт','Москва','Melaclear · один актив'],['12.12','Сб','Москва','База и увлажнение'],['13.12','Вс','Москва','База и увлажнение'],['14.12','Пн','Москва','База и увлажнение'],['15.12','Вт','Москва','Melaclear · при хорошей переносимости']];
+function extendedSteps(d, mode='normal', eye='vt'){
+ const date=d[0], trip=['30.11','01.12','02.12','03.12','04.12','05.12','06.12','07.12'].includes(date);
+ const after=+date.slice(0,2)>=8&&date.endsWith('12'), gentle=mode!=='normal'||date==='27.11'||['08.12','09.12','10.12'].includes(date);
+ const active=!gentle&&['11.12','15.12'].includes(date);
+ const glut=!gentle&&['28.11','30.11','02.12','04.12','06.12','12.12','14.12'].includes(date);
+ const am=[['clean','Умывание',trip?'Вода; при выраженной жирности — немного SKIN1004 Centella Ampoule Foam. Без горячей воды и трения.':'Вода; при выраженной жирности — немного AXIS-Y Sunday Morning Cleanser. Не умываться до скрипа.']];
+ if(mode!=='peeling')am.push(['toner','Round Lab 1025 Dokdo Toner','Один слой ладонями. Без ватного диска. Если щиплет — пропустить.']);
+ am.push(glut?['glut','Dr.Ceuracle Glutathione & NMN Ampoule','Один тонкий слой; сегодня одна утренняя сыворотка.']:['serum','SKIN1004 Hyalu-Cica Blue Serum','Тонкий слой при стянутости; если тонера и крема достаточно — пропустить. Только если не щиплет.'],
+ ['eyes','AXIS-Y Vegan Collagen Eye Serum','Небольшое количество пальцем по орбитальной зоне, не у ресниц. Без давления роллером.'],
+ ['cream','SkinJestique Absolute Gorgeous Firming Cream',after?'Тонкий слой на щёки, шею и сухие участки; на Т-зону — по потребности. Нанести до выхода и дать впитаться.':'Тонкий слой на щёки и сухие участки; на Т-зону — по потребности. Не наслаивать плотным слоем под SPF.'],
+ ['spf','Round Lab Pine Calming Cica Primer Sunscreen SPF 50+','Равномерный полноценный слой на лицо, уши и шею по инструкции. На улице обновлять примерно каждые 2 часа.']);
+ const pm=[['oil','SKIN1004 Centella Light Cleansing Oil','Если был SPF или макияж: мягко распределить, эмульгировать и смыть. Без длительного массажа и разминания зон филлеров.'],
+ ['foam',trip?'SKIN1004 Centella Ampoule Foam':'AXIS-Y Sunday Morning Cleanser','Небольшое количество, чуть тёплая вода, без щёток и повторного умывания.'],
+ ['toner','Celimax Dual Barrier Creamy Toner','Один тонкий слой ладонями, если комфортно.']];
+ if(!active)pm.push(['serum','SKIN1004 Hyalu-Cica Blue Serum','Только при стянутости; если тонера достаточно, пропустить.']);
+ pm.push(['eyes',eye==='vt'&&mode!=='peeling'?'VT Cica Collagen Eye Cream':'AXIS-Y Vegan Collagen Eye Serum','Небольшое количество на неповреждённую кожу вокруг глаз, без массажа. Если щиплет — пропустить.']);
+ if(active)pm.push(['melaclear','Dr.Althea Melaclear Cream','Знакомое средство с транексамовой кислотой: тонкий слой по инструкции, без других активов. Только если кожа несколько дней спокойна, без красноты, жжения и шелушения. 15.12 — только если 11.12 прошло комфортно. На веки не наносить.']);
+ pm.push(['cream','Purito Oat-in Calming Gel Cream',after?'Тонкий слой на лицо и шею по потребности. На сухих щеках — Celimax Noni Energy Repair Cream; не наслаивать несколько кремов на всё лицо.':'Тонкий слой на лицо и шею. На Т-зоне минимум по потребности; на сухих щеках — Celimax Noni Cream, без многослойного нанесения.']);
+ return {am,pm,active,trip,after,note:date==='27.11'?'Сегодня только коррекция ботокса, без нового пилинга и филлеров. Наносить без давления, не растирать места проколов. Время первого умывания и ухода — по памятке инъектора.':active?'Сегодня один знакомый актив. При сухости, красноте или жжении — режим чувствительной кожи и базовый уход. Не добавлять азелаинку в этот вечер.':after?'8–10 декабря — база после дороги. 11 и 15 декабря — Melaclear только при спокойной коже. Если сушит отопление, добавить крем локально, а не новые активы.':'Привычные тонеры и уход для глаз сохранены. Одна сыворотка утром, вечером — по потребности. Азелаинка — резерв на спокойной неповреждённой коже.'};
+}
+
+EXT_DAYS.forEach((d,i)=>{
+ const p=extendedSteps(d);
+ const asStep=([id,name,desc])=>({k:id==='eyes'?'Глаза':id==='toner'?'Тонер':id==='cream'?'Крем':id==='spf'?'SPF':id==='melaclear'?'Актив':id==='oil'||id==='foam'||id==='clean'?'Очищение':'Сыворотка',v:name+' — '+desc});
+ DAYS.push({d:d[0],wd:d[1],n:31+i,t:d[2]+' · '+d[3],kind:p.active?'active':'recover',dev:null,min:0,act:p.active?'mela':'rest',currentPlan:true,note:p.note,s:p.pm.map(asStep),customMorning:p.am.map(asStep)});
+});
 // Временные замены после пилинга с 18.11; прежний календарь сохраняется.
 const PEEL_KEY = "skin-peel-20261118";
 let peelCare = true;
-try { peelCare = localStorage.getItem(PEEL_KEY) !== "finished"; } catch(e){}
 const peelCream = {k:"Крем", v:"Purito Oat-in Calming Gel Cream — тонкий слой, повторно при стянутости, если не щиплет"};
 if (peelCare) DAYS.forEach(day => {
-  if (day.n < 22) return;
+  if (day.n < 22 || day.currentPlan) return;
   day.peel = true;
   day.dev = null; day.min = 0;
   if (day.ant === "c") day.ant = null;
@@ -880,6 +893,7 @@ const KIND_LABEL = {recover:"восстановление", active:"актив",
 const DEV_LABEL = {roll:"ролик M911", ager:"Medicube Age-R, режим микротоков"};
 
 function morningSteps(day){
+  if(day.customMorning) return day.customMorning;
   const out = [];
   out.push(day.trip
     ? {k:"Очищение", v:"Пенка AXIS-Y Sunday Morning, мягко"}
@@ -1057,13 +1071,6 @@ const STOCK = [
   ["tip","Вопрос врачу: если 31.10 препарат введут по протоколу нижней трети, он попадет в подбородок. Не лучше ли филлер через 3 недели, 21.11? Ботокс от этого не зависит"]
 ];
 
-document.getElementById("peel-status").textContent = peelCare ? "Уход после пилинга" : "Плановый календарь; в поездке по-прежнему только база";
-const peelToggle = document.getElementById("peel-toggle");
-peelToggle.textContent = peelCare ? "Шелушение и чувствительность прошли — вернуть календарь" : "Включить уход после пилинга";
-peelToggle.addEventListener("click", () => {
-  try { localStorage.setItem(PEEL_KEY, peelCare ? "finished" : "active"); } catch(e) { return; }
-  location.reload();
-});
 const KEY = "skincare-2026-v16";   // v10 сброшен: в утро добавлены мист и крем для глаз — индексы галочек сдвинулись
 let state = {};
 try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ state = {}; }
@@ -1078,7 +1085,7 @@ const todayIdx = (() => {
 let cur = todayIdx < 0 ? 0 : todayIdx;
 
 const $ = id => document.getElementById(id);
-const tickDay = day => day.peel ? day.d + "-peel-20261118" : day.d;
+const tickDay = day => day.currentPlan ? day.d + "-plan-20261127" : day.peel ? day.d + "-peel-20261118" : day.d;
 const get = (day, slot, i) => !!(state[tickDay(day)] && state[tickDay(day)][slot] && state[tickDay(day)][slot][i]);
 const setTick = (day, slot, i, val) => {
   state[tickDay(day)] = state[tickDay(day)] || {};
