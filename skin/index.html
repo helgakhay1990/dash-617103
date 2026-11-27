@@ -343,7 +343,7 @@ footer a{color:var(--ink-3)}
     <button class="theme-btn" id="theme-btn" type="button">🌙 темная тема</button>
   </div>
 
-<section class="panel" aria-label="План до 15 декабря"><div class="phead"><h2>Поездка и возвращение · до 15 декабря</h2></div><p class="note">На 27.11 шелушение прошло. 30.11–7.12 — Гонконг, Макао и Шэньчжэнь; 8–10.12 — база после дороги; 11 и 15.12 — знакомый Melaclear по переносимости. Тонеры и уход для глаз сохранены. Purito с ретиноидами пока не начинаем. При возобновлении сухости или раздражения актив отложить.</p><p class="note"><a href="../skin-trip/?v=20261127#care">Открыть подробную схему с погодой и режимом чувствительной кожи →</a></p></section>
+<section class="panel" aria-label="План до 15 декабря"><div class="phead"><h2>Поездка и возвращение · до 15 декабря</h2></div><p class="note">На 27.11 шелушение прошло. 30.11–7.12 — Гонконг, Макао и Шэньчжэнь; 8–10.12 — база после дороги; 11 и 15.12 — знакомый Melaclear по переносимости. Домашнее очищение: Medicube Zero Pore Oil и AXIS-Y. Для глаз Numbuzin №9 — 10 и 13.12; в остальные вечера AXIS-Y или VT Cica Collagen. Домашние эссенции — по календарю. Purito с ретиноидами пока не начинаем. При возобновлении сухости или раздражения актив отложить.</p><p class="note"><a href="../skin-trip/?v=20261127#care">Открыть подробную схему с погодой и режимом чувствительной кожи →</a></p></section>
   <div class="pane" id="tab-care" role="tabpanel" aria-labelledby="t-care">
   <nav class="strip" id="strip" aria-label="Дни схемы"></nav>
 
@@ -729,7 +729,7 @@ const M_N9  = {k:"Маска", v:"Numbuzin №9 Sheet Mask на 20 минут, �
 const M_N9F = {k:"Маска", v:"Numbuzin №9 Sheet Mask на 20 минут, без силиконовой накладки: подбородок после филлера не прижимаем", hot:"mask"};
 
 const EYE_A = {k:"Глаза", v:"AXIS-Y Vegan Collagen Eye Serum — безымянным пальцем, похлопывая", hot:"eye"};
-const EYE_L = {k:"Глаза", v:"VT Reedle Shot Lifting Eye Cream — бакучиол и пептиды, спикул в составе нет", hot:"eye"};
+const EYE_L = {k:"Глаза", v:"VT Reedle Shot Lifting Eye Cream — архивный шаг; до 15.12 не включён, версия и наличие CICA REEDLE требуют уточнения", hot:"eye"};
 const EYE_C = {k:"Глаза", v:"VT Cica Collagen Eye Cream — плотнее, в составе отдушка. Пощипывает — меняем на AXIS-Y", hot:"eye"};
 const EYE_P = {k:"Глаза", v:"Abib PDRN Retinal Eye Patch на 20 минут, остаток вбить. Ретиналь в патчах на последнем месте, это следы", hot:"eye"};
 const EYE_N1= {k:"Глаза", v:"Numbuzin №9 Retinol Volumetox Eye Cream — первый раз: рисовое зерно на оба глаза, отступ от ресниц 3–5 мм. Печет или краснеет — смыть и вернуться к AXIS-Y", hot:"retinol"};
@@ -865,6 +865,33 @@ EXT_DAYS.forEach((d,i)=>{
  const asStep=([id,name,desc])=>({k:id==='eyes'?'Глаза':id==='toner'?'Тонер':id==='cream'?'Крем':id==='spf'?'SPF':id==='melaclear'?'Актив':id==='oil'||id==='foam'||id==='clean'?'Очищение':'Сыворотка',v:name+' — '+desc});
  DAYS.push({d:d[0],wd:d[1],n:31+i,t:d[2]+' · '+d[3],kind:p.active?'active':'recover',dev:null,min:0,act:p.active?'mela':'rest',currentPlan:true,note:p.note,s:p.pm.map(asStep),customMorning:p.am.map(asStep)});
 });
+
+DAYS.filter(d=>d.currentPlan&&!['30.11','01.12','02.12','03.12','04.12','05.12','06.12','07.12'].includes(d.d)).forEach(day=>{
+ const date=day.d,back=date.endsWith('12');
+ const step=(k,v,hot)=>({k,v,...(hot?{hot}:{})});
+ day.s[0]=step('Очищение','Medicube Zero Pore Cleansing Oil — если был SPF или макияж: мягко распределить, эмульгировать водой и полностью смыть. Без длительного массажа.');
+ day.s[1]=step('Очищение','AXIS-Y Sunday Morning Cleanser — небольшое количество, чуть тёплая вода, без трения.');
+ if(!back)return;
+ if(['09.12','12.12','15.12'].includes(date)){
+ const i=day.customMorning.findIndex(s=>s.k==='Глаза');
+ day.customMorning[i]=step('Глаза','The Ordinary Caffeine Solution 5% + EGCG — немного по орбитальной зоне при утренней припухлости, если не сушит. Если припухлости нет или кожа сухая — AXIS-Y Vegan Collagen Eye Serum. Без дополнительных слоёв.','eye');
+ }
+ const eye=day.s.findIndex(s=>s.k==='Глаза');
+ day.s[eye]=step('Глаза',['10.12','13.12'].includes(date)
+ ?'Numbuzin №9 Retinol Volumetox Eye Cream — привычное переносимое средство: небольшое количество по инструкции, не у ресниц. Только на спокойную кожу без сухости и жжения; при реакции пропустить. Сегодня без ретинальных патчей и других ретиноидов.'
+ :['08.12','11.12','14.12'].includes(date)?'AXIS-Y Vegan Collagen Eye Serum — небольшое количество пальцем, без давления роллером.'
+ :'VT Cica Collagen Eye Cream — тонкий слой по орбитальной зоне, без массажа; если щиплет — не наносить.','eye');
+ if(['12.12','13.12','14.12'].includes(date)){
+ const i=day.s.findIndex(s=>s.k==='Сыворотка');
+ const serum=date==='12.12'?'VT PDRN Essence 100':date==='13.12'?'Sungboon Editor Silk Peptide Intensive Lifting Ampoule':'Numbuzin №9 NAD+ Bio Lifting-sil Essence';
+ day.s[i]=step('Эссенция',serum+' — один тонкий слой, без других эссенций и сывороток. Только если уже использовалась комфортно; если нет — Hyalu-Cica по стянутости. При сухости или реакции оставить только базу.');
+ }
+ const cream=day.s.findIndex(s=>s.k==='Крем');
+ day.s[cream]=step('Крем',['08.12','09.12','10.12'].includes(date)
+ ?'SkinJestique Remedy Rich Cream — тонкий слой на сухие щёки и шею. На комфортную Т-зону — Purito Oat-in по потребности. Без плотного слоя на всё лицо.'
+ :'Dr.Althea Aqua Marine Watery Cream — тонкий слой по потребности. Если щёки стягивает, на эти участки SkinJestique Remedy Rich Cream. Не наслаивать несколько кремов на одной зоне.');
+ day.note+=' Дома — Medicube Zero Pore Oil + AXIS-Y. Если после дороги вернулись сухость, жжение или шелушение, пропустить Melaclear, Numbuzin для глаз и дополнительные эссенции, оставить комфортную базу.';
+});
 // Временные замены после пилинга с 18.11; прежний календарь сохраняется.
 const PEEL_KEY = "skin-peel-20261118";
 let peelCare = true;
@@ -945,45 +972,110 @@ function morningSteps(day){
 }
 
 const NUMB = [
-  ["num","Ступень 0, с первого дня — средства без активов: пенка AXIS-Y, тонеры Celimax Dual Barrier и Round Lab Dokdo, Skin1004 Hyalu-Cica Blue, кремы Purito Oat-in, SkinJestique Remedy Rich и Dr.Althea Aqua Marine, маски Biodance и VT PDRN Daily","0"],
-  ["num","Ступень 1, сразу и с 3-го дня после процедур — мягкие: VT PDRN Essence, Numbuzin №9 Essence, Sungboon Silk Peptide, SkinJestique Absolute Gorgeous, Dr.Ceuracle Glutathione, Dr.Althea Melaclear, Numbuzin №3 с бакучиолом, пэд Pink Collagen, маска Numbuzin №9, кофеин для глаз","1"],
-  ["num","Ступень 2, по одному новому средству: Dr.Ceuracle Azelaic 10 — с 05.11, Numbuzin №9 Eye Cream с ретинолом — с 09.11, голубая пенка Zero Pore и глина AXIS-Y — только на Т-зону","2"],
-  ["num","Ступень 3, с 21.11 раз в неделю: Purito Seoul Retinol Retinal 2000, где ретинол 0,1% и ретиналь 0,1%. Только с буфером, отдельным вечером и с вечером отдыха следом","3"],
-  ["tip","Декабрь, после поездки, одно новое средство раз в 2 недели: Numbuzin №5 с транексамовой кислотой 4% и ниацинамидом 5%, энзимная пудра Fraijour, тонер VT Reedle Shot Synergy с бромелайном, Dr.Ceuracle BHA & Matcha, Arencia Glycolic Booster, Medicube Kojic Night Mask"],
-  ["no","Полка без срока: Celimax Retinal Shot — ретиналь и спикулы в одном флаконе, то есть то самое сочетание, после которого появляются папулы"],
-  ["no","Полка без срока: Medicube Zero Pore Pad оригинал — молочная и салициловая кислоты, спирт на 5-м месте и 7 эфирных масел"],
-  ["no","Полка: Celimax Noni Calming Glow Pad — в составе охлаждающий агент, который действует как ментол, и эфирные масла"],
-  ["no","Medicube Azelaic Acid Shot — только для тела: в нем спикулы, а азелаиновой кислоты 0,01%"],
-  ["yes","Один актив за вечер: Melaclear, азелаиновая кислота, бакучиол и ретиноид идут разными вечерами"],
-  ["yes","Витамин C и глутатион — только утром под SPF, ретиноиды — только вечером"],
-  ["yes","Новое средство — не чаще одного раза в 4–5 дней, в этом цикле их всего 3: азелаиновая, ретинол для глаз, Purito"],
-  ["no","Папулы на щеках: убираем актив этого вечера, 3 вечера только ступень 0, затем возвращаем актив вдвое реже"]
+  [
+    "yes",
+    "Домашний уход и дорожный набор разделены. Даты поездки — только 30.11–7.12; Москва после возвращения — 8–15.12."
+  ],
+  [
+    "yes",
+    "8–10.12 — адаптация: мягкое очищение, привычные тонеры, Hyalu-Cica по стянутости и крем по сухости."
+  ],
+  [
+    "yes",
+    "Numbuzin №9 для глаз переносится нормально: 10 и 13.12 вечером при спокойной коже век. AXIS-Y и VT Cica Collagen — в остальные вечера. Кофеин утром — только по необходимости."
+  ],
+  [
+    "yes",
+    "11 и 15.12 — знакомый Melaclear. 12–14.12 — по одной привычной домашней эссенции; если кожа реагирует, оставить базу."
+  ],
+  [
+    "no",
+    "Purito Retinol Retinal 2000 ещё не пробовала: до 15.12 не начинаем. Азелаинка — резерв, не вместе с плановым активом при реакции."
+  ],
+  [
+    "tip",
+    "Крем добавлять локально по сухости, не перегружать комфортную Т-зону. Нет необходимости использовать весь запас в одной неделе."
+  ]
 ];
 const ACNE = [
-  ["yes","Вечером масло Zero Pore, затем пенка: масло растворяет себум и SPF"],
-  ["yes","Голубая пенка Zero Pore Capsule с салициловой кислотой: 09.11 — лоб, нос и подбородок, 27.11 — только лоб и нос"],
-  ["yes","Глина AXIS-Y Mugwort — 04 и 27.11, только лоб и нос"],
-  ["yes","Утром Medicube Zero Pore One Day Cream только на Т-зону: в нем салициловая кислота около 0,1% и отдушка"],
-  ["no","Не давить: на месте каждого выдавленного воспаления остается пигмент, а после Египта кожа к нему склонна"],
-  ["no","Кислотные пэды Zero Pore в ноябре не берем: кислоты и спирт против раздраженных щек"]
+  [
+    "yes",
+    "Дома: Medicube Zero Pore Cleansing Oil для удаления SPF/макияжа, затем AXIS-Y Sunday Morning. SKIN1004 масло и пенка — дорожный набор."
+  ],
+  [
+    "yes",
+    "Тонкие слои, более насыщенный крем на сухие участки. Индивидуальную реакцию и комедоны нельзя достоверно предсказать по составу."
+  ],
+  [
+    "no",
+    "Кислотная пенка Zero Pore Capsule, глина и отшелушивающие пэды не возвращены сразу после дороги. Не давить новые элементы и не пытаться убрать их усиленным отшелушиванием."
+  ],
+  [
+    "no",
+    "Dr.Melaxin и Zero Pore One Day Cream в план не входят."
+  ]
 ];
 const RESERVE = [
-  ["yes","Запас: Numbuzin №9 Toner — утренний тонер, ниацинамид в нем на 3-м месте, поэтому не в один день с Numbuzin №5"],
-  ["yes","Запас: Arencia Fresh Green Rice Mochi Cleanser — очищение, не в дни процедур. Мягкие ПАВ, кислот нет, но в составе миндальная мука и рисовая пудра, то есть мягкий скраб, и отдушка. Щеки не тереть"],
-  ["yes","Запас: Axis-Y Triple PDRN Gel Toner — гель под аппарат"],
-  ["yes","Запас: Celimax Noni Energy Repair Cream — для спокойных вечеров. В составе масло розмарина, поэтому в дни реакции не берем"],
-  ["num","Arencia Vitamin C Booster Shot — утренний витамин C по календарю","1"],
-  ["num","Декабрь: Numbuzin №5 Glutathione Vitamin — транексамовая кислота 4% и ниацинамид 5%, отдельным вечером","2"],
-  ["num","Декабрь: VT Reedle Shot Synergy Sparkling Toner — бромелайн, мягкий ферментный пилинг, 1–2 вечера в неделю. Спикул в нем нет","3"],
-  ["num","Декабрь: Fraijour Wormwood Enzyme Pack — энзимная пудра с папаином и кислотами, 1 раз в неделю на Т-зону, не в вечер ретиноида","4"],
-  ["num","Декабрь: Dr.Ceuracle Vegan BHA & Matcha — салициловая кислота, Т-зона, отдельным вечером","5"],
-  ["num","Декабрь: Medicube Kojic Acid Night Wrapping Mask — койевая и аскорбиновая кислоты и следы ретинола, 1 раз в неделю, не в вечер Purito","6"],
-  ["num","Январь: Arencia Eraser Shot Glycolic Booster — самая сильная кислота из запаса, последней и только при спокойных щеках","7"],
-  ["tip","Ретинол для глаз — один за раз: SkinJestique Pure Beauty Genius Retinol Eye"],
-  ["no","Полка без срока: Celimax Retinal Shot — ретиналь и спикулы в одном флаконе, после такого сочетания появлялись папулы"],
-  ["no","Полка без срока: Medicube Zero Pore Pad оригинал — молочная и салициловая кислоты, спирт и 7 эфирных масел"],
-  ["no","Полка без срока: Celimax Noni Calming Glow Pad — охлаждающий агент как у ментола и эфирные масла"],
-  ["no","Только тело: Medicube Azelaic Acid Shot — спикулы и всего 0,01% азелаиновой кислоты, на лицо не идет"]
+  [
+    "yes",
+    "Очищение: дома Medicube Zero Pore Oil + AXIS-Y Sunday Morning; в поездке SKIN1004 Light Cleansing Oil + Ampoule Foam."
+  ],
+  [
+    "yes",
+    "Тонеры: Dokdo утром, Celimax Dual Barrier вечером. Numbuzin №9 Toner переносится; остаётся доступным, но не нужен вторым слоем. Celimax Noni Toner и SKIN1004 Centella Toning Toner не добавлены."
+  ],
+  [
+    "yes",
+    "Сыворотки: Hyalu-Cica и Dr.Ceuracle Glutathione & NMN — по календарю. Melaclear — 11 и 15.12 при спокойной коже."
+  ],
+  [
+    "yes",
+    "Домашние эссенции: VT PDRN Essence 100 — 12.12, Sungboon Silk Peptide — 13.12, Numbuzin №9 NAD+ Essence — 14.12. По одному продукту; только при уже известной переносимости."
+  ],
+  [
+    "yes",
+    "Кремы: Absolute Gorgeous утром; Remedy Rich на сухие участки после дороги; Aqua Marine — лёгкий домашний крем. Purito Oat-in — база; переносимый Celimax Noni Energy Repair Cream — локальный резерв, без нескольких кремов на одной зоне."
+  ],
+  [
+    "yes",
+    "Глаза: AXIS-Y, VT Cica Collagen, The Ordinary Caffeine — разные задачи. Переносимый Numbuzin №9 Retinol Volumetox — 10 и 13.12 вечером."
+  ],
+  [
+    "tip",
+    "Азелаиновая Dr.Ceuracle — знакомый резерв; не на жгущую, повреждённую или шелушащуюся кожу. Если понадобилась из-за реакции, плановые активы отложить."
+  ],
+  [
+    "tip",
+    "Arencia Vitamin C Booster Shot и Numbuzin №3 Bifida Bakuchiol отложены до следующего этапа: не возвращаем несколько активов одновременно после дороги. SkinJestique Vitamin C закончился."
+  ],
+  [
+    "tip",
+    "Numbuzin №5 Glutathione Vitamin, VT Synergy Sparkling Toner, Fraijour Enzyme Pack, Dr.Ceuracle BHA & Matcha, Medicube Kojic Night Mask, Arencia Glycolic Booster — запас, до 15.12 не вводим."
+  ],
+  [
+    "tip",
+    "Arencia Mochi Cleanser, Zero Pore Capsule Foam и AXIS-Y Mugwort Mask до 15.12 не нужны: мягкое очищение уже предусмотрено, отшелушивание не добавляем автоматически из-за блеска."
+  ],
+  [
+    "tip",
+    "Biodance, VT PDRN Daily, Numbuzin №9 Sheet Mask, Medicube Pink Collagen Gel Pad — не обязательны; не добавлять поверх многослойного вечера. VT Caffeine Eye Patch — только по необходимости, без кофеиновой сыворотки в то же нанесение."
+  ],
+  [
+    "no",
+    "Abib PDRN Retinal Eye Patch и SkinJestique Pure Beauty Genius Retinol Eye до 15.12 не добавлять к Numbuzin. VT Reedle Shot Lifting Eye Cream не возвращён: прежнее утверждение «спикул нет» не подтверждено."
+  ],
+  [
+    "no",
+    "Celimax Retinal Shot, Medicube Zero Pore Pad, Celimax Noni Calming Glow Pad, Medicube Azelaic Acid Shot и Dr.Melaxin в текущий уход лица не включены."
+  ],
+  [
+    "tip",
+    "Шея: обычный увлажняющий крем. Medicube Neck Cream с ретинолом пока отложен. Your Sculpture Code, Medicube Booster Gel, AXIS-Y Triple PDRN Gel Toner, Age-R и ролик не требуют автоматического включения после поездки."
+  ],
+  [
+    "tip",
+    "Noni Ampoule, Centella Ampoule и другие дорожные дубли — резерв; не нужны вместе с выбранной сывороткой. Новые покупки в план автоматически не включены."
+  ]
 ];
 const ROLL_MAP = [
   ["num","Утром, после тонера и антиоксиданта","1"],
@@ -1049,16 +1141,10 @@ const TIPS = [
   ["tip","Шляпа и очки защищают от пигментации надежнее любого крема"]
 ];
 const BAG = [
-  "Очищение: масло Zero Pore и пенка AXIS-Y в дорожных флаконах",
-  "Тонер Celimax Dual Barrier в дорожном флаконе",
-  "Skin1004 Hyalu-Cica Blue Serum",
-  "Крем Purito Oat-in Calming Gel Cream в дорожном формате",
-  "AXIS-Y Vegan Collagen Eye Serum",
-  "Патчи VT Caffeine Eye Patch — после перелета от отеков",
-  "SPF: крем Round Lab Primer Sunscreen и стик VT Air Cloud для обновления",
-  "Маски VT PDRN Daily — 3–4 штуки",
-  "Шляпа и солнцезащитные очки",
-  "Не берем: активы, ретиноиды, Age-R и ролик"
+  "Актуальный дорожный набор и даты 30.11–7.12 — в отдельном дорожном дашборде.",
+  "SKIN1004 Light Cleansing Oil и Ampoule Foam, Dokdo, Celimax Dual Barrier, Hyalu-Cica, Dr.Ceuracle Glutathione.",
+  "Absolute Gorgeous, Purito Oat-in, AXIS-Y для глаз, VT Cica Collagen по переносимости, привычный SPF; азелаинка — резерв.",
+  "После возвращения дома: Medicube Zero Pore Oil и AXIS-Y Sunday Morning."
 ];
 const STOCK = [
   ["num","31.10 Гемокомпакт: феракрил и альгинат натрия вводят канюлей 22G под кожу, на лицо или нижнюю треть. Эффект, по данным брошюры, через 15–21 день, препарат рассасывается за 7–10 дней","1"],
@@ -1085,7 +1171,7 @@ const todayIdx = (() => {
 let cur = todayIdx < 0 ? 0 : todayIdx;
 
 const $ = id => document.getElementById(id);
-const tickDay = day => day.currentPlan ? day.d + "-plan-20261127" : day.peel ? day.d + "-peel-20261118" : day.d;
+const tickDay = day => day.currentPlan ? day.d + "-home-20261127" : day.peel ? day.d + "-peel-20261118" : day.d;
 const get = (day, slot, i) => !!(state[tickDay(day)] && state[tickDay(day)][slot] && state[tickDay(day)][slot][i]);
 const setTick = (day, slot, i, val) => {
   state[tickDay(day)] = state[tickDay(day)] || {};
